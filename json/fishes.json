@@ -5,29 +5,39 @@
     "itemListElement": [
         {
             "@type": "Taxon",
-            "hasDefinedTerm": "Scyliorhinus stellaris",
-            "parentTaxon": {
-                "@type": "Taxon",
-                "hasDefinedTerm": "Elasmobranchii",
-                "parentTaxon": {
+            "hasDefinedTerm": "Chondrichthyes",
+            "alternateName": "Cartilaginosos",
+            "name": "clase",
+            "childTaxon": [
+                {
                     "@type": "Taxon",
-                    "hasDefinedTerm": "Chondrichthyes"
-                }
-            },
-            "alternateName": "Gatvaire",
-            "additionalProperty": [
-                {
-                    "@type": "PropertyValue",
-                    "name": "Habitat",
-                    "value": "Bentónico sobre fondos duros de 10-60 m de profundidad."
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "Distribución",
-                    "value": "Mediterráneo, Atlántica oriental y mar del Norte."
+                    "hasDefinedTerm": "Elasmobranchii",
+                    "name": "subclase",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Scyliorhinus stellaris",
+                            "alternateName": "Gatvaire",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Bentónico sobre fondos duros de 10-60 m de profundidad."
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Mediterráneo, Atlántica oriental y mar del Norte."
+                                }
+                            ],
+                            "description": "Esta especie era muy frecuente desde el litoral en la plataforma, pero ahora es muy rara. La mayor parte de las citas de gavaire provienen de pesca profesional por captura accidental con posterior liberación, aunque también se han observado ejemplares a la venta en el Mercat de l'Olivar. Las capturas registradas se han producido entre 30 y 50 m de profundidad. Existe un proyecto de recuperación de esta especie, en el que están involucrados la D. G. de Espacios Naturales y Biodiversidad y la D. G. de Pesca y Medio Marino y las fundaciones PalmaAquàrium, Mallorca Preservation y Save the Med, mediante el cual se ha conseguido la cría en cautividad y la producción de juveniles para llevar a cabo",
+                            "sameAs": "https://es.wikipedia.org/wiki/Scyliorhinus_stellaris"
+                        }
+                    ],
+                    "sameAs": "https://es.wikipedia.org/wiki/Elasmobranchii"
                 }
             ],
-            "description": "Esta especie era muy frecuente desde el litoral en la plataforma, pero ahora es muy rara. La mayor parte de las citas de gavaire provienen de pesca profesional por captura accidental con posterior liberación, aunque también se han observado ejemplares a la venta en el Mercat de l'Olivar. Las capturas registradas se han producido entre 30 y 50 m de profundidad. Existe un proyecto de recuperación de esta especie, en el que están involucrados la D. G. de Espacios Naturales y Biodiversidad y la D. G. de Pesca y Medio Marino y las fundaciones PalmaAquàrium, Mallorca Preservation y Save the Med, mediante el cual se ha conseguido la cría en cautividad y la producción de juveniles para llevar a cabo"
+            "sameAs": "https://es.wikipedia.org/wiki/Chondrichthyes"
         }
     ]
 }
