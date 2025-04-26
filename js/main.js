@@ -286,7 +286,7 @@ window.addEventListener('DOMContentLoaded', event => {
       if (fishData) {
         // Actualizar el título y la descripción de la página
         document.querySelector(".page-title h1").textContent = fishData.alternateName;
-        document.querySelector(".page-title p").textContent = fishData.description;
+       /* document.querySelector(".page-title p").textContent = fishData.description;*/
 
         // Actualizar las imágenes del carrusel
         const swiperWrapper = document.querySelector(".swiper-wrapper");
