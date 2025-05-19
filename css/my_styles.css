@@ -8,7 +8,215 @@ img.circle-img {
     border-radius: 50%;
 }
 
+/*--------------------------------------------------------------
+# Fish of the Day Section
+--------------------------------------------------------------*/
 .present-text {
     font-size: 1.2rem;
     /* Tamaño personalizado */
+}
+
+
+/* Fish of the Day Section Styles */
+.fish-of-day {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+.fish-image-container {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.fish-image-container img {
+    transition: transform 0.4s;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.fish-image-container:hover img {
+    transform: scale(1.05);
+}
+
+.fish-info {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.fish-info h3 {
+    color: #1e4356;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.fish-property {
+    font-size: 1rem;
+    color: #444444;
+}
+
+.fish-property strong {
+    color: #1e4356;
+}
+
+.fish-video .btn-primary {
+    background-color: #1e4356;
+    border-color: #1e4356;
+    transition: all 0.3s;
+}
+
+.fish-video .btn-primary:hover {
+    background-color: #0d2835;
+    border-color: #0d2835;
+}
+
+@media (max-width: 991px) {
+    .fish-of-day-content {
+        flex-direction: column;
+    }
+
+    .fish-image-container {
+        margin-bottom: 30px;
+    }
+}
+
+/* Estilos para el nuevo footer */
+.footer {
+    color: #fff;
+    padding: 60px 0 30px;
+    background-color: #000;
+}
+
+.footer-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.footer-divider {
+    height: 80%;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 10% 0;
+}
+
+.footer h2.sitename {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.footer-links h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    position: relative;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.footer-links ul li:first-child {
+    padding-top: 0;
+}
+
+.footer-links ul a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links ul a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-social {
+    margin-bottom: 20px;
+}
+
+.footer-social h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.social-icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.social-icon-circle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.social-icon-circle a {
+    color: #fff;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Nuevos estilos para el copyright dentro de la segunda parte */
+.footer-copyright {
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
+
+.copyright-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 15px;
+}
+
+.credits {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .footer-divider {
+        display: none;
+    }
+
+    .footer-about {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .footer-social,
+    .footer-links {
+        margin-top: 30px;
+    }
 }

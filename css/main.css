@@ -558,6 +558,7 @@ h6 {
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
+/*
 .footer {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -715,7 +716,7 @@ h6 {
 .footer .credits {
   margin-top: 6px;
   font-size: 13px;
-}
+}*/
 
 /*--------------------------------------------------------------
 # Preloader

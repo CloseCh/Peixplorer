@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Peixplorer</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content="Peixplorer: La wiki más completa sobre la vida marina de Baleares. Descubre especies, características y curiosidades del mar Mediterráneo.">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="assets/fav-icon.svg" />
@@ -52,27 +51,13 @@
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="dropdown"><a href="biblioteca.html"><span>Biblioteca</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="#services"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">Cartilaginosos</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                    class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
+              <li><a href="biblioteca.html">Biblioteca</a></li>
+              <!-- <li><a href="quiz.html">quiz</a></li> --> 
             </ul>
           </li>
+          <li><a href="#team">Team</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -103,149 +88,229 @@
 
     </section><!-- /Hero Section -->
 
+    <!-- Fish of the Day Section -->
+    <section id="fish-of-day" class="fish-of-day section ">
+      <!-- Section Title -->
+      <header class="container section-title" data-aos="fade-up" data-aos-delay="50">
+        <h2>Pez del día</h2>
+        <p>Descubre una nueva especie cada día</p>
+      </header><!-- End Section Title -->
+
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-10">
+            <div class="fish-of-day-content row align-items-center" data-aos="fade-up" data-aos-delay="100">
+              <div class="col-lg-5">
+                <figure class="fish-image-container">
+                  <img id="fish-image" src="assets/img/placeholder-fish.jpg" alt="Pez del día" class="img-fluid rounded">
+                </figure>
+              </div>
+              <div class="col-lg-7">
+                <div class="fish-info">
+                  <h3 id="fish-name" class="mb-3">Cargando...</h3>
+                  <p id="fish-description" class="mb-3">Cargando información del pez...</p>
+                  <div class="fish-details">
+                    <div class="fish-property mb-2">
+                      <strong>Hábitat:</strong> <span id="fish-habitat">Cargando...</span>
+                    </div>
+                    <div class="fish-property mb-2">
+                      <strong>Distribución:</strong> <span id="fish-distribution">Cargando...</span>
+                    </div>
+                    <div class="fish-video mt-3">
+                      <a id="fish-video-link" href="#" target="_blank" class="btn btn-primary btn-sm">
+                        <i class="bi bi-play-circle me-1"></i> Ver vídeo
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Fish of the Day Section -->
+
     <!-- About Section -->
     <section id="about" class="about section">
-      <div class="container">
-        <div class="text-center">
-          <h1 class="section-heading text-uppercase">Sobre la web</h1>
-        </div>
-        <div class="row row align-items-center gy-4">
-          <!-- First data -->
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/main/01_presentacion.webp" alt="Imagen presentacion 1" class="circle-img">
-          </div>
-          <div class="col-lg-8 present-text " data-aos="fade-up" data-aos-delay="100">
-            <div class="text-center">
-              <h2>Contenido de la web</h2>
-            </div>
-            <p>Esta WebApp contiene información sobre decenas de especies marinas que habitan en el mar
-              Mediterráneo, con contenido múltimedia (imágenes, vídeos y audio) además de los nombres,
-              características, curiosidades y descripciones de cada animal.</p>
-          </div>
-          <!-- Second data -->
-          <div class="row align-items-center mb-5 flex-md-row-reverse">
-            <div class="col-md-4 text-center">
-              <img src="assets/img/main/02_presentacion.webp" alt="Imagen presentacion 2" class="circle-img">
-            </div>
-            <div class="col-md-8 present-text">
-              <div class="text-center">
-                <h2>Porque este contenido</h2>
-              </div>
-              <p>Esperamos que con esta divertida e interactiva página podamos esparcir conocimiento sobre
-                este tema, que los visitantes se lo pasen bien poniendo a prueba su inteligencia y no se
-                vayan sin haber aprendido algo nuevo..</p>
-            </div>
-          </div>
-        </div>
-        
-      </div>
+      <!-- Section Title -->
+      <header class="container section-title" data-aos="fade-up" data-aos-delay="50">
+        <h2>Sobre la web</h2>
+        <p>Descubre lo que aportamos</p>
+      </header><!-- End Section Title -->
 
-    </section><!-- /About Section -->
+      <!-- Contenedor principal -->
+      <div class="container">
+        <!-- Fila para centrar los articulos -->
+        <div class="row justify-content-center">
+          <!-- Primer artículo: imagen a la izquierda, texto a la derecha -->
+          <article class="col-lg-10">
+            <div class="row align-items-center mb-5" data-aos="fade-up" data-aos-delay="100">
+              <figure class="col-lg-4">
+                <img src="assets/img/main/01_presentacion.webp" alt="Especies marinas del Mediterráneo" class="circle-img img-fluid" loading="lazy">
+              </figure>
+              <div class="col-lg-8 present-text">
+                <header class="text-center mb-3">
+                  <h3>Contenido de la web</h3>
+                </header>
+                <p>Esta WebApp contiene información sobre decenas de especies marinas que habitan en el mar
+                  Mediterráneo, con contenido multimedia (imágenes, vídeos y audio) además de los nombres,
+                  características, curiosidades y descripciones de cada animal.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Segundo artículo: texto a la izquierda, imagen a la derecha -->
+          <article class="col-lg-10">
+            <div class="row align-items-center mb-5" data-aos="fade-up" data-aos-delay="200">
+              <div class="col-lg-8 present-text order-lg-1 order-2">
+                <header class="text-center mb-3">
+                  <h3>Por qué este contenido</h3>
+                </header>
+                <p>Esperamos que con esta divertida e interactiva página podamos esparcir conocimiento sobre
+                  este tema, que los visitantes se lo pasen bien poniendo a prueba su inteligencia y no se
+                  vayan sin haber aprendido algo nuevo.</p>
+              </div>
+              <figure class="col-lg-4 order-lg-2 order-1 text-center">
+                <img src="assets/img/main/02_presentacion.webp" alt="Plataforma educativa interactiva" class="circle-img img-fluid" loading="lazy">
+              </figure>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section><!-- End About Section -->
 
     <!-- Services Section -->
-    <section id="services" class="services section light-background"">
+    <section id="services" class="services section light-background">
 
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+      <header class="container section-title" data-aos="fade-up" data-aos-delay="50">
         <h2>Contenido</h2>
-        <p>Diferentes apartados<br></p>
-      </div><!-- End Section Title -->
+        <p>Contenidos para el usuario</p>
+      </header><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-5">
+        <ul class="row gy-5 justify-content-center list-unstyled">
 
-          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-            <div class="service-item">
-              <div class="img">
+          <!-- Service Item 1 -->
+          <li class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+            <article class="service-item">
+              <figure class="img">
                 <img src="assets/img/services-1.jpg" class="img-fluid" alt="">
-              </div>
+              </figure>
               <div class="details position-relative">
-                <div class="icon">
+                <span class="icon">
                   <i class="bi bi-binoculars"></i>
-                </div>
+                </span>
                 <a href="service-details.html" class="stretched-link">
                   <h3>Biblioteca</h3>
                 </a>
                 <p>Entra yoda nuestra galelia de peces que se ha registrado.</p>
               </div>
-            </div>
-          </div><!-- End Service Item -->
+            </article>
+          </li><!-- End Service Item -->
 
-          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-            <div class="service-item">
-              <div class="img">
-                <img src="assets/img/services-2.jpg" class="img-fluid" alt="">
-              </div>
+          <!-- Service Item 2 -->
+          <li class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+            <article class="service-item">
+              <figure class="img">
+                <img src="assets/img/services-2.jpg" class="img-fluid" alt="Imagen del quiz" loading="lazy">
+              </figure>
               <div class="details position-relative">
-                <div class="icon">
+                <span class="icon" aria-hidden="true">
                   <i class="bi bi-broadcast"></i>
-                </div>
+                </span>
                 <a href="service-details.html" class="stretched-link">
                   <h3>Quiz</h3>
                 </a>
-                <p>Pon a prueba tus conocimiento.</p>
+                <p>Pon a prueba tus conocimientos.</p>
               </div>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
+            </article>
+          </li><!-- End Service Item -->
+        </ul>
       </div>
-
     </section><!-- /Services Section -->
     
     <!-- Team Section -->
-    <section id="team" class="team section light-background">
+    <section id="team" class="team section">
 
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+      <header class="container section-title" data-aos="fade-up">
         <h2>Equipo</h2>
         <p>Conoce al equipo</p>
-      </div><!-- End Section Title -->
+      </header>
 
       <div class="container">
+        <!-- Contenedor para centrar los miembros del equipo -->
+        <ul class="row gy-5 justify-content-center list-unstyled">
 
-        <div class="row gy-5">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="member">
-              <div class="pic"><img src="assets/img/team/pau.webp" class="img-fluid" alt=""></div>
+          <!-- Primer miembro del equipo -->
+          <li class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <article class="member">
+              <figure class="pic">
+                <img src="assets/img/team/pau.webp" class="img-fluid" alt="Pau Belmonte - Diseñador" loading="lazy">
+              </figure>
               <div class="member-info">
-                <h4>Pau Belmonte</h4>
-                <span>Designer</span>
-                <div class="social">
-                  <a href="https://github.com/Pauceta23"><i class="bi bi-github"></i></a>
-                  <a href="https://www.instagram.com/paublmont_/"><i class="bi bi-instagram"></i></a>
-                  <a href="https://www.linkedin.com/in/pau-belmonte-806583351/"><i class="bi bi-linkedin"></i></a>
-                </div>
+                <h3>Pau Belmonte</h3>
+                <p class="position">Designer</p>
+                <ul class="social list-inline">
+                  <li class="list-inline-item">
+                    <a href="https://github.com/Pauceta23" aria-label="GitHub de Pau Belmonte">
+                      <i class="bi bi-github" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="https://www.instagram.com/paublmont_/" aria-label="Instagram de Pau Belmonte">
+                      <i class="bi bi-instagram" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="https://www.linkedin.com/in/pau-belmonte-806583351/" aria-label="LinkedIn de Pau Belmonte">
+                      <i class="bi bi-linkedin" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-            </div>
-          </div><!-- End Team Member -->
+            </article>
+          </li>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="member">
-              <div class="pic"><img src="assets/img/team/weiyu.webp" class="img-fluid" alt=""></div>
+          <!-- Segundo miembro del equipo -->
+          <li class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <article class="member">
+              <figure class="pic">
+                <img src="assets/img/team/weiyu.webp" class="img-fluid" alt="Weiyu Chen - Diseñador" loading="lazy">
+              </figure>
               <div class="member-info">
-                <h4>Weiyu Chen</h4>
-                <span>Designer</span>
-                <div class="social">
-                  <a href="https://github.com/CloseCh"><i class="bi bi-github"></i></a>
-                  <a href="https://www.instagram.com/zery_2438/"><i class="bi bi-instagram"></i></a>
-                  <a href="https://www.linkedin.com/in/weiyu-chen-36a986305/"><i class="bi bi-linkedin"></i></a>
-                </div>
+                <h3>Weiyu Chen</h3>
+                <p class="position">Designer</p>
+                <ul class="social list-inline">
+                  <li class="list-inline-item">
+                    <a href="https://github.com/CloseCh" aria-label="GitHub de Weiyu Chen">
+                      <i class="bi bi-github" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="https://www.instagram.com/zery_2438/" aria-label="Instagram de Weiyu Chen">
+                      <i class="bi bi-instagram" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="https://www.linkedin.com/in/weiyu-chen-36a986305/" aria-label="LinkedIn de Weiyu Chen">
+                      <i class="bi bi-linkedin" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
-            </div>
-          </div><!-- End Team Member -->
+            </article>
+          </li>
 
-        </div>
-
+        </ul>
       </div>
 
-    </section><!-- /Team Section -->
+    </section><!-- End Team Section -->
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    <section id="contact" class="contact section light-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -326,80 +391,81 @@
 
       </div>
 
-    </section><!-- /Contact Section -->
+    </section><!-- End Contact Section -->
 
   </main>
 
   <footer id="footer" class="footer dark-background">
-
     <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Peixplorer</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+      <div class="row">
+        <!-- Primer tercio - Logo y descripción (reducido) -->
+        <div class="col-lg-3 footer-about">
+          <h2 class="sitename mb-3">Peixplorer</h2>
+          <p class="footer-description">
+            Conoce los organismos que viven en el agua de las Islas Baleares. Proyecto de código abierto de la asignatura tecnología multimedia cursado en la Universidad de las Islas Baleares.
+          </p>
+        </div>
+  
+        <!-- Separador vertical -->
+        <div class="col-lg-1 d-none d-lg-flex justify-content-center">
+          <div class="footer-divider"></div>
+        </div>
+  
+        <!-- Dos tercios restantes (aumentado) -->
+        <div class="col-lg-8">
+          <div class="row">
+            <!-- Enlaces de navegación -->
+            <div class="col-md-6 footer-links">
+              <h4>Enlaces rápidos</h4>
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <a href="#hero">Home</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#about">Sobre nosotros</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#services">Servicios</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#team">Equipo</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contacto</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="biblioteca.html">Biblioteca</a></li>
+              </ul>
+            </div>
+  
+            <!-- Redes sociales -->
+            <div class="col-md-6 footer-social">
+              <div class="social-section mb-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="social-icon-circle me-3">
+                    <a href="#" aria-label="Facebook">
+                      <i class="bi bi-facebook"></i>
+                    </a>
+                  </div>
+                  <div class="social-icon-circle me-3">
+                    <a href="#" aria-label="Instagram">
+                      <i class="bi bi-instagram"></i>
+                    </a>
+                  </div>
+                  <span>Síguenos en nuestras redes sociales</span>
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="social-icon-circle me-3">
+                    <a href="https://github.com/Pauceta23/Peixplorer" target="_blank" aria-label="GitHub">
+                      <i class="bi bi-github"></i>
+                    </a>
+                  </div>
+                  <span>Consulta el código</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+          
+          <!-- Copyright y avisos legales (ahora solo en la segunda parte) -->
+          <div class="footer-copyright mt-4">
+            <div class="copyright-divider"></div>
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">Peixplorer</strong> <span>Todos los derechos reservados</span></p>
+            <div class="credits">
+              Diseñado para la asignatura de Tecnología Multimedia - Universidad de las Islas Baleares
+            </div>
           </div>
         </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-4 col-md-12 footer-newsletter">
-          <h4>Our Newsletter</h4>
-          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-          <form action="forms/newsletter.php" method="post" class="php-email-form">
-            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-          </form>
-        </div>
-
       </div>
     </div>
-
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Peixplorer</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a
-          href=“https://themewagon.com>ThemeWagon
-      </div>
-    </div>
-
   </footer>
 
   <!-- Scroll Top -->
@@ -419,6 +485,9 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
+  <!-- Fish of the Day JS File -->
+  <script src="js/fishday.js"></script>
+  
   <!-- Main JS File -->
   <script src="js/main.js"></script>
 
