@@ -72,6 +72,18 @@ a {
   transition: 0.3s;
 }
 
+#countdown-container {
+  opacity: 0;
+  color:#000910;
+  transition: opacity 0.3s ease-in;
+}
+
+#countdown-container:not(.d-none) {
+  opacity: 1;
+}
+
+
+
 a:hover {
   color: color-mix(in srgb, var(--accent-color), transparent 25%);
   text-decoration: none;

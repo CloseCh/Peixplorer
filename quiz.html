@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Biblioteca</title>
+  <title>Quiz</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -34,9 +34,9 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-</head>
 
-<body class="service-details-page">
+</head>
+<body>
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
@@ -71,50 +71,67 @@
     <!-- Page Title -->
     <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.webp);">
       <div class="container position-relative">
-        <h1>Biblioteca</h1>
+        <h1>Quiz</h1>
       <!--  <p>Falta el buscador, filtro y cambiar imagen de fondo.</p> -->
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li class="current">Biblioteca</li>
+            <li class="current">Quiz</li>
           </ol>
         </nav>
       </div>
     </div><!-- End Page Title -->
-
-    <!-- Service Details Section -->
-    <section id="service-details" class="service-details section">
-
-      <div class="container">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-          <div class="col mb-5">
-              <div class="card h-100">
-                  <!-- Product image-->
-                  <img class="card-img-top" src="assets/img/gatvaire.png" alt="..." />
-                  <!-- Product details-->
-                  <div class="card-body p-4">
-                      <div class="text-center">
-                          <!-- Product name-->
-                          <h5 class="fw-bolder">Gatvaire</h5>
-                          <!-- Product price-->
-
-                      </div>
-                  </div>
-                  <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center"><a class="btn btn-outline-dark mt-auto"
-                              href="peix.html">Visualizar</a></div>
-                  </div>
-              </div>
+  <section id="quiz-section" class="service-details section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div id="quiz-container" class="card shadow-lg p-5 rounded-4 bg-light position-relative">
+          
+          <!-- Progress Bar -->
+          <div class="progress mb-4" style="height: 20px;">
+            <div id="quiz-progress" class="progress-bar bg-primary" role="progressbar" style="width: 0%; transition: width 0.4s;"></div>
           </div>
-      </div>
 
-      </div>
+          <!-- Question Number -->
+          <div id="question-number" class="text-uppercase text-muted mb-2 fs-6 fw-bold"></div>
 
-    </section><!-- /Service Details Section -->
+          <!-- Question Text -->
+          <div id="question-text" class="h4 fw-semibold mb-4 text-dark"></div>
+
+          <!-- Answers -->
+          <div id="answers" class="list-group mb-4"></div>
+
+          <!-- Feedback -->
+          <div id="feedback" class="alert d-none mt-3" role="alert"></div>
+          
+          <!-- Countdown Bar -->
+          <div id="countdown-container" class="progress mt-2 d-none" style="height: 8px;">
+            <div id="countdown-bar" class="progress-bar bg-info" role="progressbar" style="width: 0%;"></div>
+          </div>
+
+
+
+          <!-- Navigation Buttons -->
+          <div class="d-flex justify-content-end gap-2 mt-4">
+            <button id="restart-btn" class="btn btn-outline-danger d-none">Reiniciar</button>
+            <button id="next-btn" class="btn btn-primary" disabled>Siguiente</button>
+          </div>
+
+          </div>
+          
+        </div>
+        
+      </div>
+       
+    </div>
+   
+  </section>
+  
+
 
   </main>
 
+  
   <footer id="footer" class="footer dark-background">
 
     <div class="container footer-top">
@@ -186,7 +203,7 @@
 
   </footer>
 
-  <!-- Scroll Top -->
+    <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
@@ -204,7 +221,6 @@
 
   <!-- Main JS File -->
   <script src="js/main.js"></script>
-
+  <script src="js/quiz.js"></script>
 </body>
-
 </html>
