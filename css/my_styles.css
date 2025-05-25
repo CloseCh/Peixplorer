@@ -84,7 +84,6 @@ img.circle-img {
         margin-bottom: 30px;
     }
 }
-
 /* Estilos para el nuevo footer */
 .footer {
     color: #fff;
@@ -159,8 +158,8 @@ img.circle-img {
 }
 
 .social-icon-circle {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.1);
     display: flex;
@@ -175,7 +174,7 @@ img.circle-img {
 
 .social-icon-circle a {
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,10 +182,26 @@ img.circle-img {
     height: 100%;
 }
 
-/* Nuevos estilos para el copyright dentro de la segunda parte */
+/* Copyright que ocupa todo el ancho del footer */
 .footer-copyright {
-    margin-top: 30px;
+    margin-top: 40px;
     font-size: 0.9rem;
+    text-align: center;
+    /* Romper la estructura de columnas para ocupar todo el ancho */
+    width: 100%;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.footer-copyright .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 .copyright-divider {
@@ -214,9 +229,13 @@ img.circle-img {
 }
 
 @media (max-width: 768px) {
-
     .footer-social,
     .footer-links {
         margin-top: 30px;
+    }
+    
+    .footer-copyright {
+        margin-left: -15px;
+        margin-right: -15px;
     }
 }

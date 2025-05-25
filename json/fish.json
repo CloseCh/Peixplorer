@@ -12,40 +12,1737 @@
                 {
                     "@type": "Taxon",
                     "hasDefinedTerm": "Elasmobranchii",
+                    "alternateName": "Elasmobranquios",
                     "name": "subclase",
                     "childTaxon": [
                         {
                             "@type": "Taxon",
-                            "hasDefinedTerm": "Scyliorhinus stellaris",
-                            "alternateName": "Gatvaire",
+                            "name": "Tiburon",
+                            "childTaxon": [
+                                {
+                                    "@type": "Taxon",
+                                    "hasDefinedTerm": "Scyliorhinus stellaris",
+                                    "alternateName": "Gatvaire",
+                                    "additionalProperty": [
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Habitat",
+                                            "value": "Bentónico sobre fondos duros de 10-60 m de profundidad."
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Distribución",
+                                            "value": "Mediterráneo, Atlántica oriental y mar del Norte."
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Video",
+                                            "value": "https://www.youtube.com/watch?v=zMG06pVoWqk"
+                                        }
+                                    ],
+                                    "description": "Esta especie era muy frecuente desde el litoral en la plataforma, pero ahora es muy rara.\nLa mayor parte de las citas de gavaire provienen de pesca profesional por captura accidental con posterior liberación, aunque también se han observado ejemplares a la venta en el Mercat de l'Olivar. Las capturas registradas se han producido entre 30 y 50 m de profundidad.\nExiste un proyecto de recuperación de esta especie, en el que están involucrados la D. G. de Espacios Naturales y Biodiversidad y la D. G. de Pesca y Medio Marino y las fundaciones PalmaAquàrium, Mallorca Preservation y Save the Med, mediante el cual se ha conseguido la cría en cautividad y la producción de juveniles para llevar a cabo.",
+                                    "identifier": 10101001,
+                                    "sameAs": "https://es.wikipedia.org/wiki/Scyliorhinus_stellaris"
+                                },
+                                {
+                                    "@type": "Taxon",
+                                    "hasDefinedTerm": "Galeorhinus galeus",
+                                    "alternateName": "Cazón",
+                                    "additionalProperty": [
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Habitat",
+                                            "value": "Viven en fondos entre 40 y 100 m de profundidad."
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Distribución",
+                                            "value": "Aguas templadas de todos los océanos. "
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Video",
+                                            "value": "https://www.youtube.com/watch?v=R6X9vLLYP0k"
+                                        }
+                                    ],
+                                    "description": "Es la única especie del género Galeorhinus.No posee espinas delante de las aletas dorsales.\nPuede llegar a medir 2 metros y a pesar 45 kg. Especie demersal, es decir nadadora, pero de vida ligada al fondo.\nEsta especie se encuentra protegida bajo distintos tratados internacionales (Convenio de Barcelona, Convenio de Bonn, GFCM, Sharks MOU) y nacionales que prohíben o restringen darle muerte, capturar y/o comercializar dado su grave riesgo de extinción.",
+                                    "identifier": 10101002,
+                                    "sameAs": "https://es.wikipedia.org/wiki/Galeorhinus_galeus"
+                                },
+                                {
+                                    "@type": "Taxon",
+                                    "hasDefinedTerm": "Prionace glauca",
+                                    "alternateName": "Tiburón azul",
+                                    "additionalProperty": [
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Habitat",
+                                            "value": "Mayor parte del tiempo entre los 0 y los 300 m de profundidad, pudiendo llegar a superar los 1000 m"
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Distribución",
+                                            "value": "Se distribuye por todos los océanos y mares del mundo"
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Video",
+                                            "value": "https://www.youtube.com/watch?v=AiUqOfqae8o"
+                                        }
+                                    ],
+                                    "description": "La tintorera es un tiburón de cuerpo estilizado y alargado, con un hocico largo y cónico.\nTiene ojos grandes que, al igual que todos los carcarhiniformes, se encuentran provistos de una membrana nictitante, una especie de párpado semitransparente que va de arriba abajo y protege los globos oculares cuando luchan con su presa.\nPosee cinco hendiduras branquiales, dos aletas dorsales, dos aletas pectorales, dos aletas anales y una aleta caudal.\nLas aletas pectorales son largas y delgadas, y la aleta caudal está provista de un lóbulo superior también muy alargado.\nTiene una coloración blanca en la parte ventral, y un azul metálico muy intenso en el resto del cuerpo.\nSus dientes, que se caen y son reemplazados constantemente, son de forma triangular con bordes aserrados.\nTiene una longitud promedio de 2,5 m y un peso de 80 kg.",
+                                    "identifier": 10101003,
+                                    "sameAs": "https://es.wikipedia.org/wiki/Prionace_glauca"
+                                },
+                                {
+                                    "@type": "Taxon",
+                                    "hasDefinedTerm": "Sphyrna mokarran",
+                                    "alternateName": "Tiburón martillo",
+                                    "additionalProperty": [
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Habitat",
+                                            "value": "Habita a lo largo de la costa, en las plataformas continentales, terrazas insulares y pasos y lagunas de atolones de coral, así como en aguas más profundas cerca de tierra; tanto cerca de la superficie como a profundidades de hasta más de 80 m"
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Distribución",
+                                            "value": "Especie migratoria, durante el verano se marcha de Florida y del Mar de China Austral hacia latitudes mayores"
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Video",
+                                            "value": "https://www.youtube.com/watch?v=hLdwxNd7UMg"
+                                        }
+                                    ],
+                                    "description": "",
+                                    "identifier": 10101004,
+                                    "sameAs": "https://es.wikipedia.org/wiki/Sphyrna_mokarran"
+                                },
+                                {
+                                    "@type": "Taxon",
+                                    "hasDefinedTerm": "Scyliorhinus canicula",
+                                    "alternateName": "Pintarroja",
+                                    "additionalProperty": [
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Habitat",
+                                            "value": "Reposa sobre fondos arenosos desde los veinte hasta los 400 m de profundidad, siendo más abundante entre los 150 y los 300 m"
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Distribución",
+                                            "value": "Se encuentra en aguas frías y templadas, distribuido en el Atlántico nororiental, desde Noruega e islas británicas hasta Senegal y Costa de Marfil, incluyendo el Mediterráneo"
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Video",
+                                            "value": "https://www.youtube.com/watch?v=l-HkpUAOznc"
+                                        }
+                                    ],
+                                    "description": "",
+                                    "identifier": 10101005,
+                                    "sameAs": "https://es.wikipedia.org/wiki/Scyliorhinus_canicula"
+                                },
+                                {
+                                    "@type": "Taxon",
+                                    "hasDefinedTerm": "Squalus acanthias",
+                                    "alternateName": "Mielga",
+                                    "additionalProperty": [
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Habitat",
+                                            "value": "Habita en fondos entre 100 y 900 metros de profundidad, siendo más abundante entre 200 y 400 m"
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Distribución",
+                                            "value": "Aguas boreales a templadas, que aparece en zonas costeras y exteriores de la plataforma continental, en declives insulares y en la parte superior del talud"
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Video",
+                                            "value": "https://www.youtube.com/watch?v=hOWXRWf-L3g"
+                                        }
+                                    ],
+                                    "description": "",
+                                    "identifier": 10101006,
+                                    "sameAs": "https://es.wikipedia.org/wiki/Squalus_acanthias"
+                                },
+                                {
+                                    "@type": "Taxon",
+                                    "hasDefinedTerm": "Etmopterus spinax",
+                                    "alternateName": "Tiburón negrito",
+                                    "additionalProperty": [
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Habitat",
+                                            "value": "Vive en profundidades de hasta 2000 metros, pero también ha sido capturado a sólo 70 metros."
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Distribución",
+                                            "value": "Esta especie se distribuye en todo el Mar Mediterráneo, donde es común sobre todo en su cuenca occidental, y en el este del Océano Atlántico entre Islandia y el África subsahariana."
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Video",
+                                            "value": "https://www.youtube.com/watch?v=hOWXRWf-L3g"
+                                        }
+                                    ],
+                                    "description": "Este tiburón es el Squaliforme más pequeño del Mediterráneo (sólo excepcionalmente alcanza los 50 cm). En las zonas donde solamente existe esta especie del género Etmopterus, se puede reconocer fácilmente por su coloración oscura, la ausencia de aleta anal, las aletas dorsales armadas con sendas espinas (aguzadas y bien visibles), todo ello junto a su pequeña talla corporal. Los ojos son grandes, verdosos. La parte ventral del cuerpo presenta numerosos pequeños fotóforos, que producen una luz intensa en los ejemplares vivos y en su medio",
+                                    "identifier": 10101007,
+                                    "sameAs": "https://es.wikipedia.org/wiki/Etmopterus_spinax"
+                                }
+                            ],
+                            "identifier": 10101000
+                        },
+                        {
+                            "@type": "Taxon",
+                            "name": "Raya",
+                            "childTaxon": [
+                                {
+                                    "@type": "Taxon",
+                                    "hasDefinedTerm": "Raja clavata",
+                                    "alternateName": "Raya común",
+                                    "additionalProperty": [
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Habitat",
+                                            "value": "Vive entre los 20 y los 600 m de profundidad"
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Distribución",
+                                            "value": "Se encuentra en el océano Atlántico oriental (desde Islandia, Noruega, mar del Norte y mar Báltico, hasta Marruecos y Namibia), el Mediterráneo y el mar Negro."
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Video",
+                                            "value": "https://www.youtube.com/watch?v=vjESSuGz0ro"
+                                        }
+                                    ],
+                                    "description": "Los machos pueden llegar a alcanzar los 105 cm de longitud total y las hembras 120. Se alimenta de animales bentónicos, preferiblemente crustáceos.",
+                                    "identifier": 10102001,
+                                    "sameAs": "https://es.wikipedia.org/wiki/Raja_clavata"
+                                },
+                                {
+                                    "@type": "Taxon",
+                                    "hasDefinedTerm": "Raja undulata",
+                                    "alternateName": "Raya mosaico",
+                                    "additionalProperty": [
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Habitat",
+                                            "value": "Vive entre 50 y 200 m de profundidad aunque se pueden observar ocasionalmente a menor profundidad, en torno a los 15m"
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Distribución",
+                                            "value": "Se encuentra en el Océano Atlántico oriental (desde el sur de Irlanda y de Inglaterra hasta el Senegal, incluyendo las Islas Canarias) y el Mediterráneo"
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Video",
+                                            "value": "https://www.youtube.com/watch?v=vjESSuGz0ro"
+                                        }
+                                    ],
+                                    "description": "Los machos pueden llegar a alcanzar los 100 cm de longitud total.",
+                                    "identifier": 10102002,
+                                    "sameAs": "https://es.wikipedia.org/wiki/Raja_undulata"
+                                },
+                                {
+                                    "@type": "Taxon",
+                                    "hasDefinedTerm": "Raja radula",
+                                    "alternateName": "Raya áspera",
+                                    "additionalProperty": [
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Habitat",
+                                            "value": "Habitas desde pocos metros hasta los 300 m de profundidad"
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Distribución",
+                                            "value": "Se encuentra en el Mar Mediterráneo."
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Video",
+                                            "value": "https://www.youtube.com/watch?v=zGdSkFz8f74"
+                                        }
+                                    ],
+                                    "description": "Los machos pueden llegar a alcanzar los 70 cm de longitud total.\nAl igual que todas las especies de la familia Rajidae, es ovípara y las hembras ponen huevos envueltos en una cápsula córnea.\nCome animales bentónicos.",
+                                    "identifier": 10102003,
+                                    "sameAs": "https://es.wikipedia.org/wiki/Raja_radula"
+                                },
+                                {
+                                    "@type": "Taxon",
+                                    "hasDefinedTerm": "Raja polystigma",
+                                    "alternateName": "",
+                                    "additionalProperty": [
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Habitat",
+                                            "value": "Mar y de aguas profundas que vive entre 100 y 400 m de profundidad."
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Distribución",
+                                            "value": "Se encuentra en el Mediterráneo occidental (es más común a lo largo de las costas de África )."
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Video",
+                                            "value": "https://www.youtube.com/watch?v=nrJ-jDEo3pc"
+                                        }
+                                    ],
+                                    "description": "Los machos pueden llegar a alcanzar los 60 cm de longitud total.\nEs ovíparo y las hembras ponen huevos envueltos en una cápsula córnea.\nCome principalmente crustáceos y peces hueso.",
+                                    "identifier": 10102004,
+                                    "sameAs": "https://es.wikipedia.org/wiki/Raja_polystigma"
+                                },
+                                {
+                                    "@type": "Taxon",
+                                    "hasDefinedTerm": "Raja montagui",
+                                    "alternateName": "Raya pintada",
+                                    "additionalProperty": [
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Habitat",
+                                            "value": "Es un pez marino de clima templado y demersal que vive entre 20 y 345 m de profundidad."
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Distribución",
+                                            "value": "Se encuentra en el océano Atlántico oriental (desde el sur del mar del Norte y el oeste del mar Báltico hasta Mauritania) y el Mediterráneo occidental (desde Túnez hasta el oeste de Grecia)."
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Video",
+                                            "value": "https://www.youtube.com/watch?v=uyjUjpkIrco"
+                                        }
+                                    ],
+                                    "description": "Los machos pueden llegar a alcanzar los 80 cm de longitud total.\nEs ovíparo y las hembras ponen huevos envueltos en una cápsula córnea.\nSe alimenta principalmente de crustáceos.",
+                                    "identifier": 10102005,
+                                    "sameAs": "https://es.wikipedia.org/wiki/Raja_montagui"
+                                }
+                            ],
+                            "identifier": 10102000
+                        }
+                    ],
+                    "identifier": 10100000,
+                    "sameAs": "https://es.wikipedia.org/wiki/Elasmobranchii"
+                },
+                {
+                    "@type": "Taxon",
+                    "hasDefinedTerm": "Holocephali",
+                    "alternateName": "Quimeras",
+                    "name": "subclase",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "name": "Tiburon",
+                            "childTaxon": [
+                                {
+                                    "@type": "Taxon",
+                                    "hasDefinedTerm": "Chimaera monstrosa",
+                                    "alternateName": "Gato",
+                                    "additionalProperty": [
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Habitat",
+                                            "value": "Parece preferir la plataforma continental superior entre los 300 y 500 m de profundidad, con un máximo confirmado de 1663 m"
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Distribución",
+                                            "value": "Propia del noreste de océano Atlántico y del mar Mediterráneo"
+                                        },
+                                        {
+                                            "@type": "PropertyValue",
+                                            "name": "Video",
+                                            "value": "https://www.youtube.com/watch?v=qfKvBkAMPUc"
+                                        }
+                                    ],
+                                    "description": "Es ovípara y la época de freza es en primavera y verano. Tiene un ciclo de vida muy lento, llegando a la madurez sexual entre los 11,2 y los 13,4 años, con una longevidad entre 26 y 30 años.\nTiene un aparato toxicóforo en el primer radio espinoso de la primera aleta dorsal. La glándula toxicófora se ubica en el surco caudal de dicho radio. Cuando se inyecta en la piel produce un intenso dolor de la zona.",
+                                    "identifier": 10201001,
+                                    "sameAs": "https://es.wikipedia.org/wiki/Chimaera_monstrosa"
+                                }
+                            ],
+                            "identifier": 10201000
+                        }
+                    ],
+                    "identifier": 10200000,
+                    "sameAs": "https://es.wikipedia.org/wiki/Elasmobranchii"
+                }
+            ],
+            "identifier": 10000000,
+            "sameAs": "https://es.wikipedia.org/wiki/Chondrichthyes"
+        },
+        {
+            "@type": "Taxon",
+            "hasDefinedTerm": "Sparidae",
+            "alternateName": "Espáridos",
+            "name": "clase",
+            "childTaxon": [
+                {
+                    "@type": "Taxon",
+                    "name": "Sparus",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Sparus aurata",
+                            "alternateName": "Dorada",
                             "additionalProperty": [
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Habitat",
-                                    "value": "Bentónico sobre fondos duros de 10-60 m de profundidad."
+                                    "value": "Habita en fondos rocosos, arenosos y praderas marinas desde aguas superficiales hasta 150 m de profundidad, siendo más común entre 2-30 m"
                                 },
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Distribución",
-                                    "value": "Mediterráneo, Atlántica oriental y mar del Norte."
+                                    "value": "Se distribuye por todo el Mar Mediterráneo y el Atlántico oriental desde las Islas Británicas hasta Cabo Verde"
                                 },
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=zMG06pVoWqk"
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
                                 }
                             ],
-                            "description": "Esta especie era muy frecuente desde el litoral en la plataforma, pero ahora es muy rara. La mayor parte de las citas de gavaire provienen de pesca profesional por captura accidental con posterior liberación, aunque también se han observado ejemplares a la venta en el Mercat de l'Olivar. Las capturas registradas se han producido entre 30 y 50 m de profundidad. Existe un proyecto de recuperación de esta especie, en el que están involucrados la D. G. de Espacios Naturales y Biodiversidad y la D. G. de Pesca y Medio Marino y las fundaciones PalmaAquàrium, Mallorca Preservation y Save the Med, mediante el cual se ha conseguido la cría en cautividad y la producción de juveniles para llevar a cabo",
-                            "identifier": 101001,
-                            "sameAs": "https://es.wikipedia.org/wiki/Scyliorhinus_stellaris"
+                            "description": "La dorada es una especie hermafrodita protándrica que nace como macho y se convierte en hembra a los 2-3 años. Su nombre deriva de la característica franja dorada entre los ojos. Puede alcanzar hasta 70 cm de longitud y 7 kg de peso. Es omnívora, alimentándose principalmente de moluscos, crustáceos y algas. Es una especie de gran importancia comercial y acuícola en el Mediterráneo.",
+                            "identifier": 20101001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Sparus_aurata"
                         }
                     ],
-                    "identifier": 101000,
-                    "sameAs": "https://es.wikipedia.org/wiki/Elasmobranchii"
+                    "identifier": 20101000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Diplodus",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Diplodus sargus",
+                            "alternateName": "Sargo común",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Vive en aguas costeras rocosas y praderas de Posidonia desde la superficie hasta 50 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Común en todo el Mar Mediterráneo y costas atlánticas de España, Portugal y Marruecos"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "El sargo común es una especie hermafrodita proterándrica que presenta 8-9 bandas verticales oscuras en los flancos y una mancha negra en forma de silla de montar en el pedúnculo caudal. Alcanza los 25-30 cm de longitud. Se alimenta de invertebrados bentónicos aprovechando las oleadas para capturar presas desprendidas del fondo.",
+                            "identifier": 20102001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Diplodus_sargus"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Diplodus annularis",
+                            "alternateName": "Raspallón",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Habita praderas marinas de Zostera y fondos rocosos costeros hasta 90 m, más frecuente por encima de 20 m"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Océano Atlántico desde el golfo de Vizcaya hasta Madeira y Canarias, y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Especie de pequeño tamaño (15-20 cm) con cuerpo gris amarillento y reflejos plateados. Se distingue por su franja anular negra en el pedúnculo caudal y la ausencia de bandas verticales en el cuerpo. Es hermafrodita protándrica y se alimenta de anélidos, crustáceos y moluscos.",
+                            "identifier": 20102002,
+                            "sameAs": "https://es.wikipedia.org/wiki/Diplodus_annularis"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Diplodus puntazzo",
+                            "alternateName": "Sargo picudo",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Habita fondos rocosos y arenosos hasta 150 m de profundidad, más común por debajo de 60 m"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico desde Francia hasta Sierra Leona, Canarias, Cabo Verde, Mar Mediterráneo y Mar Negro"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Se caracteriza por su hocico puntiagudo que le da nombre. Presenta 6-7 bandas oscuras alternadas con bandas más finas y claras. Puede alcanzar hasta 60 cm, aunque 30 cm es lo habitual. Tiene una mancha anular negra en el pedúnculo caudal y mandíbulas con 8 dientes incisivos. Es muy apreciado por los pescadores por su carne delicada.",
+                            "identifier": 20102003,
+                            "sameAs": "https://es.wikipedia.org/wiki/Diplodus_puntazzo"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Diplodus cervinus",
+                            "alternateName": "Sargo breado",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos entre 30-80 m de profundidad, ocasionalmente hasta 300 m"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico desde España hasta Senegal y desde Angola hasta Sudáfrica, Canarias, Madeira y Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Se caracteriza por sus 5 franjas verticales gruesas y oscuras en los flancos, una banda oscura en el espacio interorbital y una mancha negra en la base de la aleta pectoral. Alcanza los 35 cm de longitud y tiene el cuerpo plateado con reflejos dorados.",
+                            "identifier": 20102004,
+                            "sameAs": "https://es.wikipedia.org/wiki/Diplodus_cervinus"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Diplodus vulgaris",
+                            "alternateName": "Variada",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y arenosos hasta 160 m, más común por debajo de 50 m, también en praderas de Posidonia"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Costas oeste de África desde Gibraltar hasta Senegal, Madeira, Canarias, Mar Mediterráneo y Atlántico hasta Golfo de Vizcaya"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Se distingue por sus 15-16 líneas longitudinales doradas en los flancos, una banda oscura triangular en la nuca y una banda anular negra en el pedúnculo caudal. Alcanza hasta 45 cm y tolera cambios de salinidad, adentrándose en aguas salobres de estuarios.",
+                            "identifier": 20102005,
+                            "sameAs": "https://es.wikipedia.org/wiki/Diplodus_vulgaris"
+                        }
+                    ],
+                    "identifier": 20102000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Dentex",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Dentex dentex",
+                            "alternateName": "Dentón",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y arenosos desde 15 hasta 200 m de profundidad, los juveniles más costeros y adultos a mayor profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde el Golfo de Vizcaya hasta Senegal, incluidas Canarias, y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "El dentón es uno de los espáridos de mayor tamaño, pudiendo alcanzar más de 1 metro y 15 kg de peso. Se caracteriza por sus potentes dientes caninos y su cuerpo alargado de color plateado rosáceo. Los juveniles forman grupos pero los adultos son solitarios. Es un depredador voraz que se alimenta de peces, cefalópodos y crustáceos.",
+                            "identifier": 20103001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Dentex_dentex"
+                        }
+                    ],
+                    "identifier": 20103000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Pagellus",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Pagellus erythrinus",
+                            "alternateName": "Breca",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos, arenosos y de maërl desde 20 hasta 200 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Noruega hasta Angola, incluidas Azores, Madeira y Canarias, y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "La breca tiene el cuerpo ovalado de color rosado plateado con una mancha roja característica detrás del opérculo. Alcanza hasta 60 cm de longitud. Es hermafrodita protándrica y se alimenta de crustáceos, moluscos, gusanos poliquetos y pequeños peces. Los juveniles forman grupos mientras que los adultos son más solitarios.",
+                            "identifier": 20104001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Pagellus_erythrinus"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Pagellus bogaraveo",
+                            "alternateName": "Besugo",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y arenosos entre 100-700 m de profundidad, ocasionalmente a menor profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Noruega hasta Angola, Azores, Madeira, Canarias y Mar Mediterráneo occidental"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "El besugo es de color rosado plateado con tonos más intensos en el dorso. Puede alcanzar hasta 70 cm de longitud. Vive en aguas más profundas que otras especies de Pagellus y es muy apreciado gastronómicamente. Se alimenta de crustáceos, moluscos y pequeños peces.",
+                            "identifier": 20104002,
+                            "sameAs": "https://es.wikipedia.org/wiki/Pagellus_bogaraveo"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Pagellus acarne",
+                            "alternateName": "Aligote",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos, arenosos y de maërl desde 40 hasta 500 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Portugal hasta Senegal, Azores, Madeira, Canarias y Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "El aligote es similar a la breca pero de menor tamaño (hasta 35 cm). Tiene el cuerpo plateado rosáceo y se distingue por la ausencia de la mancha roja característica de P. erythrinus. Es hermafrodita protándrica y se alimenta de invertebrados bentónicos.",
+                            "identifier": 20104003,
+                            "sameAs": "https://es.wikipedia.org/wiki/Pagellus_acarne"
+                        }
+                    ],
+                    "identifier": 20104000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Oblada",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Oblada melanura",
+                            "alternateName": "Oblada",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Aguas costeras rocosas y praderas marinas desde la superficie hasta 30 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Golfo de Vizcaya hasta Senegal, Azores, Madeira, Canarias y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "La oblada se caracteriza por una mancha negra distintiva en el pedúnculo caudal y su cuerpo plateado con tonos azulados. Alcanza hasta 30 cm de longitud. Forma grandes bancos y es una especie pelágico-costera que se alimenta principalmente de zooplancton y pequeños invertebrados. A diferencia de otros espáridos, vive cerca de la superficie.",
+                            "identifier": 20105001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Oblada_melanura"
+                        }
+                    ],
+                    "identifier": 20105000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Lithognathus",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Lithognathus mormyrus",
+                            "alternateName": "Herrera",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos arenosos y fangosos desde 5 hasta 150 m de profundidad, preferentemente en zonas costeras"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Golfo de Vizcaya hasta Angola, Canarias y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "La herrera tiene el cuerpo alargado de color plateado con 14-15 líneas longitudinales pardas. Puede alcanzar hasta 55 cm de longitud. Se caracteriza por su hocico alargado y cónico adaptado para buscar alimento en la arena. Es hermafrodita protándrica y se alimenta principalmente de invertebrados bentónicos que encuentra hozando en fondos blandos.",
+                            "identifier": 20106001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Lithognathus_mormyrus"
+                        }
+                    ],
+                    "identifier": 20106000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Sarpa",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Sarpa salpa",
+                            "alternateName": "Salema",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Aguas costeras rocosas con algas y praderas marinas desde la superficie hasta 70 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Golfo de Vizcaya hasta Senegal, Azores, Madeira, Canarias y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "La salema es única entre los espáridos por ser principalmente herbívora, alimentándose de algas. Presenta líneas longitudinales doradas muy características y forma grandes bancos. Alcanza hasta 45 cm de longitud. Es hermafrodita protándrica y juega un papel ecológico importante como controlador de algas en el ecosistema mediterráneo.",
+                            "identifier": 20107001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Sarpa_salpa"
+                        }
+                    ],
+                    "identifier": 20107000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Spondyliosoma",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Spondyliosoma cantharus",
+                            "alternateName": "Chopa",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y praderas marinas desde 10 hasta 300 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Noruega hasta Marruecos, Azores, Madeira, Canarias y Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "La chopa tiene el cuerpo gris plateado con reflejos dorados y líneas longitudinales características. Alcanza hasta 60 cm de longitud. Es hermafrodita protándrica y se alimenta de invertebrados bentónicos, crustáceos y moluscos. Los juveniles forman bancos mientras que los adultos son más solitarios.",
+                            "identifier": 20108001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Spondyliosoma_cantharus"
+                        }
+                    ],
+                    "identifier": 20108000
                 }
             ],
-            "identifier": 100000,
-            "sameAs": "https://es.wikipedia.org/wiki/Chondrichthyes"
+            "identifier": 20000000,
+            "sameAs": "https://es.wikipedia.org/wiki/Sparidae"
+        },
+        {
+            "@type": "Taxon",
+            "hasDefinedTerm": "Labridae",
+            "alternateName": "Lábridos",
+            "name": "clase",
+            "childTaxon": [
+                {
+                    "@type": "Taxon",
+                    "name": "Labrus",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Labrus viridis",
+                            "alternateName": "Tordo verde",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y praderas marinas desde 5 hasta 50 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "El tordo verde presenta un cuerpo fusiforme con cabeza muy alargada. Su coloración es variable: juveniles verdes con puntos blancos que se vuelven pardos o azules en adultos. Son hermafroditas protóginos y se alimentan de anélidos, crustáceos, equinodermos y moluscos. Solitarios y tímidos, alcanzan hasta 50 cm de longitud.",
+                            "identifier": 30101001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Labrus_viridis"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Labrus merula",
+                            "alternateName": "Tordo negro",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y praderas marinas entre 5-200 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Noruega hasta Marruecos y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Se distingue por las puntas azules de sus aletas. Es hermafrodita protógino, construye nidos con desechos vegetales durante la reproducción y presenta comportamiento territorial. Se alimenta de moluscos, crustáceos y pequeños peces. Alcanza hasta 45 cm de longitud.",
+                            "identifier": 30101002,
+                            "sameAs": "https://es.wikipedia.org/wiki/Labrus_merula"
+                        }
+                    ],
+                    "identifier": 30101000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Symphodus",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Symphodus tinca",
+                            "alternateName": "Bodión",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y praderas marinas entre 1-50 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental y Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Presenta colores muy vivos con líneas azules y verdes. Los machos construyen nidos y cuidan los huevos. Es hermafrodita protógino y territorial durante la reproducción. Se alimenta de pequeños invertebrados. Alcanza hasta 35 cm de longitud.",
+                            "identifier": 30102001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Symphodus_tinca"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Symphodus ocellatus",
+                            "alternateName": "Tordo ocelado",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y praderas marinas entre 0-25 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental y Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Caracterizado por un ocelo negro bordeado de azul en el opérculo. Presenta coloración multicolor con rojo, amarillo y azul. Es territorial y omnívoro con tendencia carnívora. Hermafrodita protógino. Alcanza entre 8-12 cm de longitud.",
+                            "identifier": 30102002,
+                            "sameAs": "https://es.wikipedia.org/wiki/Symphodus_ocellatus"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Symphodus melanocercus",
+                            "alternateName": "Tordo de cola negra",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y praderas marinas entre 1-25 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental y Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Se distingue por su cola negra y coloración azul y naranja. Es territorial y carnívoro, protege sus huevos de los depredadores. Vive en pequeños grupos cerca del fondo. Alcanza entre 11-14 cm de longitud.",
+                            "identifier": 30102003,
+                            "sameAs": "https://es.wikipedia.org/wiki/Symphodus_melanocercus"
+                        }
+                    ],
+                    "identifier": 30102000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Coris",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Coris julis",
+                            "alternateName": "Doncella",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos, arenosos y praderas marinas entre 1-120 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Noruega hasta Senegal y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Presenta un marcado dimorfismo sexual: hembras con líneas longitudinales marrones y machos con colores verdes, azules y naranjas muy llamativos. Es hermafrodita protógina y se entierra en la arena por la noche. Se alimenta de pequeños invertebrados. Alcanza hasta 25 cm de longitud.",
+                            "identifier": 30103001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Coris_julis"
+                        }
+                    ],
+                    "identifier": 30103000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Thalassoma",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Thalassoma pavo",
+                            "alternateName": "Pez arcoíris",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y praderas marinas entre 3-150 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Golfo de Vizcaya hasta Senegal, Azores, Madeira, Canarias y Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Conocido como pez arcoíris por su espectacular coloración con verdes, azules, naranjas y amarillos muy vivos. Los machos presentan colores más intensos que las hembras. Es hermafrodita protógino y muy activo durante el día. Se alimenta de pequeños invertebrados y zooplancton. Alcanza hasta 25 cm de longitud.",
+                            "identifier": 30104001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Thalassoma_pavo"
+                        }
+                    ],
+                    "identifier": 30104000
+                }
+            ],
+            "identifier": 30000000,
+            "sameAs": "https://es.wikipedia.org/wiki/Labridae"
+        },
+        {
+            "@type": "Taxon",
+            "hasDefinedTerm": "Serranidae",
+            "alternateName": "Serránidos",
+            "name": "clase",
+            "childTaxon": [
+                {
+                    "@type": "Taxon",
+                    "name": "Epinephelus",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Epinephelus marginatus",
+                            "alternateName": "Mero",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Cuevas y grietas en fondos rocosos entre 20-200 m de profundidad, ocasionalmente hasta 300 m"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Inglaterra hasta Sudáfrica, Brasil, Uruguay, Argentina y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "El mero es el serránido de mayor tamaño del Mediterráneo, pudiendo alcanzar 150 cm y 50 kg. Es solitario, territorial y hermafrodita protógino (nace hembra, se convierte en macho entre los 7-12 años). Se alimenta principalmente de cefalópodos, crustáceos y peces. Vive en cuevas con múltiples salidas. Está catalogado como Vulnerable por la UICN debido a la sobrepesca.",
+                            "identifier": 40101001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Epinephelus_marginatus"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Epinephelus costae",
+                            "alternateName": "Mero dorado",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos entre 30-200 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Portugal hasta Angola y Mar Mediterráneo occidental"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Mero de menor tamaño que E. marginatus (70-100 cm) que se distingue por sus rayas horizontales doradas. Es hermafrodita protógino y territorial. Se alimenta de peces, crustáceos y cefalópodos. Habita en aguas más profundas que el mero común.",
+                            "identifier": 40101002,
+                            "sameAs": "https://es.wikipedia.org/wiki/Epinephelus_costae"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Epinephelus caninus",
+                            "alternateName": "Mero dentón",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y arenosos entre 30-400 m de profundidad, habitualmente 100-150 m"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental y Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Mero de aguas profundas que puede alcanzar hasta 164 cm y 90 kg. Presenta coloración marrón grisácea con líneas verticales. Es solitario, territorial y depredador oportunista. A menudo confundido con la cherna, se distingue por el perfil convexo de la cabeza.",
+                            "identifier": 40101003,
+                            "sameAs": "https://es.wikipedia.org/wiki/Epinephelus_caninus"
+                        }
+                    ],
+                    "identifier": 40101000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Serranus",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Serranus cabrilla",
+                            "alternateName": "Cabrilla",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos costeros entre 5-60 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "El serránido más común del Mediterráneo. Es hermafrodita simultáneo (macho y hembra a la vez) y puede auto-fecundarse si no encuentra pareja. Fuertemente territorial y solitario, se alimenta de pequeños peces, crustáceos y gusanos. Presenta bandas verticales oscuras y alcanza hasta 40 cm de longitud.",
+                            "identifier": 40102001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Serranus_cabrilla"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Serranus scriba",
+                            "alternateName": "Vaca serrana",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y praderas marinas entre 5-150 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Golfo de Vizcaya hasta Angola y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Se caracteriza por líneas azules en la cabeza que recuerdan a escritura, de ahí su nombre scriba. Es hermafrodita simultáneo y territorial. Se alimenta de pequeños invertebrados bentónicos. Su población está aumentando en algunas zonas debido al calentamiento de las aguas. Alcanza hasta 36 cm de longitud.",
+                            "identifier": 40102002,
+                            "sameAs": "https://es.wikipedia.org/wiki/Serranus_scriba"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Serranus hepatus",
+                            "alternateName": "Merillo",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y arenosos entre 10-100 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental y Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "El serránido más pequeño del Mediterráneo, alcanzando solo 10 cm de longitud. Es hermafrodita simultáneo y se alimenta de pequeños crustáceos y gusanos. Presenta coloración marrón con manchas más claras y es menos territorial que otros Serranus.",
+                            "identifier": 40102003,
+                            "sameAs": "https://es.wikipedia.org/wiki/Serranus_hepatus"
+                        }
+                    ],
+                    "identifier": 40102000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Anthias",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Anthias anthias",
+                            "alternateName": "Tres colas",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y paredes verticales entre 15-300 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Golfo de Vizcaya hasta Angola, Azores, Madeira, Canarias y Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Pez de colores muy vistosos (rosa, amarillo, naranja) que vive en grupos numerosos cerca de paredes rocosas. Es hermafrodita protógino y se alimenta de zooplancton. Los machos son más grandes y coloridos que las hembras. Presenta aletas muy desarrolladas, especialmente la caudal con tres puntas características. Alcanza hasta 24 cm de longitud.",
+                            "identifier": 40103001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Anthias_anthias"
+                        }
+                    ],
+                    "identifier": 40103000
+                }
+            ],
+            "identifier": 40000000,
+            "sameAs": "https://es.wikipedia.org/wiki/Serranidae"
+        },
+        {
+            "@type": "Taxon",
+            "hasDefinedTerm": "Syngnathidae",
+            "alternateName": "Signátidos",
+            "name": "clase",
+            "childTaxon": [
+                {
+                    "@type": "Taxon",
+                    "name": "Hippocampus",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Hippocampus hippocampus",
+                            "alternateName": "Caballito de mar común",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Praderas de Posidonia y zonas de algas, aguas fangosas poco profundas hasta 20 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Mar Mediterráneo y Atlántico oriental desde Islas Británicas hasta Golfo de Guinea, Canarias y Azores"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Caballito de mar de hocico corto (no excede un tercio de la cabeza) con coloración variable desde marrón hasta amarillo, naranja, morado, negro o verde. Presenta una espina prominente sobre cada ojo. Los machos incuban los huevos en su bolsa ventral durante 2-4 semanas. Son monógamos y sedentarios. Alcanza entre 9-13 cm de longitud.",
+                            "identifier": 50101001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Hippocampus_hippocampus"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Hippocampus guttulatus",
+                            "alternateName": "Caballito de mar mediterráneo",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Praderas marinas, zonas rocosas con algas y fondos arenosos entre 1-20 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Reino Unido hasta Marruecos, Canarias, Azores, Madeira, Mar Mediterráneo y Mar Negro"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Se distingue de H. hippocampus por su hocico más largo y las protuberancias alargadas en la nuca que parecen una 'melena de caballo'. Es monógamo y ovovivíparo, con el macho incubando los huevos durante 21 días. Las crías son planctónicas durante 8 semanas. Alcanza hasta 18 cm de longitud.",
+                            "identifier": 50101002,
+                            "sameAs": "https://es.wikipedia.org/wiki/Hippocampus_guttulatus"
+                        }
+                    ],
+                    "identifier": 50101000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Syngnathus",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Syngnathus acus",
+                            "alternateName": "Pez aguja",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Praderas marinas, zonas rocosas con algas y estuarios entre 1-100 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Noruega hasta Marruecos y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Pez alargado con hocico tubular y cuerpo cubierto de placas óseas. El macho incuba los huevos bajo su cola en una bolsa especial. Se camufla perfectamente entre las algas y praderas marinas. Se alimenta de pequeños crustáceos y zooplancton aspirándolos con su hocico. Alcanza hasta 60 cm de longitud.",
+                            "identifier": 50102001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Syngnathus_acus"
+                        }
+                    ],
+                    "identifier": 50102000
+                }
+            ],
+            "identifier": 50000000,
+            "sameAs": "https://es.wikipedia.org/wiki/Syngnathidae"
+        },
+        {
+            "@type": "Taxon",
+            "hasDefinedTerm": "Scorpaenidae",
+            "alternateName": "Escorpenas",
+            "name": "clase",
+            "childTaxon": [
+                {
+                    "@type": "Taxon",
+                    "name": "Scorpaena",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Scorpaena scrofa",
+                            "alternateName": "Cabracho",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos entre 20-200 m de profundidad, sube a superficies en primavera para reproducirse"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Islas Británicas hasta Senegal, Azores, Madeira, Canarias y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "El cabracho es la escorpena de mayor tamaño del Mediterráneo, alcanzando hasta 50 cm. Posee espinas venenosas en las aletas dorsales que pueden causar heridas dolorosas. Es un experto en camuflaje con coloración rojiza moteada. Se alimenta de crustáceos, moluscos y peces. Su carne es muy apreciada gastronómicamente, especialmente para sopas de pescado.",
+                            "identifier": 60101001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Scorpaena_scrofa"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Scorpaena porcus",
+                            "alternateName": "Escorpena negra",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y praderas marinas entre 5-150 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Golfo de Vizcaya hasta Senegal y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Escorpena de tamaño mediano (hasta 25 cm) con coloración más oscura que S. scrofa. Posee espinas venenosas y excelente camuflaje. Poco hábil nadando, vive en el fondo camuflada entre vegetación. Caza al acecho y es muy apreciada para sopas de pescado. Se captura fácilmente con arpón o red.",
+                            "identifier": 60101002,
+                            "sameAs": "https://es.wikipedia.org/wiki/Scorpaena_porcus"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Scorpaena notata",
+                            "alternateName": "Escórpora",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos, praderas marinas y fondos arenosos hasta 700 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Desde Canarias hasta Mar Negro, Madeira, Azores y costas de Senegal"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Fácilmente reconocible por la mancha negra característica en su aleta dorsal. Es la escorpena más pequeña del Mediterráneo (hasta 12 cm). Posee espinas venenosas y se camufla perfectamente con su entorno. Su carne se utiliza tradicionalmente para la preparación de bullabesa. El crecimiento es lento y las poblaciones están disminuyendo.",
+                            "identifier": 60101003,
+                            "sameAs": "https://es.wikipedia.org/wiki/Scorpaena_notata"
+                        }
+                    ],
+                    "identifier": 60101000
+                }
+            ],
+            "identifier": 60000000,
+            "sameAs": "https://es.wikipedia.org/wiki/Scorpaenidae"
+        },
+        {
+            "@type": "Taxon",
+            "hasDefinedTerm": "Gobiidae",
+            "alternateName": "Góbidos",
+            "name": "clase",
+            "childTaxon": [
+                {
+                    "@type": "Taxon",
+                    "name": "Gobius",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Gobius cobitis",
+                            "alternateName": "Gobio de roca",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos costeros, diques, zonas portuarias y charcas de marea desde superficie hasta 10 m"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "El gobio de mayor tamaño del Mediterráneo, alcanzando hasta 30 cm. Presenta cabeza más ancha que alta, labios prominentes y aletas pélvicas fusionadas formando ventosa. Coloración variable del marrón al negro. Es extremadamente territorial y solitario. Se alimenta de pequeños invertebrados y juveniles de peces. Los machos cuidan los huevos bajo las rocas.",
+                            "identifier": 70101001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Gobius_cobitis"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Gobius paganellus",
+                            "alternateName": "Gobio de roca común",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos y praderas marinas entre 0-15 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Noruega hasta Marruecos y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Gobio de tamaño mediano (hasta 13 cm) con coloración multicolor en tonos rojos, marrones y beige. Vive de forma solitaria y se mantiene inmóvil en el fondo. Se mimetiza perfectamente con su entorno para sorprender a sus presas. Presenta temperamento tranquilo aunque puede mostrar agresividad territorial.",
+                            "identifier": 70101002,
+                            "sameAs": "https://es.wikipedia.org/wiki/Gobius_paganellus"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Gobius auratus",
+                            "alternateName": "Gobio dorado",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Fondos rocosos tapizados por algas entre 5-80 m de profundidad, más común por encima de 30 m"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Endémico del Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Fácilmente identificable por su coloración amarilla intensa. Es un gobio pequeño (8-10 cm) con grandes ojos negro-verdosos. Presenta manchas oscuras en mejillas y aletas pectorales. Vive solitario o en pequeños grupos, siendo bastante tímido. Los machos cuidan los huevos en sus refugios durante abril-mayo.",
+                            "identifier": 70101003,
+                            "sameAs": "https://es.wikipedia.org/wiki/Gobius_auratus"
+                        },
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Gobius bucchichi",
+                            "alternateName": "Gobio moteado",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Zonas costeras con parches de arena cerca de rocas y guijarros cubiertos de algas entre 1-8 m"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Endémico del mar Adriático y norte del mar Jónico"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Gobio de tamaño pequeño (hasta 9 cm) con patrón de puntos marrones que forman líneas longitudinales. La madurez sexual se alcanza a los 3-3,6 cm. A veces se refugia entre los tentáculos de anémonas verdes. Es una especie endémica con distribución muy restringida.",
+                            "identifier": 70101004,
+                            "sameAs": "https://es.wikipedia.org/wiki/Gobius_bucchichi"
+                        }
+                    ],
+                    "identifier": 70101000
+                }
+            ],
+            "identifier": 70000000,
+            "sameAs": "https://es.wikipedia.org/wiki/Gobiidae"
+        },
+        {
+            "@type": "Taxon",
+            "hasDefinedTerm": "Clupeidae",
+            "alternateName": "Sardinas",
+            "name": "clase",
+            "childTaxon": [
+                {
+                    "@type": "Taxon",
+                    "name": "Sardina",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Sardina pilchardus",
+                            "alternateName": "Sardina europea",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Pez pelágico costero que vive en aguas abiertas hasta 150 m de profundidad, asciende a superficie por la noche"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Islandia hasta Senegal, todo el Mar Mediterráneo y Mar Negro"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "La sardina europea es un pez pelágico gregario que forma grandes bancos como mecanismo de defensa. Se alimenta de plancton y pequeños crustáceos que filtra con sus branquiespinas. Es ovovivípara y puede poner hasta 60,000 huevos. Alcanza hasta 25 cm de longitud. Es una especie de gran importancia comercial pero sus poblaciones han disminuido por sobrepesca.",
+                            "identifier": 80101001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Sardina_pilchardus"
+                        }
+                    ],
+                    "identifier": 80101000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Engraulis",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Engraulis encrasicolus",
+                            "alternateName": "Anchoa europea",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Pez pelágico costero que vive en bancos compactos a lo largo de las costas hasta 400 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental, Mar Mediterráneo, Mar Negro, Mar Báltico y Mar del Norte"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "La anchoa europea, también conocida como boquerón, es un pequeño pez pelágico de 15-20 cm con dorso azul verdoso y costados plateados. Vive en bancos compactos y se alimenta de plancton. Su pesca es muy importante en el Mediterráneo, especialmente de agosto a octubre. Es una especie clave en la cadena alimentaria marina.",
+                            "identifier": 80102001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Engraulis_encrasicolus"
+                        }
+                    ],
+                    "identifier": 80102000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Sardinella",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Sardinella aurita",
+                            "alternateName": "Alacha",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Pez pelágico costero que vive en aguas cálidas hasta 350 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Circuntropical, común en el Mar Mediterráneo especialmente en la zona meridional"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "También conocida como sardina de ley u orejera. Se distingue de la sardina común por sus características escamas y su distribución más meridional. Forma bancos en aguas más cálidas y es bastante común en el Mediterráneo sur. Alcanza hasta 30 cm de longitud y es una especie comercialmente importante en ciertas áreas.",
+                            "identifier": 80103001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Sardinella_aurita"
+                        }
+                    ],
+                    "identifier": 80103000
+                }
+            ],
+            "identifier": 80000000,
+            "sameAs": "https://es.wikipedia.org/wiki/Clupeidae"
+        },
+        {
+            "@type": "Taxon",
+            "hasDefinedTerm": "Tetraodontidae",
+            "alternateName": "Tetraodóntidos",
+            "name": "clase",
+            "childTaxon": [
+                {
+                    "@type": "Taxon",
+                    "name": "Lagocephalus",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Lagocephalus lagocephalus",
+                            "alternateName": "Pez globo oceánico",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Pez pelágico oceánico que vive en aguas abiertas y se acerca a la costa ocasionalmente"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Circuntropical, ocasional en el Mar Mediterráneo debido al calentamiento de las aguas"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Pez globo oceánico que puede inflar su cuerpo como mecanismo de defensa. Su piel contiene tetrodotoxina, una potente neurotoxina. Es una especie termófila que ha comenzado a aparecer en el Mediterráneo debido al calentamiento de las aguas. Puede alcanzar hasta 60 cm de longitud. Se alimenta de crustáceos, moluscos y pequeños peces.",
+                            "identifier": 90101001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Lagocephalus_lagocephalus"
+                        }
+                    ],
+                    "identifier": 90101000
+                }
+            ],
+            "identifier": 90000000,
+            "sameAs": "https://es.wikipedia.org/wiki/Tetraodontidae"
+        },
+        {
+            "@type": "Taxon",
+            "hasDefinedTerm": "Scyphozoa",
+            "alternateName": "Escifozoos",
+            "name": "clase",
+            "childTaxon": [
+                {
+                    "@type": "Taxon",
+                    "name": "Rhizostoma",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Rhizostoma pulmo",
+                            "alternateName": "Medusa azul",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Aguas pelágicas costeras y oceánicas, desde superficie hasta 150 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico oriental desde Islas Británicas hasta África y todo el Mar Mediterráneo"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "La medusa azul es una de las medusas más grandes del Mediterráneo, con umbrela que puede alcanzar hasta 60 cm de diámetro. Presenta coloración azulada característica y tentáculos cortos. Su picadura es generalmente leve en humanos. Se alimenta de plancton y pequeños organismos marinos. Es una especie importante en el ecosistema pelágico mediterráneo.",
+                            "identifier": 100101001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Rhizostoma_pulmo"
+                        }
+                    ],
+                    "identifier": 100101000
+                },
+                {
+                    "@type": "Taxon",
+                    "name": "Pelagia",
+                    "childTaxon": [
+                        {
+                            "@type": "Taxon",
+                            "hasDefinedTerm": "Pelagia noctiluca",
+                            "alternateName": "Medusa luminiscente",
+                            "additionalProperty": [
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Habitat",
+                                    "value": "Aguas pelágicas oceánicas, desde superficie hasta 1400 m de profundidad"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Distribución",
+                                    "value": "Atlántico, Pacífico, Índico y Mar Mediterráneo, especie cosmopolita"
+                                },
+                                {
+                                    "@type": "PropertyValue",
+                                    "name": "Video",
+                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                }
+                            ],
+                            "description": "Medusa pelágica de color rosado-violáceo que puede producir bioluminiscencia cuando es perturbada. Su umbrela alcanza hasta 12 cm de diámetro. Posee cuatro largos tentáculos muy urticantes que pueden causar picaduras dolorosas en humanos. Es una especie holoplanctónica (todo su ciclo de vida es pelágico) y puede formar grandes enjambres en el Mediterráneo.",
+                            "identifier": 100102001,
+                            "sameAs": "https://es.wikipedia.org/wiki/Pelagia_noctiluca"
+                        }
+                    ],
+                    "identifier": 100102000
+                }
+            ],
+            "identifier": 100000000,
+            "sameAs": "https://es.wikipedia.org/wiki/Scyphozoa"
         }
     ]
 }

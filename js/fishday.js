@@ -1,9 +1,9 @@
 /**
- * Fish of the Day functionality
+ * Fish of the Day functionality - Optimizado para carga rápida
  */
 document.addEventListener('DOMContentLoaded', function () {
-    // Debug mode
-    const DEBUG = true;
+    // Debug mode - cambiar a false en producción
+    const DEBUG = false;
 
     function logDebug(message, data) {
         if (DEBUG) {
@@ -27,6 +27,34 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
+    // Función recursiva optimizada para encontrar elementos finales
+    function findLeafNodes(node, path = []) {
+        const leaves = [];
+        
+        // Si el nodo tiene hasDefinedTerm, verificar si es una hoja
+        if (node.hasDefinedTerm) {
+            const hasValidChildren = node.childTaxon && 
+                                   Array.isArray(node.childTaxon) && 
+                                   node.childTaxon.length > 0 &&
+                                   node.childTaxon.some(child => child.hasDefinedTerm);
+            
+            if (!hasValidChildren) {
+                // Es una hoja, añadirla sin información extra innecesaria
+                leaves.push(node);
+                if (DEBUG) logDebug(`Hoja encontrada: ${node.hasDefinedTerm}`);
+            }
+        }
+
+        // Continuar buscando en los hijos si existen
+        if (node.childTaxon && Array.isArray(node.childTaxon)) {
+            for (const child of node.childTaxon) {
+                leaves.push(...findLeafNodes(child, path));
+            }
+        }
+
+        return leaves;
+    }
+
     // Function to get a random fish based on the current date
     async function getFishOfTheDay() {
         try {
@@ -38,85 +66,25 @@ document.addEventListener('DOMContentLoaded', function () {
             // Fetch the fish data from the JSON file
             const response = await fetch(jsonPath);
             if (!response.ok) {
-                throw new Error(`Failed to fetch fish data from ${jsonPath}: ${response.status} ${response.statusText}`);
+                throw new Error(`Failed to fetch fish data: ${response.status}`);
             }
 
             const data = await response.json();
             logDebug('JSON cargado correctamente');
 
-            // Flatten the nested structure to get all fishes
-            let allFishes = [];
-
-            try {
-                // Check if the structure is as expected
-                if (!data.itemListElement || !Array.isArray(data.itemListElement)) {
-                    throw new Error('Estructura de JSON inválida: itemListElement no encontrado o no es un array');
-                }
-
-                logDebug('Procesando estructura de datos', data.itemListElement.length + ' elementos en nivel 1');
-
-                // Process each class
-                data.itemListElement.forEach((classItem, i) => {
-                    logDebug(`Procesando clase ${i}: ${classItem.hasDefinedTerm || 'unknown'}`);
-
-                    if (classItem.childTaxon && Array.isArray(classItem.childTaxon)) {
-                        // Process each subclass
-                        classItem.childTaxon.forEach((subclassItem, j) => {
-                            logDebug(`Procesando subclase ${i}.${j}: ${subclassItem.hasDefinedTerm || 'unknown'}`);
-
-                            if (subclassItem.childTaxon && Array.isArray(subclassItem.childTaxon)) {
-                                // Add all species to our list
-                                logDebug(`Encontrados ${subclassItem.childTaxon.length} peces en subclase ${i}.${j}`);
-                                subclassItem.childTaxon.forEach(fish => {
-                                    if (fish.hasDefinedTerm) {
-                                        allFishes.push(fish);
-                                        logDebug(`Añadido pez: ${fish.hasDefinedTerm}`, fish);
-                                    }
-                                });
-                            } else {
-                                // If it's a leaf node (a fish without children)
-                                if (subclassItem.hasDefinedTerm) {
-                                    allFishes.push(subclassItem);
-                                    logDebug(`Añadido pez (nivel subclase): ${subclassItem.hasDefinedTerm}`, subclassItem);
-                                }
-                            }
-                        });
-                    } else {
-                        // If it's a leaf node (a fish without children)
-                        if (classItem.hasDefinedTerm) {
-                            allFishes.push(classItem);
-                            logDebug(`Añadido pez (nivel clase): ${classItem.hasDefinedTerm}`, classItem);
-                        }
-                    }
-                });
-            } catch (parseError) {
-                console.error('Error parsing fish data structure:', parseError);
-                logDebug('Error al procesar estructura de datos:', parseError.message);
-
-                // Fallback: try to find any objects with hasDefinedTerm
-                logDebug('Intentando método alternativo para extraer peces');
-
-                function findFishRecursive(obj) {
-                    if (!obj || typeof obj !== 'object') return;
-
-                    if (obj.hasDefinedTerm) {
-                        allFishes.push(obj);
-                        logDebug(`Añadido pez (método alternativo): ${obj.hasDefinedTerm}`);
-                    }
-
-                    for (const key in obj) {
-                        if (Array.isArray(obj[key])) {
-                            obj[key].forEach(item => findFishRecursive(item));
-                        } else if (typeof obj[key] === 'object') {
-                            findFishRecursive(obj[key]);
-                        }
-                    }
-                }
-
-                findFishRecursive(data);
+            // Verificar estructura básica
+            if (!data.itemListElement || !Array.isArray(data.itemListElement)) {
+                throw new Error('Estructura de JSON inválida');
             }
 
-            // If no fish found, show error
+            // Encontrar todos los elementos finales de forma optimizada
+            let allFishes = [];
+            
+            for (const rootItem of data.itemListElement) {
+                allFishes.push(...findLeafNodes(rootItem));
+            }
+
+            // Si no se encontraron peces, mostrar error
             if (allFishes.length === 0) {
                 throw new Error('No se encontraron peces en el archivo JSON');
             }
@@ -128,41 +96,48 @@ document.addEventListener('DOMContentLoaded', function () {
             const random = seededRandom(seed);
             const randomIndex = Math.floor(random() * allFishes.length);
 
-            logDebug(`Índice aleatorio generado: ${randomIndex} de ${allFishes.length}`);
-
             // Get the random fish
             const fishOfTheDay = allFishes[randomIndex];
 
             if (!fishOfTheDay) {
-                throw new Error(`No se pudo seleccionar el pez. Índice: ${randomIndex}, Total peces: ${allFishes.length}`);
+                throw new Error('No se pudo seleccionar el pez');
             }
 
-            logDebug('Pez del día seleccionado:', fishOfTheDay);
+            logDebug('Pez del día seleccionado:', fishOfTheDay.hasDefinedTerm);
 
             // Update the DOM with the fish information
-            document.getElementById('fish-name').textContent = fishOfTheDay.hasDefinedTerm || 'Nombre no disponible';
+            const fishName = fishOfTheDay.hasDefinedTerm || 'Nombre no disponible';
+            const displayName = fishOfTheDay.alternateName ? 
+                `${fishName} (${fishOfTheDay.alternateName})` : 
+                fishName;
+            
+            document.getElementById('fish-name').textContent = displayName;
+            
+            // Procesar descripción para permitir saltos de línea
+            const description = fishOfTheDay.description || 'Descripción no disponible';
+            const descriptionElement = document.getElementById('fish-description');
+            descriptionElement.innerHTML = description.replace(/\n/g, '<br>');
 
-            if (fishOfTheDay.alternateName) {
-                document.getElementById('fish-name').textContent += ` (${fishOfTheDay.alternateName})`;
-            }
 
-            document.getElementById('fish-description').textContent = fishOfTheDay.description || 'Descripción no disponible';
-
-            // Set habitat and distribution if available
+            // Extraer propiedades de forma optimizada
             let habitat = 'No disponible';
             let distribution = 'No disponible';
             let videoUrl = null;
 
-            if (fishOfTheDay.additionalProperty && Array.isArray(fishOfTheDay.additionalProperty)) {
-                fishOfTheDay.additionalProperty.forEach(prop => {
-                    if (prop.name === 'Habitat') {
-                        habitat = prop.value;
-                    } else if (prop.name === 'Distribución') {
-                        distribution = prop.value;
-                    } else if (prop.name === 'Video') {
-                        videoUrl = prop.value;
+            if (fishOfTheDay.additionalProperty) {
+                for (const prop of fishOfTheDay.additionalProperty) {
+                    switch (prop.name) {
+                        case 'Habitat':
+                            habitat = prop.value;
+                            break;
+                        case 'Distribución':
+                            distribution = prop.value;
+                            break;
+                        case 'Video':
+                            videoUrl = prop.value;
+                            break;
                     }
-                });
+                }
             }
 
             document.getElementById('fish-habitat').textContent = habitat;
@@ -177,42 +152,52 @@ document.addEventListener('DOMContentLoaded', function () {
                 videoLink.style.display = 'none';
             }
 
-            // Set up fish image - rutas ajustadas según la estructura de carpetas
+            // Set up fish image con fallback WebP -> JPG
             const fishImage = document.getElementById('fish-image');
             if (fishOfTheDay.identifier) {
-                const imagePath = `assets/img/fishes/${fishOfTheDay.identifier}.jpg`;
-                logDebug(`Intentando cargar imagen: ${imagePath}`);
+                const webpPath = `assets/img/fishes/${fishOfTheDay.identifier}.webp`;
+                const jpgPath = `assets/img/fishes/${fishOfTheDay.identifier}.jpg`;
+                
+                // Primero intentar cargar WebP
+                fishImage.src = webpPath;
+                fishImage.alt = fishName;
 
-                fishImage.src = imagePath;
-                fishImage.alt = fishOfTheDay.hasDefinedTerm || 'Pez del día';
-
-                // Handle missing image with an error handler
+                // Si WebP falla, intentar JPG, si JPG falla, usar placeholder
                 fishImage.onerror = function () {
-                    logDebug(`Error al cargar imagen: ${imagePath}, usando placeholder`);
-                    this.src = 'assets/img/placeholder-fish.jpg';
+                    if (this.src.includes('.webp')) {
+                        // Si falló WebP, intentar JPG
+                        this.src = jpgPath;
+                    } else {
+                        // Si falló JPG (o cualquier otra cosa), usar placeholder
+                        this.src = 'assets/img/placeholder-fish.jpg';
+                        this.onerror = null; // Prevenir loops infinitos
+                    }
                 };
             } else {
-                logDebug('No se encontró ID para el pez, usando placeholder');
                 fishImage.src = 'assets/img/placeholder-fish.jpg';
+                fishImage.alt = 'Pez del día';
             }
 
             logDebug('Pez del día cargado correctamente');
 
         } catch (error) {
             console.error('Error loading fish of the day:', error);
-            logDebug('Error crítico:', error.message);
 
             // Show error message in the UI
             document.getElementById('fish-name').textContent = 'Error al cargar el pez del día';
-            document.getElementById('fish-description').textContent = 'Por favor, inténtalo de nuevo más tarde o contacta con el administrador.';
+            document.getElementById('fish-description').textContent = 
+                'Por favor, inténtalo de nuevo más tarde.';
             document.getElementById('fish-habitat').textContent = 'No disponible';
             document.getElementById('fish-distribution').textContent = 'No disponible';
             document.getElementById('fish-video-link').style.display = 'none';
+            
+            // Usar imagen de placeholder en caso de error
+            document.getElementById('fish-image').src = 'assets/img/placeholder-fish.jpg';
         }
     }
 
-    // Mostrar mensajes de inicio
-    logDebug('Script iniciado - esperando a que cargue el DOM');
+    // Mostrar mensajes de inicio solo en debug
+    if (DEBUG) logDebug('Script iniciado - esperando a que cargue el DOM');
 
     // Load the fish of the day when the page loads
     getFishOfTheDay();
