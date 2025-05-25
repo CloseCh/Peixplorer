@@ -1,0 +1,77 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  "name": "Quiz sobre Peces",
+  "description": "Pon a prueba tus conocimientos sobre peces con este divertido cuestionario.",
+  "hasPart": [
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el pez más rápido del océano?",
+      "text": "Elige la opción correcta sobre el pez más rápido en el agua.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pez Vela"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Pez Espada"
+        },
+        {
+          "@type": "Answer",
+          "text": "Atún Rojo"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Vela"
+        }
+      ]
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pez puede inflarse como mecanismo de defensa?",
+      "text": "Este pez se infla cuando se siente amenazado.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pez Globo"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Pez Payaso"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Globo"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez León"
+        }
+      ]
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál de estos peces es bioluminiscente?",
+      "text": "Elige el pez que puede emitir luz en la oscuridad.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pez Linterna"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Pez Betta"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Linterna"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Koi"
+        }
+      ]
+    }
+  ]
+}
