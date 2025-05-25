@@ -57,7 +57,7 @@
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Distribución",
-                                            "value": "Aguas templadas de todos los océanos. "
+                                            "value": "Aguas templadas de todos los océanos."
                                         },
                                         {
                                             "@type": "PropertyValue",
@@ -77,12 +77,12 @@
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Habitat",
-                                            "value": "Mayor parte del tiempo entre los 0 y los 300 m de profundidad, pudiendo llegar a superar los 1000 m"
+                                            "value": "Mayor parte del tiempo entre los 0 y los 300 m de profundidad, pudiendo llegar a superar los 1000 m."
                                         },
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Distribución",
-                                            "value": "Se distribuye por todos los océanos y mares del mundo"
+                                            "value": "Se distribuye por todos los océanos y mares del mundo."
                                         },
                                         {
                                             "@type": "PropertyValue",
@@ -102,12 +102,12 @@
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Habitat",
-                                            "value": "Habita a lo largo de la costa, en las plataformas continentales, terrazas insulares y pasos y lagunas de atolones de coral, así como en aguas más profundas cerca de tierra; tanto cerca de la superficie como a profundidades de hasta más de 80 m"
+                                            "value": "Habita a lo largo de la costa, en las plataformas continentales, terrazas insulares y pasos y lagunas de atolones de coral, así como en aguas más profundas cerca de tierra; tanto cerca de la superficie como a profundidades de hasta más de 80 m."
                                         },
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Distribución",
-                                            "value": "Especie migratoria, durante el verano se marcha de Florida y del Mar de China Austral hacia latitudes mayores"
+                                            "value": "Especie migratoria, durante el verano se marcha de Florida y del Mar de China Austral hacia latitudes mayores."
                                         },
                                         {
                                             "@type": "PropertyValue",
@@ -115,7 +115,7 @@
                                             "value": "https://www.youtube.com/watch?v=hLdwxNd7UMg"
                                         }
                                     ],
-                                    "description": "",
+                                    "description": "La característica más llamativa de todas las especies de tiburones martillo es la particular forma de la cabeza céfalofolia en forma de T o martillo, con los ojos y los orificios nasales situados en los extremos de la cabeza, gracias a lo cual el movimiento de cabeza de lado a lado, al nadar tiene una amplitud visual de casi 360° todo a su alrededor e incluso lo que queda a sus espaldas.\nEl tamaño medio de un adulto es de entre 3,7 m y 4 m, aunque el tamaño máximo registrado es 6,1 metros de longitud y casi media tonelada de peso.[2]​ Los machos al alcanzar la madurez miden entre 2,3 y 2,7 m, y alcanzan al menos los 3,4 m. Las hembras al alcanzar la madurez miden entre 2,5 y 3 m, y llegan a alcanzar entre 4,8 y 5,5 m.",
                                     "identifier": 10101004,
                                     "sameAs": "https://es.wikipedia.org/wiki/Sphyrna_mokarran"
                                 },
@@ -127,12 +127,12 @@
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Habitat",
-                                            "value": "Reposa sobre fondos arenosos desde los veinte hasta los 400 m de profundidad, siendo más abundante entre los 150 y los 300 m"
+                                            "value": "Reposa sobre fondos arenosos desde los veinte hasta los 400 m de profundidad, siendo más abundante entre los 150 y los 300 m."
                                         },
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Distribución",
-                                            "value": "Se encuentra en aguas frías y templadas, distribuido en el Atlántico nororiental, desde Noruega e islas británicas hasta Senegal y Costa de Marfil, incluyendo el Mediterráneo"
+                                            "value": "Se encuentra en aguas frías y templadas, distribuido en el Atlántico nororiental, desde Noruega e islas británicas hasta Senegal y Costa de Marfil, incluyendo el Mediterráneo."
                                         },
                                         {
                                             "@type": "PropertyValue",
@@ -140,7 +140,7 @@
                                             "value": "https://www.youtube.com/watch?v=l-HkpUAOznc"
                                         }
                                     ],
-                                    "description": "",
+                                    "description": "Posee un cuerpo alargado y una cabeza con morro corto y redondeado. Mide entre 40 y 50 cm de longitud, pudiendo llegar hasta un máximo de 100 cm. Su dorso es de color gris amarillento con pequeñas manchas pardas, negras y, en ocasiones, blancas más pequeñas que en el alitán. Su vientre es enteramente de color crema. Su piel es áspera y está cubierta de dentículos dérmicos.\n Posee ocho aletas: Dos pectorales, delante de las cuales se encuentran cinco hendiduras branquiales, dos pélvicas, largas y unidas en los machos por el margen interno,dos dorsales que se encuentran en posición distal respecto a la cabeza, una aleta anal corta y detrás de ésta una aleta caudal asimétrica. En la parte inferior de la cabeza se encuentran sus orificios nasales que están conectados con la boca a través de dos canales que se forman por una depresión del labio superior. Posee surcos labiales en la mandíbula inferior. Sus dientes son numerosos y pluricúspides.",
                                     "identifier": 10101005,
                                     "sameAs": "https://es.wikipedia.org/wiki/Scyliorhinus_canicula"
                                 },
@@ -152,20 +152,20 @@
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Habitat",
-                                            "value": "Habita en fondos entre 100 y 900 metros de profundidad, siendo más abundante entre 200 y 400 m"
+                                            "value": "Habita en fondos entre 100 y 900 metros de profundidad, siendo más abundante entre 200 y 400 m."
                                         },
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Distribución",
-                                            "value": "Aguas boreales a templadas, que aparece en zonas costeras y exteriores de la plataforma continental, en declives insulares y en la parte superior del talud"
+                                            "value": "Aguas boreales a templadas, que aparece en zonas costeras y exteriores de la plataforma continental, en declives insulares y en la parte superior del talud."
                                         },
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Video",
-                                            "value": "https://www.youtube.com/watch?v=hOWXRWf-L3g"
+                                            "value": "https://www.youtube.com/watch?v=HpoyIz-e04k"
                                         }
                                     ],
-                                    "description": "",
+                                    "description": "Es una especie muy abundante, de aguas boreales a templadas, que aparece en zonas costeras y exteriores de la plataforma continental, en declives insulares y en la parte superior del talud. Habita desde la superficie a las proximidades del fondo, generalmente muy próximo al mismo. Posiblemente sea el tiburón más abundante, no obstante su distribución es más restringida en relación con otras especies. Es un nadador lento e inactivo y se pueden encontrar tanto en solitario, en compañía de otros tiburones o formando grandes bancos, a veces de miles de ejemplares. En general, los machos aparecen en aguas más superficiales que las hembras, con excepción de las hembras preñadas. Muestra preferencia por aguas cuyo rango de temperatura oscila entre un mínimo de 7 u 8 °C y un máximo de 12 o 15 °C y supuestamente realiza migraciones latitudinales y en profundidad para mantenerse en dicho rango.",
                                     "identifier": 10101006,
                                     "sameAs": "https://es.wikipedia.org/wiki/Squalus_acanthias"
                                 },
@@ -187,7 +187,7 @@
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Video",
-                                            "value": "https://www.youtube.com/watch?v=hOWXRWf-L3g"
+                                            "value": "https://www.youtube.com/watch?v=Pc652g8ybg0"
                                         }
                                     ],
                                     "description": "Este tiburón es el Squaliforme más pequeño del Mediterráneo (sólo excepcionalmente alcanza los 50 cm). En las zonas donde solamente existe esta especie del género Etmopterus, se puede reconocer fácilmente por su coloración oscura, la ausencia de aleta anal, las aletas dorsales armadas con sendas espinas (aguzadas y bien visibles), todo ello junto a su pequeña talla corporal. Los ojos son grandes, verdosos. La parte ventral del cuerpo presenta numerosos pequeños fotóforos, que producen una luz intensa en los ejemplares vivos y en su medio",
@@ -199,7 +199,7 @@
                         },
                         {
                             "@type": "Taxon",
-                            "name": "Raya",
+                            "name": "Raja",
                             "childTaxon": [
                                 {
                                     "@type": "Taxon",
@@ -209,7 +209,7 @@
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Habitat",
-                                            "value": "Vive entre los 20 y los 600 m de profundidad"
+                                            "value": "Vive entre los 20 y los 600 m de profundidad."
                                         },
                                         {
                                             "@type": "PropertyValue",
@@ -234,17 +234,17 @@
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Habitat",
-                                            "value": "Vive entre 50 y 200 m de profundidad aunque se pueden observar ocasionalmente a menor profundidad, en torno a los 15m"
+                                            "value": "Vive entre 50 y 200 m de profundidad aunque se pueden observar ocasionalmente a menor profundidad, en torno a los 15m."
                                         },
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Distribución",
-                                            "value": "Se encuentra en el Océano Atlántico oriental (desde el sur de Irlanda y de Inglaterra hasta el Senegal, incluyendo las Islas Canarias) y el Mediterráneo"
+                                            "value": "Se encuentra en el Océano Atlántico oriental (desde el sur de Irlanda y de Inglaterra hasta el Senegal, incluyendo las Islas Canarias) y el Mediterráneo."
                                         },
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Video",
-                                            "value": "https://www.youtube.com/watch?v=vjESSuGz0ro"
+                                            "value": "https://www.youtube.com/watch?v=owYSFZ_VCUU"
                                         }
                                     ],
                                     "description": "Los machos pueden llegar a alcanzar los 100 cm de longitud total.",
@@ -269,7 +269,7 @@
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Video",
-                                            "value": "https://www.youtube.com/watch?v=zGdSkFz8f74"
+                                            "value": "https://www.youtube.com/watch?v=Ll9Hr4KI0c0"
                                         }
                                     ],
                                     "description": "Los machos pueden llegar a alcanzar los 70 cm de longitud total.\nAl igual que todas las especies de la familia Rajidae, es ovípara y las hembras ponen huevos envueltos en una cápsula córnea.\nCome animales bentónicos.",
@@ -279,7 +279,7 @@
                                 {
                                     "@type": "Taxon",
                                     "hasDefinedTerm": "Raja polystigma",
-                                    "alternateName": "",
+                                    "alternateName": "Raya manchada",
                                     "additionalProperty": [
                                         {
                                             "@type": "PropertyValue",
@@ -341,7 +341,7 @@
                     "childTaxon": [
                         {
                             "@type": "Taxon",
-                            "name": "Tiburon",
+                            "name": "Chimaera",
                             "childTaxon": [
                                 {
                                     "@type": "Taxon",
@@ -351,12 +351,12 @@
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Habitat",
-                                            "value": "Parece preferir la plataforma continental superior entre los 300 y 500 m de profundidad, con un máximo confirmado de 1663 m"
+                                            "value": "Parece preferir la plataforma continental superior entre los 300 y 500 m de profundidad, con un máximo confirmado de 1663 m."
                                         },
                                         {
                                             "@type": "PropertyValue",
                                             "name": "Distribución",
-                                            "value": "Propia del noreste de océano Atlántico y del mar Mediterráneo"
+                                            "value": "Propia del noreste de océano Atlántico y del mar Mediterráneo."
                                         },
                                         {
                                             "@type": "PropertyValue",
@@ -407,7 +407,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=LZMk4xQty0M"
                                 }
                             ],
                             "description": "La dorada es una especie hermafrodita protándrica que nace como macho y se convierte en hembra a los 2-3 años. Su nombre deriva de la característica franja dorada entre los ojos. Puede alcanzar hasta 70 cm de longitud y 7 kg de peso. Es omnívora, alimentándose principalmente de moluscos, crustáceos y algas. Es una especie de gran importancia comercial y acuícola en el Mediterráneo.",
@@ -439,7 +439,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=xhq3BsjozOw"
                                 }
                             ],
                             "description": "El sargo común es una especie hermafrodita proterándrica que presenta 8-9 bandas verticales oscuras en los flancos y una mancha negra en forma de silla de montar en el pedúnculo caudal. Alcanza los 25-30 cm de longitud. Se alimenta de invertebrados bentónicos aprovechando las oleadas para capturar presas desprendidas del fondo.",
@@ -464,7 +464,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=OrlzDgB1A_4"
                                 }
                             ],
                             "description": "Especie de pequeño tamaño (15-20 cm) con cuerpo gris amarillento y reflejos plateados. Se distingue por su franja anular negra en el pedúnculo caudal y la ausencia de bandas verticales en el cuerpo. Es hermafrodita protándrica y se alimenta de anélidos, crustáceos y moluscos.",
@@ -489,7 +489,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=GCyHLww_Xg8"
                                 }
                             ],
                             "description": "Se caracteriza por su hocico puntiagudo que le da nombre. Presenta 6-7 bandas oscuras alternadas con bandas más finas y claras. Puede alcanzar hasta 60 cm, aunque 30 cm es lo habitual. Tiene una mancha anular negra en el pedúnculo caudal y mandíbulas con 8 dientes incisivos. Es muy apreciado por los pescadores por su carne delicada.",
@@ -514,7 +514,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=n9GQsWwFs6s"
                                 }
                             ],
                             "description": "Se caracteriza por sus 5 franjas verticales gruesas y oscuras en los flancos, una banda oscura en el espacio interorbital y una mancha negra en la base de la aleta pectoral. Alcanza los 35 cm de longitud y tiene el cuerpo plateado con reflejos dorados.",
@@ -539,7 +539,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=KqUBIeGUtno"
                                 }
                             ],
                             "description": "Se distingue por sus 15-16 líneas longitudinales doradas en los flancos, una banda oscura triangular en la nuca y una banda anular negra en el pedúnculo caudal. Alcanza hasta 45 cm y tolera cambios de salinidad, adentrándose en aguas salobres de estuarios.",
@@ -571,7 +571,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=KJxZBuT3o4I"
                                 }
                             ],
                             "description": "El dentón es uno de los espáridos de mayor tamaño, pudiendo alcanzar más de 1 metro y 15 kg de peso. Se caracteriza por sus potentes dientes caninos y su cuerpo alargado de color plateado rosáceo. Los juveniles forman grupos pero los adultos son solitarios. Es un depredador voraz que se alimenta de peces, cefalópodos y crustáceos.",
@@ -603,7 +603,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=djQG_S5X-nI"
                                 }
                             ],
                             "description": "La breca tiene el cuerpo ovalado de color rosado plateado con una mancha roja característica detrás del opérculo. Alcanza hasta 60 cm de longitud. Es hermafrodita protándrica y se alimenta de crustáceos, moluscos, gusanos poliquetos y pequeños peces. Los juveniles forman grupos mientras que los adultos son más solitarios.",
@@ -628,7 +628,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=dZHJYFOH5-4"
                                 }
                             ],
                             "description": "El besugo es de color rosado plateado con tonos más intensos en el dorso. Puede alcanzar hasta 70 cm de longitud. Vive en aguas más profundas que otras especies de Pagellus y es muy apreciado gastronómicamente. Se alimenta de crustáceos, moluscos y pequeños peces.",
@@ -653,7 +653,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=CucGuS3d9yM"
                                 }
                             ],
                             "description": "El aligote es similar a la breca pero de menor tamaño (hasta 35 cm). Tiene el cuerpo plateado rosáceo y se distingue por la ausencia de la mancha roja característica de P. erythrinus. Es hermafrodita protándrica y se alimenta de invertebrados bentónicos.",
@@ -685,7 +685,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=CZ_Q5bejN4I"
                                 }
                             ],
                             "description": "La oblada se caracteriza por una mancha negra distintiva en el pedúnculo caudal y su cuerpo plateado con tonos azulados. Alcanza hasta 30 cm de longitud. Forma grandes bancos y es una especie pelágico-costera que se alimenta principalmente de zooplancton y pequeños invertebrados. A diferencia de otros espáridos, vive cerca de la superficie.",
@@ -717,7 +717,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=PmAiU5_ItcI"
                                 }
                             ],
                             "description": "La herrera tiene el cuerpo alargado de color plateado con 14-15 líneas longitudinales pardas. Puede alcanzar hasta 55 cm de longitud. Se caracteriza por su hocico alargado y cónico adaptado para buscar alimento en la arena. Es hermafrodita protándrica y se alimenta principalmente de invertebrados bentónicos que encuentra hozando en fondos blandos.",
@@ -749,7 +749,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=1S_2ivAFips"
                                 }
                             ],
                             "description": "La salema es única entre los espáridos por ser principalmente herbívora, alimentándose de algas. Presenta líneas longitudinales doradas muy características y forma grandes bancos. Alcanza hasta 45 cm de longitud. Es hermafrodita protándrica y juega un papel ecológico importante como controlador de algas en el ecosistema mediterráneo.",
@@ -781,7 +781,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=ocNCC8qWchQ"
                                 }
                             ],
                             "description": "La chopa tiene el cuerpo gris plateado con reflejos dorados y líneas longitudinales características. Alcanza hasta 60 cm de longitud. Es hermafrodita protándrica y se alimenta de invertebrados bentónicos, crustáceos y moluscos. Los juveniles forman bancos mientras que los adultos son más solitarios.",
@@ -823,7 +823,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=m91PFarkADk"
                                 }
                             ],
                             "description": "El tordo verde presenta un cuerpo fusiforme con cabeza muy alargada. Su coloración es variable: juveniles verdes con puntos blancos que se vuelven pardos o azules en adultos. Son hermafroditas protóginos y se alimentan de anélidos, crustáceos, equinodermos y moluscos. Solitarios y tímidos, alcanzan hasta 50 cm de longitud.",
@@ -848,7 +848,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=wybhuR7al8o"
                                 }
                             ],
                             "description": "Se distingue por las puntas azules de sus aletas. Es hermafrodita protógino, construye nidos con desechos vegetales durante la reproducción y presenta comportamiento territorial. Se alimenta de moluscos, crustáceos y pequeños peces. Alcanza hasta 45 cm de longitud.",
@@ -880,7 +880,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=riPTKiGJC90"
                                 }
                             ],
                             "description": "Presenta colores muy vivos con líneas azules y verdes. Los machos construyen nidos y cuidan los huevos. Es hermafrodita protógino y territorial durante la reproducción. Se alimenta de pequeños invertebrados. Alcanza hasta 35 cm de longitud.",
@@ -905,7 +905,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=hvNxo4Qctsc"
                                 }
                             ],
                             "description": "Caracterizado por un ocelo negro bordeado de azul en el opérculo. Presenta coloración multicolor con rojo, amarillo y azul. Es territorial y omnívoro con tendencia carnívora. Hermafrodita protógino. Alcanza entre 8-12 cm de longitud.",
@@ -930,7 +930,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=iQzmNJA7HOM"
                                 }
                             ],
                             "description": "Se distingue por su cola negra y coloración azul y naranja. Es territorial y carnívoro, protege sus huevos de los depredadores. Vive en pequeños grupos cerca del fondo. Alcanza entre 11-14 cm de longitud.",
@@ -962,7 +962,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=Ik0yBq9jcZk"
                                 }
                             ],
                             "description": "Presenta un marcado dimorfismo sexual: hembras con líneas longitudinales marrones y machos con colores verdes, azules y naranjas muy llamativos. Es hermafrodita protógina y se entierra en la arena por la noche. Se alimenta de pequeños invertebrados. Alcanza hasta 25 cm de longitud.",
@@ -994,7 +994,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=xKpg6IgW-ZM"
                                 }
                             ],
                             "description": "Conocido como pez arcoíris por su espectacular coloración con verdes, azules, naranjas y amarillos muy vivos. Los machos presentan colores más intensos que las hembras. Es hermafrodita protógino y muy activo durante el día. Se alimenta de pequeños invertebrados y zooplancton. Alcanza hasta 25 cm de longitud.",
@@ -1036,7 +1036,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=zCxCirseBmg"
                                 }
                             ],
                             "description": "El mero es el serránido de mayor tamaño del Mediterráneo, pudiendo alcanzar 150 cm y 50 kg. Es solitario, territorial y hermafrodita protógino (nace hembra, se convierte en macho entre los 7-12 años). Se alimenta principalmente de cefalópodos, crustáceos y peces. Vive en cuevas con múltiples salidas. Está catalogado como Vulnerable por la UICN debido a la sobrepesca.",
@@ -1061,7 +1061,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=i-rhXV6BLo0"
                                 }
                             ],
                             "description": "Mero de menor tamaño que E. marginatus (70-100 cm) que se distingue por sus rayas horizontales doradas. Es hermafrodita protógino y territorial. Se alimenta de peces, crustáceos y cefalópodos. Habita en aguas más profundas que el mero común.",
@@ -1086,7 +1086,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=cSyPbZKeoZs"
                                 }
                             ],
                             "description": "Mero de aguas profundas que puede alcanzar hasta 164 cm y 90 kg. Presenta coloración marrón grisácea con líneas verticales. Es solitario, territorial y depredador oportunista. A menudo confundido con la cherna, se distingue por el perfil convexo de la cabeza.",
@@ -1118,7 +1118,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=cGaa8s-EY88"
                                 }
                             ],
                             "description": "El serránido más común del Mediterráneo. Es hermafrodita simultáneo (macho y hembra a la vez) y puede auto-fecundarse si no encuentra pareja. Fuertemente territorial y solitario, se alimenta de pequeños peces, crustáceos y gusanos. Presenta bandas verticales oscuras y alcanza hasta 40 cm de longitud.",
@@ -1143,7 +1143,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=dswsW6mOU8M"
                                 }
                             ],
                             "description": "Se caracteriza por líneas azules en la cabeza que recuerdan a escritura, de ahí su nombre scriba. Es hermafrodita simultáneo y territorial. Se alimenta de pequeños invertebrados bentónicos. Su población está aumentando en algunas zonas debido al calentamiento de las aguas. Alcanza hasta 36 cm de longitud.",
@@ -1168,7 +1168,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=ZYgV9hRB47g"
                                 }
                             ],
                             "description": "El serránido más pequeño del Mediterráneo, alcanzando solo 10 cm de longitud. Es hermafrodita simultáneo y se alimenta de pequeños crustáceos y gusanos. Presenta coloración marrón con manchas más claras y es menos territorial que otros Serranus.",
@@ -1200,7 +1200,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=5NOGxQyd_i4"
                                 }
                             ],
                             "description": "Pez de colores muy vistosos (rosa, amarillo, naranja) que vive en grupos numerosos cerca de paredes rocosas. Es hermafrodita protógino y se alimenta de zooplancton. Los machos son más grandes y coloridos que las hembras. Presenta aletas muy desarrolladas, especialmente la caudal con tres puntas características. Alcanza hasta 24 cm de longitud.",
@@ -1242,7 +1242,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=n8eHFpn_mb8"
                                 }
                             ],
                             "description": "Caballito de mar de hocico corto (no excede un tercio de la cabeza) con coloración variable desde marrón hasta amarillo, naranja, morado, negro o verde. Presenta una espina prominente sobre cada ojo. Los machos incuban los huevos en su bolsa ventral durante 2-4 semanas. Son monógamos y sedentarios. Alcanza entre 9-13 cm de longitud.",
@@ -1267,7 +1267,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=8xLvtTx6cs0"
                                 }
                             ],
                             "description": "Se distingue de H. hippocampus por su hocico más largo y las protuberancias alargadas en la nuca que parecen una 'melena de caballo'. Es monógamo y ovovivíparo, con el macho incubando los huevos durante 21 días. Las crías son planctónicas durante 8 semanas. Alcanza hasta 18 cm de longitud.",
@@ -1299,7 +1299,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=olio9S8ORlo"
                                 }
                             ],
                             "description": "Pez alargado con hocico tubular y cuerpo cubierto de placas óseas. El macho incuba los huevos bajo su cola en una bolsa especial. Se camufla perfectamente entre las algas y praderas marinas. Se alimenta de pequeños crustáceos y zooplancton aspirándolos con su hocico. Alcanza hasta 60 cm de longitud.",
@@ -1341,7 +1341,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=OSkJxWqzwjc"
                                 }
                             ],
                             "description": "El cabracho es la escorpena de mayor tamaño del Mediterráneo, alcanzando hasta 50 cm. Posee espinas venenosas en las aletas dorsales que pueden causar heridas dolorosas. Es un experto en camuflaje con coloración rojiza moteada. Se alimenta de crustáceos, moluscos y peces. Su carne es muy apreciada gastronómicamente, especialmente para sopas de pescado.",
@@ -1366,7 +1366,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=N2sHgC-U53I"
                                 }
                             ],
                             "description": "Escorpena de tamaño mediano (hasta 25 cm) con coloración más oscura que S. scrofa. Posee espinas venenosas y excelente camuflaje. Poco hábil nadando, vive en el fondo camuflada entre vegetación. Caza al acecho y es muy apreciada para sopas de pescado. Se captura fácilmente con arpón o red.",
@@ -1391,7 +1391,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=Gfii5OCkba0"
                                 }
                             ],
                             "description": "Fácilmente reconocible por la mancha negra característica en su aleta dorsal. Es la escorpena más pequeña del Mediterráneo (hasta 12 cm). Posee espinas venenosas y se camufla perfectamente con su entorno. Su carne se utiliza tradicionalmente para la preparación de bullabesa. El crecimiento es lento y las poblaciones están disminuyendo.",
@@ -1433,7 +1433,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=WWuf6ieZPas"
                                 }
                             ],
                             "description": "El gobio de mayor tamaño del Mediterráneo, alcanzando hasta 30 cm. Presenta cabeza más ancha que alta, labios prominentes y aletas pélvicas fusionadas formando ventosa. Coloración variable del marrón al negro. Es extremadamente territorial y solitario. Se alimenta de pequeños invertebrados y juveniles de peces. Los machos cuidan los huevos bajo las rocas.",
@@ -1458,7 +1458,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=8IC0xVHwFME"
                                 }
                             ],
                             "description": "Gobio de tamaño mediano (hasta 13 cm) con coloración multicolor en tonos rojos, marrones y beige. Vive de forma solitaria y se mantiene inmóvil en el fondo. Se mimetiza perfectamente con su entorno para sorprender a sus presas. Presenta temperamento tranquilo aunque puede mostrar agresividad territorial.",
@@ -1483,7 +1483,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=YnY4OhAx8Wk"
                                 }
                             ],
                             "description": "Fácilmente identificable por su coloración amarilla intensa. Es un gobio pequeño (8-10 cm) con grandes ojos negro-verdosos. Presenta manchas oscuras en mejillas y aletas pectorales. Vive solitario o en pequeños grupos, siendo bastante tímido. Los machos cuidan los huevos en sus refugios durante abril-mayo.",
@@ -1508,7 +1508,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=-tl84kPWvZM"
                                 }
                             ],
                             "description": "Gobio de tamaño pequeño (hasta 9 cm) con patrón de puntos marrones que forman líneas longitudinales. La madurez sexual se alcanza a los 3-3,6 cm. A veces se refugia entre los tentáculos de anémonas verdes. Es una especie endémica con distribución muy restringida.",
@@ -1550,7 +1550,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=zkeB25ULJSE"
                                 }
                             ],
                             "description": "La sardina europea es un pez pelágico gregario que forma grandes bancos como mecanismo de defensa. Se alimenta de plancton y pequeños crustáceos que filtra con sus branquiespinas. Es ovovivípara y puede poner hasta 60,000 huevos. Alcanza hasta 25 cm de longitud. Es una especie de gran importancia comercial pero sus poblaciones han disminuido por sobrepesca.",
@@ -1582,7 +1582,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=9DQNhVrVG-8"
                                 }
                             ],
                             "description": "La anchoa europea, también conocida como boquerón, es un pequeño pez pelágico de 15-20 cm con dorso azul verdoso y costados plateados. Vive en bancos compactos y se alimenta de plancton. Su pesca es muy importante en el Mediterráneo, especialmente de agosto a octubre. Es una especie clave en la cadena alimentaria marina.",
@@ -1614,7 +1614,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=ZxcNosIHu2Y"
                                 }
                             ],
                             "description": "También conocida como sardina de ley u orejera. Se distingue de la sardina común por sus características escamas y su distribución más meridional. Forma bancos en aguas más cálidas y es bastante común en el Mediterráneo sur. Alcanza hasta 30 cm de longitud y es una especie comercialmente importante en ciertas áreas.",
@@ -1656,7 +1656,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=qlkyIjyruLQ"
                                 }
                             ],
                             "description": "Pez globo oceánico que puede inflar su cuerpo como mecanismo de defensa. Su piel contiene tetrodotoxina, una potente neurotoxina. Es una especie termófila que ha comenzado a aparecer en el Mediterráneo debido al calentamiento de las aguas. Puede alcanzar hasta 60 cm de longitud. Se alimenta de crustáceos, moluscos y pequeños peces.",
@@ -1698,7 +1698,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=zFcA8xVgSRA"
                                 }
                             ],
                             "description": "La medusa azul es una de las medusas más grandes del Mediterráneo, con umbrela que puede alcanzar hasta 60 cm de diámetro. Presenta coloración azulada característica y tentáculos cortos. Su picadura es generalmente leve en humanos. Se alimenta de plancton y pequeños organismos marinos. Es una especie importante en el ecosistema pelágico mediterráneo.",
@@ -1730,7 +1730,7 @@
                                 {
                                     "@type": "PropertyValue",
                                     "name": "Video",
-                                    "value": "https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                    "value": "https://www.youtube.com/watch?v=M4Jut4m_-D0"
                                 }
                             ],
                             "description": "Medusa pelágica de color rosado-violáceo que puede producir bioluminiscencia cuando es perturbada. Su umbrela alcanza hasta 12 cm de diámetro. Posee cuatro largos tentáculos muy urticantes que pueden causar picaduras dolorosas en humanos. Es una especie holoplanctónica (todo su ciclo de vida es pelágico) y puede formar grandes enjambres en el Mediterráneo.",

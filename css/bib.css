@@ -1,0 +1,407 @@
+/* Estilos para el sistema de búsqueda y filtros */
+.search-filter-container {
+    background: var(--surface-color);
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 0 25px rgba(0, 0, 0, 0.1);
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 50px 12px 20px;
+    border: 2px solid #e1e5e9;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(255, 74, 23, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 18px;
+}
+
+.filter-dropdown {
+    position: relative;
+}
+
+.filter-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-btn:hover {
+    background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.filter-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #e1e5e9;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin-top: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+}
+
+.filter-menu.show {
+    display: block;
+}
+
+.filter-section {
+    padding: 15px;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.filter-section:last-child {
+    border-bottom: none;
+}
+
+.filter-section h6 {
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.filter-option input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.filter-option label {
+    margin: 0;
+    cursor: pointer;
+    flex: 1;
+}
+
+/* Estilos para las cartas de peces */
+.fish-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.fish-card {
+    background: var(--surface-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 0 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.fish-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.fish-card-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(45deg, #f0f8ff, #e6f3ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.fish-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Cambiado de cover a contain */
+    background-color: #f8f9fa; /* Fondo para espacios vacíos */
+    transition: transform 0.3s ease;
+}
+
+.card-img-top {
+    object-fit: contain !important;
+    background-color: #f8f9fa !important;
+}
+
+.fish-card:hover .fish-card-image img {
+    transform: scale(1.1);
+}
+
+.fish-icon {
+    font-size: 60px;
+    color: var(--accent-color);
+    opacity: 0.7;
+}
+
+.fish-card-body {
+    padding: 20px;
+}
+
+.fish-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin: 0 0 8px 0;
+}
+
+.fish-card-subtitle {
+    font-size: 14px;
+    color: var(--accent-color);
+    margin: 0 0 10px 0;
+    font-weight: 500;
+}
+
+.fish-card-description {
+    font-size: 14px;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* =============================================
+                PAGINACIÓN
+   ============================================= */
+
+/* Contenedor principal - solo márgenes */
+.pagination-container {
+    margin: 50px 0 30px 0;
+    padding: 20px 0;
+}
+
+/* El grid de Bootstrap maneja el centrado automáticamente */
+.pagination-container .row {
+    margin: 0;
+}
+
+.pagination-container .col-auto {
+    padding: 0;
+}
+
+/* Personalización del componente pagination de Bootstrap */
+.pagination {
+    /* Fondo y sombra del contenedor */
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 15px 20px;
+    margin: 0;
+    
+    /* Animación de aparición */
+    animation: fadeInUp 0.5s ease-out;
+    
+    /* Variables CSS de Bootstrap personalizadas */
+    --bs-pagination-padding-x: 12px;
+    --bs-pagination-padding-y: 8px;
+    --bs-pagination-font-size: 14px;
+    --bs-pagination-color: #1e5a96; /* Celeste oscuro */
+    --bs-pagination-bg: white;
+    --bs-pagination-border-width: 2px;
+    --bs-pagination-border-color: #e8f4f8;
+    --bs-pagination-border-radius: 8px;
+    --bs-pagination-hover-color: #1e5a96;
+    --bs-pagination-hover-bg: #f0f8ff;
+    --bs-pagination-hover-border-color: #1e5a96;
+    --bs-pagination-focus-color: #1e5a96;
+    --bs-pagination-focus-bg: #f0f8ff;
+    --bs-pagination-focus-border-color: #1e5a96;
+    --bs-pagination-active-color: white;
+    --bs-pagination-active-bg: #1e5a96;
+    --bs-pagination-active-border-color: #1e5a96;
+    --bs-pagination-disabled-color: #b0c4de;
+    --bs-pagination-disabled-bg: #f8f9fa;
+    --bs-pagination-disabled-border-color: #f0f0f0;
+    
+    /* Espaciado entre elementos */
+    gap: 8px;
+}
+
+/* Personalización de los items de paginación */
+.pagination .page-item {
+    margin: 0;
+}
+
+/* Personalización de los enlaces */
+.pagination .page-link {
+    min-width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* Efecto de gradiente deslizante en hover */
+.pagination .page-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(30, 90, 150, 0.1), transparent);
+    transition: left 0.5s;
+    z-index: 1;
+}
+
+.pagination .page-link:hover::before {
+    left: 100%;
+}
+
+/* Efectos hover mejorados */
+.pagination .page-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 90, 150, 0.2);
+}
+
+/* Estado activo con gradiente */
+.pagination .page-item.active .page-link {
+    background: linear-gradient(135deg, #1e5a96, #2980b9) !important;
+    border-color: #1e5a96;
+    box-shadow: 0 4px 15px rgba(30, 90, 150, 0.3);
+    color: white;
+}
+
+.pagination .page-item.active .page-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 90, 150, 0.4);
+    background: linear-gradient(135deg, #1e5a96, #2980b9) !important;
+}
+
+/* Estado deshabilitado */
+.pagination .page-item.disabled .page-link {
+    cursor: not-allowed;
+    transform: none;
+}
+
+.pagination .page-item.disabled .page-link:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Estilos especiales para botones prev/next */
+.pagination .page-link[data-page*="prev"],
+.pagination .page-link[data-page*="next"] {
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-weight: 500;
+}
+
+/* Puntos suspensivos */
+.pagination .page-item span.page-link {
+    border: none;
+    background: transparent;
+    color: #1e5a96;
+    font-weight: bold;
+    cursor: default;
+}
+
+.pagination .page-item span.page-link:hover {
+    background: transparent;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Animación de aparición */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive - Bootstrap Grid maneja el centrado */
+@media (max-width: 768px) {
+    .pagination-container {
+        margin: 30px 0 20px 0;
+        padding: 10px 0;
+    }
+
+    .pagination {
+        padding: 10px 15px;
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+
+    .pagination .page-link {
+        min-width: 36px;
+        height: 36px;
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    .pagination .page-link[data-page*="prev"],
+    .pagination .page-link[data-page*="next"] {
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagination-container {
+        padding: 5px 0;
+        margin: 20px 0 15px 0;
+    }
+
+    .pagination {
+        gap: 2px;
+        padding: 8px 12px;
+        flex-wrap: wrap;
+    }
+    
+    .pagination .page-link {
+        min-width: 32px;
+        height: 32px;
+        font-size: 11px;
+        padding: 4px 6px;
+    }
+    
+    .pagination .page-link[data-page*="prev"],
+    .pagination .page-link[data-page*="next"] {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+}
