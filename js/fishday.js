@@ -55,6 +55,53 @@ document.addEventListener('DOMContentLoaded', function () {
         return leaves;
     }
 
+    // Función para intentar cargar imagen con diferentes formatos de nombre
+    async function loadFishImage(fishImage, identifier, fishName) {
+        if (!identifier) {
+            fishImage.src = 'assets/img/placeholder-fish.jpg';
+            fishImage.alt = 'Pez del día';
+            return;
+        }
+
+        // Intentar diferentes formatos de nombre de archivo
+        const possibleFormats = [
+            `01_${identifier}.webp`,
+            `02_${identifier}.webp`,
+            `${identifier}.webp`,
+            `01_${identifier}.jpg`,
+            `02_${identifier}.jpg`,
+            `${identifier}.jpg`
+        ];
+
+        let imageLoaded = false;
+        
+        for (const format of possibleFormats) {
+            const imagePath = `assets/img/fishes/${format}`;
+            
+            try {
+                // Verificar si la imagen existe
+                const response = await fetch(imagePath, { method: 'HEAD' });
+                if (response.ok) {
+                    fishImage.src = imagePath;
+                    fishImage.alt = fishName;
+                    imageLoaded = true;
+                    logDebug(`Imagen cargada: ${imagePath}`);
+                    break;
+                }
+            } catch (error) {
+                // Continuar con el siguiente formato
+                continue;
+            }
+        }
+
+        // Si ninguna imagen se pudo cargar, usar placeholder
+        if (!imageLoaded) {
+            fishImage.src = 'assets/img/placeholder-fish.jpg';
+            fishImage.alt = 'Pez del día';
+            logDebug('No se encontró imagen, usando placeholder');
+        }
+    }
+
     // Function to get a random fish based on the current date
     async function getFishOfTheDay() {
         try {
@@ -118,7 +165,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const descriptionElement = document.getElementById('fish-description');
             descriptionElement.innerHTML = description.replace(/\n/g, '<br>');
 
-
             // Extraer propiedades de forma optimizada
             let habitat = 'No disponible';
             let distribution = 'No disponible';
@@ -152,31 +198,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 videoLink.style.display = 'none';
             }
 
-            // Set up fish image con fallback WebP -> JPG
+            // Set up fish image con nueva función de carga
             const fishImage = document.getElementById('fish-image');
-            if (fishOfTheDay.identifier) {
-                const webpPath = `assets/img/fishes/${fishOfTheDay.identifier}.webp`;
-                const jpgPath = `assets/img/fishes/${fishOfTheDay.identifier}.jpg`;
-                
-                // Primero intentar cargar WebP
-                fishImage.src = webpPath;
-                fishImage.alt = fishName;
-
-                // Si WebP falla, intentar JPG, si JPG falla, usar placeholder
-                fishImage.onerror = function () {
-                    if (this.src.includes('.webp')) {
-                        // Si falló WebP, intentar JPG
-                        this.src = jpgPath;
-                    } else {
-                        // Si falló JPG (o cualquier otra cosa), usar placeholder
-                        this.src = 'assets/img/placeholder-fish.jpg';
-                        this.onerror = null; // Prevenir loops infinitos
-                    }
-                };
-            } else {
-                fishImage.src = 'assets/img/placeholder-fish.jpg';
-                fishImage.alt = 'Pez del día';
-            }
+            await loadFishImage(fishImage, fishOfTheDay.identifier, fishName);
 
             logDebug('Pez del día cargado correctamente');
 
