@@ -1,61 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
 
+<head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Quiz</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>Quiz sobre Peces - Peixplorer</title>
+  <meta name="description" content="Pon a prueba tus conocimientos sobre peces con nuestro quiz interactivo">
+  <meta name="keywords" content="quiz, peces, biología marina, educación, Baleares">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="assets/fav-icon.svg" />
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- CSS File -->
+  <!-- CSS Files -->
   <link href="css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Dewi
-  * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-
+  <link href="css/quiz.css" rel="stylesheet">
+  <link href="css/my_styles.css" rel="stylesheet">
 </head>
-<body>
 
+<body class="quiz-page marine-theme">
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="assets/img/svg(4).svg" alt="..." />
+        <img src="assets/img/logo.svg" alt="..." />
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li class="dropdown active"><a href="index.html#services" class="active"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li class="dropdown"><a href="#services"><span>Services</span> <i
+                class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="biblioteca.html">Biblioteca</a></li>
-              <li><a href="quiz.html">Quiz</a></li> 
+              <li><a href="quiz.html">Quiz</a></li>
             </ul>
           </li>
-          <li><a href="index.html#team">Team</a></li>
+          <li><a href="#team">Team</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -67,160 +64,396 @@
   </header>
 
   <main class="main">
-
-    <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.webp);">
+    <div class="page-title dark-background" data-aos="fade"
+      style="background-image: url(assets/img/back/jellyfish.webp);">
       <div class="container position-relative">
-        <h1>Quiz</h1>
-      <!--  <p>Falta el buscador, filtro y cambiar imagen de fondo.</p> -->
-        <nav class="breadcrumbs">
+        <h1>Quiz de Peces</h1>
+        <p class="page-subtitle">Pon a prueba tus conocimientos sobre el mar</p>
+        <nav class="breadcrumbs" aria-label="Navegación de migas de pan">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li class="current">Quiz</li>
+            <li class="current" aria-current="page">Quiz</li>
           </ol>
         </nav>
       </div>
-    </div><!-- End Page Title -->
-  <section id="quiz-section" class="service-details section">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div id="quiz-container" class="card shadow-lg p-5 rounded-4 bg-light position-relative">
-          
-          <!-- Progress Bar -->
-          <div class="progress mb-4" style="height: 20px;">
-            <div id="quiz-progress" class="progress-bar bg-primary" role="progressbar" style="width: 0%; transition: width 0.4s;"></div>
-          </div>
-
-          <!-- Question Number -->
-          <div id="question-number" class="text-uppercase text-muted mb-2 fs-6 fw-bold"></div>
-
-          <!-- Question Text -->
-          <div id="question-text" class="h4 fw-semibold mb-4 text-dark"></div>
-
-          <!-- Answers -->
-          <div id="answers" class="list-group mb-4"></div>
-
-          <!-- Feedback -->
-          <div id="feedback" class="alert d-none mt-3" role="alert"></div>
-          
-          <!-- Countdown Bar -->
-          <div id="countdown-container" class="progress mt-2 d-none" style="height: 8px;">
-            <div id="countdown-bar" class="progress-bar bg-info" role="progressbar" style="width: 0%;"></div>
-          </div>
-
-
-
-          <!-- Navigation Buttons -->
-          <div class="d-flex justify-content-end gap-2 mt-4">
-            <button id="restart-btn" class="btn btn-outline-danger d-none">Reiniciar</button>
-            <button id="next-btn" class="btn btn-primary" disabled>Siguiente</button>
-          </div>
-
-          </div>
-          
-        </div>
-        
-      </div>
-       
     </div>
-   
-  </section>
-  
 
+    <!-- Quiz Section -->
+    <section id="quiz-section" class="quiz-section">
+      <header class="section-header text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title">¿Qué te gustaría hacer?</h2>
+        <p class="section-subtitle">Selecciona una opción para continuar tu aventura marina</p>
+      </header>
+      
+      <div class="container">
+        <!-- Main Menu -->
+        <div id="main-menu" class="main-menu">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8">
+              <div class="quiz-options" data-aos="fade-up" data-aos-delay="100">
+                <div class="row g-4">
+                  <div class="col-md-6">
+                    <article class="quiz-option-card" id="start-quiz-btn" tabindex="0" role="button"
+                      aria-label="Iniciar quiz de 10 preguntas sobre peces">
+                      <div class="card-decoration"></div>
+                      <div class="card-content">
+                        <div class="card-icon">
+                          <i class="bi bi-play-circle-fill" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="card-title">Realizar Quiz</h3>
+                        <p class="card-description">
+                          Responde 10 preguntas aleatorias sobre peces y pon a prueba tus conocimientos marinos
+                        </p>
+                        <div class="card-stats">
+                          <span class="stat-item">
+                            <i class="bi bi-clock" aria-hidden="true"></i>
+                            <span>~5 min</span>
+                          </span>
+                          <span class="stat-item">
+                            <i class="bi bi-question-circle" aria-hidden="true"></i>
+                            <span>10 preguntas</span>
+                          </span>
+                        </div>
+                        <div class="card-action">
+                          <span class="btn btn-primary btn-lg">
+                            <i class="bi bi-play-fill me-2" aria-hidden="true"></i>
+                            Empezar Quiz
+                          </span>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
 
+                  <div class="col-md-6">
+                    <article class="quiz-option-card" id="view-stats-btn" tabindex="0" role="button"
+                      aria-label="Ver estadísticas y historial de partidas">
+                      <div class="card-decoration"></div>
+                      <div class="card-content">
+                        <div class="card-icon">
+                          <i class="bi bi-graph-up-arrow" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="card-title">Ver Estadísticas</h3>
+                        <p class="card-description">
+                          Consulta tu historial de partidas, progreso y estadísticas detalladas
+                        </p>
+                        <div class="card-stats">
+                          <span class="stat-item">
+                            <i class="bi bi-trophy" aria-hidden="true"></i>
+                            <span>Puntuaciones</span>
+                          </span>
+                          <span class="stat-item">
+                            <i class="bi bi-calendar-check" aria-hidden="true"></i>
+                            <span>Historial</span>
+                          </span>
+                        </div>
+                        <div class="card-action">
+                          <span class="btn btn-outline-primary btn-lg">
+                            <i class="bi bi-bar-chart-line me-2" aria-hidden="true"></i>
+                            Ver Stats
+                          </span>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistics View -->
+        <div id="stats-view" class="stats-view" style="display: none;">
+          <div class="row justify-content-center">
+            <div class="col-12 col-xl-10">
+              <div class="stats-container">
+                <header
+                  class="stats-header d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
+                  <div class="stats-title-section mb-3 mb-md-0">
+                    <h2 class="stats-title">
+                      <i class="bi bi-graph-up text-primary me-2" aria-hidden="true"></i>
+                      Mis Estadísticas
+                    </h2>
+                    <p class="stats-subtitle text-muted">Revisa tu progreso y rendimiento</p>
+                  </div>
+                  <button id="back-to-menu" class="btn btn-outline-secondary btn-lg" type="button">
+                    <i class="bi bi-arrow-left me-2" aria-hidden="true"></i>
+                    Volver al Menú
+                  </button>
+                </header>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid mb-5">
+                  <div class="row g-4">
+                    <div class="col-6 col-lg-3">
+                      <article class="stat-card">
+                        <div class="stat-icon">
+                          <i class="bi bi-joystick" aria-hidden="true"></i>
+                        </div>
+                        <div class="stat-info">
+                          <div class="stat-number" id="total-games">0</div>
+                          <div class="stat-label">Partidas<br>Jugadas</div>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                      <article class="stat-card">
+                        <div class="stat-icon">
+                          <i class="bi bi-percent" aria-hidden="true"></i>
+                        </div>
+                        <div class="stat-info">
+                          <div class="stat-number" id="avg-score">0%</div>
+                          <div class="stat-label">Puntuación<br>Media</div>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                      <article class="stat-card">
+                        <div class="stat-icon">
+                          <i class="bi bi-trophy-fill" aria-hidden="true"></i>
+                        </div>
+                        <div class="stat-info">
+                          <div class="stat-number" id="best-score">0%</div>
+                          <div class="stat-label">Mejor<br>Puntuación</div>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                      <article class="stat-card">
+                        <div class="stat-icon">
+                          <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                        </div>
+                        <div class="stat-info">
+                          <div class="stat-number" id="total-correct">0</div>
+                          <div class="stat-label">Total<br>Correctas</div>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Games History -->
+                <section class="games-history">
+                  <header class="history-header mb-4">
+                    <h3 class="history-title">
+                      <i class="bi bi-clock-history text-primary me-2" aria-hidden="true"></i>
+                      Historial de Partidas
+                    </h3>
+                    <p class="history-subtitle text-muted">Últimas 20 partidas jugadas</p>
+                  </header>
+                  <div id="games-list" class="games-list" role="log" aria-live="polite">
+                    <!-- Games will be loaded here dynamically -->
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  
+  <!-- Quiz Modal -->
+  <div class="modal fade" id="quizModal" tabindex="-1" aria-labelledby="quizModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <header class="modal-header">
+          <h5 class="modal-title" id="quizModalLabel">
+            <i class="bi bi-fish me-2" aria-hidden="true"></i>
+            Quiz sobre Peces
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar quiz"></button>
+        </header>
+
+        <div class="modal-body">
+          <!-- Quiz View -->
+          <div id="quiz-view" role="main">
+            <!-- Progress Section -->
+            <div class="quiz-progress-section mb-4">
+              <div class="progress-info d-flex justify-content-between align-items-center mb-2">
+                <span id="question-number" class="question-indicator"></span>
+                <span id="progress-text" class="progress-text"></span>
+              </div>
+              <div class="progress quiz-progress-bar" role="progressbar" aria-label="Progreso del quiz">
+                <div id="quiz-progress" class="progress-bar"></div>
+              </div>
+            </div>
+        
+            <!-- Main Quiz Content Area -->
+            <div class="quiz-content-area">
+              <!-- Question Section -->
+              <section class="question-section mb-4">
+                <h2 id="question-text" class="question-text"></h2>
+              </section>
+        
+              <!-- Answers Section -->
+              <section class="answers-section mb-4">
+                <div id="answers" class="answers-container" role="radiogroup" aria-labelledby="question-text">
+                  <!-- Answer buttons will be generated here -->
+                </div>
+              </section>
+            </div>
+        
+            <!-- Fixed Space Area for Dynamic Content -->
+            <div class="feedback-and-countdown-area">
+              <!-- Feedback Section - Always reserves space -->
+              <aside id="feedback" class="feedback-section alert d-none" role="alert" aria-live="assertive">
+                <!-- Feedback content -->
+              </aside>
+        
+              <!-- Countdown Section - Always reserves space -->
+              <div id="countdown-container" class="countdown-container d-none">
+                <div class="countdown-info mb-2">
+                  <span class="countdown-text">Siguiente pregunta en...</span>
+                </div>
+                <div class="progress countdown-progress">
+                  <div id="countdown-bar" class="progress-bar bg-info"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <!-- Results View -->
+          <div id="results-view" class="results-view" style="display: none;" role="main">
+            <!-- El contenido de results-view permanece igual -->
+            <header class="results-header text-center mb-4">
+              <h2 id="final-score-title" class="results-title">¡Quiz Completado!</h2>
+              <div id="final-score" class="final-score-display"></div>
+              <p class="results-message" id="results-message"></p>
+            </header>
+        
+            <section id="questions-review" class="questions-review">
+              <h3 class="review-title mb-3">
+                <i class="bi bi-clipboard-check me-2" aria-hidden="true"></i>
+                Revisión de Respuestas
+              </h3>
+              <div class="review-container">
+                <!-- Questions review will be loaded here -->
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <footer class="modal-footer" id="modal-footer">
+          <div id="results-buttons" class="results-buttons" style="display: none;">
+            <button id="play-again-btn" class="btn btn-success btn-lg" type="button">
+              <i class="bi bi-arrow-clockwise me-2" aria-hidden="true"></i>
+              Jugar de Nuevo
+            </button>
+            <button id="back-to-menu-from-results" class="btn btn-outline-secondary btn-lg" type="button">
+              <i class="bi bi-house me-2" aria-hidden="true"></i>
+              Volver al Menú
+            </button>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+
   <footer id="footer" class="footer dark-background">
-
     <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Dewi</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+      <div class="row">
+        <!-- Primer tercio - Logo y descripción (reducido) -->
+        <div class="col-lg-3 footer-about">
+          <h2 class="sitename mb-3">Peixplorer</h2>
+          <p class="footer-description">
+            Conoce los organismos que viven en el agua de las Islas Baleares.
+          </p>
+
+          <p class="footer-description">
+            Proyecto de código abierto de la asignatura tecnología multimedia cursado en la Universidad de las Islas
+            Baleares.
+          </p>
+        </div>
+
+        <!-- Separador vertical -->
+        <div class="col-lg-1 d-none d-lg-flex justify-content-center">
+          <div class="footer-divider"></div>
+        </div>
+
+        <!-- Dos tercios restantes (aumentado) -->
+        <div class="col-lg-8">
+          <div class="row">
+            <!-- Enlaces de navegación -->
+            <div class="col-md-6 footer-links">
+              <h4>Enlaces rápidos</h4>
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <a href="#hero">Home</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#about">Sobre nosotros</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#services">Servicios</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#team">Equipo</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contacto</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="biblioteca.html">Biblioteca</a></li>
+              </ul>
+            </div>
+
+            <!-- Redes sociales -->
+            <div class="col-md-6 footer-social">
+              <div class="social-section mb-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="social-icon-circle me-3">
+                    <a href="#" aria-label="Facebook">
+                      <i class="bi bi-facebook"></i>
+                    </a>
+                  </div>
+                  <div class="social-icon-circle me-3">
+                    <a href="#" aria-label="Instagram">
+                      <i class="bi bi-instagram"></i>
+                    </a>
+                  </div>
+                  <span>Síguenos en nuestras redes sociales</span>
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="social-icon-circle me-3">
+                    <a href="https://github.com/Pauceta23/Peixplorer" target="_blank" aria-label="GitHub">
+                      <i class="bi bi-github"></i>
+                    </a>
+                  </div>
+                  <span>Consulta el código</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
         </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-4 col-md-12 footer-newsletter">
-          <h4>Our Newsletter</h4>
-          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-          <form action="forms/newsletter.php" method="post" class="php-email-form">
-            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-          </form>
-        </div>
-
       </div>
     </div>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Dewi</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href=“https://themewagon.com>ThemeWagon
+    <!-- Copyright que ahora ocupa todo el ancho -->
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="copyright-divider"></div>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Peixplorer</strong> <span>Todos los derechos
+            reservados</span></p>
+        <div class="credits">
+          Diseñado para la asignatura de Tecnología Multimedia - Universidad de las Islas Baleares
+        </div>
       </div>
     </div>
-
   </footer>
 
-    <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"
+    aria-label="Volver arriba">
+    <i class="bi bi-arrow-up-short" aria-hidden="true"></i>
+  </a>
 
   <!-- Preloader -->
-  <div id="preloader"></div>
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="fish-loader">
+        <i class="bi bi-fish"></i>
+      </div>
+      <p>Cargando quiz...</p>
+    </div>
+  </div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-  <!-- Main JS File -->
+  <!-- Main JS Files -->
   <script src="js/main.js"></script>
   <script src="js/quiz.js"></script>
 </body>
+
 </html>

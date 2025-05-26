@@ -1,8 +1,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Quiz",
-  "name": "Quiz sobre Peces",
-  "description": "Pon a prueba tus conocimientos sobre peces con este divertido cuestionario.",
+  "name": "Quiz Completo sobre Peces",
+  "description": "Pon a prueba tus conocimientos sobre peces con este extenso cuestionario de 43 preguntas.",
   "hasPart": [
     {
       "@type": "Question",
@@ -25,7 +25,8 @@
           "@type": "Answer",
           "text": "Pez Vela"
         }
-      ]
+      ],
+      "identifier": 10001
     },
     {
       "@type": "Question",
@@ -48,7 +49,8 @@
           "@type": "Answer",
           "text": "Pez León"
         }
-      ]
+      ],
+      "identifier": 10002
     },
     {
       "@type": "Question",
@@ -71,7 +73,945 @@
           "@type": "Answer",
           "text": "Pez Koi"
         }
-      ]
+      ],
+      "identifier": 10003
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el pez más grande del mundo?",
+      "text": "Este gigante marino es técnicamente un tiburón.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tiburón Ballena"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Tiburón Blanco"
+        },
+        {
+          "@type": "Answer",
+          "text": "Tiburón Ballena"
+        },
+        {
+          "@type": "Answer",
+          "text": "Manta Raya"
+        }
+      ],
+      "identifier": 10004
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué tipo de respiración tienen los peces?",
+      "text": "Los peces obtienen oxígeno del agua a través de...",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Branquias"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Pulmones"
+        },
+        {
+          "@type": "Answer",
+          "text": "Branquias"
+        },
+        {
+          "@type": "Answer",
+          "text": "Piel"
+        }
+      ],
+      "identifier": 10005
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántos corazones tiene un pez típico?",
+      "text": "La mayoría de los peces tienen un sistema circulatorio simple.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uno"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Uno"
+        },
+        {
+          "@type": "Answer",
+          "text": "Dos"
+        },
+        {
+          "@type": "Answer",
+          "text": "Tres"
+        }
+      ],
+      "identifier": 10006
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el pez más venenoso del mundo?",
+      "text": "Este pez de aguas tropicales tiene espinas extremadamente tóxicas.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pez Piedra"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Pez León"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Piedra"
+        },
+        {
+          "@type": "Answer",
+          "text": "Raya Venenosa"
+        }
+      ],
+      "identifier": 10007
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pez puede cambiar de sexo durante su vida?",
+      "text": "Este colorido pez de arrecife tiene capacidad de cambio sexual.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pez Payaso"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Pez Payaso"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Ángel"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Cirujano"
+        }
+      ],
+      "identifier": 10008
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la temperatura corporal de los peces?",
+      "text": "Los peces son animales de sangre...",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fría"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Caliente"
+        },
+        {
+          "@type": "Answer",
+          "text": "Fría"
+        },
+        {
+          "@type": "Answer",
+          "text": "Variable"
+        }
+      ],
+      "identifier": 10009
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pez es conocido por su capacidad de generar electricidad?",
+      "text": "Este pez sudamericano puede producir descargas eléctricas.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anguila Eléctrica"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Raya Eléctrica"
+        },
+        {
+          "@type": "Answer",
+          "text": "Anguila Eléctrica"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Torpedo"
+        }
+      ],
+      "identifier": 10010
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el órgano que ayuda a los peces a mantener su flotabilidad?",
+      "text": "Este órgano lleno de gas regula la profundidad del pez.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vejiga Natatoria"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Hígado"
+        },
+        {
+          "@type": "Answer",
+          "text": "Vejiga Natatoria"
+        },
+        {
+          "@type": "Answer",
+          "text": "Estómago"
+        }
+      ],
+      "identifier": 10011
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pez es famoso por su memoria supuestamente corta?",
+      "text": "Contrario al mito popular, este pez tiene buena memoria.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pez Dorado"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Pez Dorado"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Betta"
+        },
+        {
+          "@type": "Answer",
+          "text": "Guppy"
+        }
+      ],
+      "identifier": 10012
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el sentido más desarrollado en los tiburones?",
+      "text": "Los tiburones pueden detectar campos eléctricos muy débiles.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Electrorrecepción"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Vista"
+        },
+        {
+          "@type": "Answer",
+          "text": "Olfato"
+        },
+        {
+          "@type": "Answer",
+          "text": "Electrorrecepción"
+        }
+      ],
+      "identifier": 10013
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué estructura ayuda a los peces a detectar vibraciones en el agua?",
+      "text": "Este sistema sensorial es exclusivo de peces y anfibios acuáticos.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Línea Lateral"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Aletas"
+        },
+        {
+          "@type": "Answer",
+          "text": "Línea Lateral"
+        },
+        {
+          "@type": "Answer",
+          "text": "Escamas"
+        }
+      ],
+      "identifier": 10014
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el pez de agua dulce más grande del mundo?",
+      "text": "Este gigante habita en los ríos de Europa del Este.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Esturión Beluga"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Bagre Gigante"
+        },
+        {
+          "@type": "Answer",
+          "text": "Esturión Beluga"
+        },
+        {
+          "@type": "Answer",
+          "text": "Carpa Gigante"
+        }
+      ],
+      "identifier": 10015
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pez puede sobrevivir fuera del agua por períodos cortos?",
+      "text": "Este pez anfibio puede respirar aire cuando es necesario.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pez Pulmonado"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Pez Pulmonado"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Gato"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Escalador"
+        }
+      ],
+      "identifier": 10016
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántas especies de peces se estima que existen en el mundo?",
+      "text": "Los peces representan la mayor diversidad entre los vertebrados.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Más de 34,000"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Alrededor de 10,000"
+        },
+        {
+          "@type": "Answer",
+          "text": "Más de 34,000"
+        },
+        {
+          "@type": "Answer",
+          "text": "Cerca de 5,000"
+        }
+      ],
+      "identifier": 10017
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué tipo de esqueleto tienen los tiburones y rayas?",
+      "text": "A diferencia de otros peces, su esqueleto es flexible.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cartilaginoso"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Óseo"
+        },
+        {
+          "@type": "Answer",
+          "text": "Cartilaginoso"
+        },
+        {
+          "@type": "Answer",
+          "text": "Mixto"
+        }
+      ],
+      "identifier": 10018
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el pez más profundo jamás registrado?",
+      "text": "Este pez fue encontrado a más de 8,000 metros de profundidad.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pez Caracol de Mariana"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Pez Abisal"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Caracol de Mariana"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Diablo"
+        }
+      ],
+      "identifier": 10019
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pez es conocido por construir nidos elaborados?",
+      "text": "El macho de esta especie construye nidos circulares en el fondo marino.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pez Globo Japonés"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Pez Betta"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Globo Japonés"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Espinoso"
+        }
+      ],
+      "identifier": 10020
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la principal diferencia entre peces óseos y cartilaginosos?",
+      "text": "Esta diferencia estructural define dos grandes grupos de peces.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El material del esqueleto"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "El tamaño"
+        },
+        {
+          "@type": "Answer",
+          "text": "El material del esqueleto"
+        },
+        {
+          "@type": "Answer",
+          "text": "El hábitat"
+        }
+      ],
+      "identifier": 10021
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pez puede cambiar de color para camuflarse?",
+      "text": "Este pez plano se adapta perfectamente al fondo marino.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lenguado"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Lenguado"
+        },
+        {
+          "@type": "Answer",
+          "text": "Salmón"
+        },
+        {
+          "@type": "Answer",
+          "text": "Trucha"
+        }
+      ],
+      "identifier": 10022
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el pez más longevo conocido?",
+      "text": "Este tiburón del Ártico puede vivir varios siglos.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tiburón de Groenlandia"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Tiburón Blanco"
+        },
+        {
+          "@type": "Answer",
+          "text": "Tiburón de Groenlandia"
+        },
+        {
+          "@type": "Answer",
+          "text": "Esturión"
+        }
+      ],
+      "identifier": 10023
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pez es famoso por su migración masiva para reproducirse?",
+      "text": "Este pez nace en agua dulce, vive en el mar y regresa a desovar.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Salmón"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Atún"
+        },
+        {
+          "@type": "Answer",
+          "text": "Salmón"
+        },
+        {
+          "@type": "Answer",
+          "text": "Anguila"
+        }
+      ],
+      "identifier": 10024
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántas aletas tiene un pez típico?",
+      "text": "Cuenta todas las aletas incluyendo pares e impares.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Siete"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Cinco"
+        },
+        {
+          "@type": "Answer",
+          "text": "Siete"
+        },
+        {
+          "@type": "Answer",
+          "text": "Seis"
+        }
+      ],
+      "identifier": 10025
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pez es considerado un 'fósil viviente'?",
+      "text": "Este pez se creía extinto hasta que fue redescubierto en 1938.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Celacanto"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Tiburón"
+        },
+        {
+          "@type": "Answer",
+          "text": "Celacanto"
+        },
+        {
+          "@type": "Answer",
+          "text": "Esturión"
+        }
+      ],
+      "identifier": 10026
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el pez más pequeño del mundo?",
+      "text": "Este diminuto pez mide menos de 8 milímetros.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paedocypris"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Gobio Enano"
+        },
+        {
+          "@type": "Answer",
+          "text": "Paedocypris"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Mosquito"
+        }
+      ],
+      "identifier": 10027
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué estructura protege el cuerpo de la mayoría de los peces?",
+      "text": "Esta cubierta protectora crece durante toda la vida del pez.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Escamas"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Piel"
+        },
+        {
+          "@type": "Answer",
+          "text": "Escamas"
+        },
+        {
+          "@type": "Answer",
+          "text": "Mucus"
+        }
+      ],
+      "identifier": 10028
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pez puede saltar fuera del agua para atrapar insectos?",
+      "text": "Este pez arquero tiene una técnica de caza muy precisa.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pez Arquero"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Pez Arquero"
+        },
+        {
+          "@type": "Answer",
+          "text": "Trucha"
+        },
+        {
+          "@type": "Answer",
+          "text": "Salmón"
+        }
+      ],
+      "identifier": 10029
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el tiburón más grande después del tiburón ballena?",
+      "text": "Este tiburón se alimenta principalmente de plancton.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tiburón Peregrino"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Tiburón Blanco"
+        },
+        {
+          "@type": "Answer",
+          "text": "Tiburón Peregrino"
+        },
+        {
+          "@type": "Answer",
+          "text": "Tiburón Tigre"
+        }
+      ],
+      "identifier": 10030
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pez es conocido por su cola en forma de espada?",
+      "text": "Este pez usa su cola como arma para aturdir a sus presas.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pez Espada"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Pez Vela"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Espada"
+        },
+        {
+          "@type": "Answer",
+          "text": "Marlín"
+        }
+      ],
+      "identifier": 10031
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántos ojos tienen la mayoría de los peces?",
+      "text": "Los peces tienen visión bilateral como la mayoría de vertebrados.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dos"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Uno"
+        },
+        {
+          "@type": "Answer",
+          "text": "Dos"
+        },
+        {
+          "@type": "Answer",
+          "text": "Cuatro"
+        }
+      ],
+      "identifier": 10032
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pez es famoso por tener dientes humanos?",
+      "text": "Este pez sudamericano tiene dientes sorprendentemente similares a los humanos.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pacu"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Piraña"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pacu"
+        },
+        {
+          "@type": "Answer",
+          "text": "Bagre"
+        }
+      ],
+      "identifier": 10033
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el órgano reproductor principal de los peces machos?",
+      "text": "En los peces, la reproducción generalmente es externa.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Testículos"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Espermatóforos"
+        },
+        {
+          "@type": "Answer",
+          "text": "Testículos"
+        },
+        {
+          "@type": "Answer",
+          "text": "Gonopodio"
+        }
+      ],
+      "identifier": 10034
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pez puede vivir tanto en agua dulce como salada?",
+      "text": "Estos peces pueden adaptarse a diferentes salinidades.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Salmón"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Trucha"
+        },
+        {
+          "@type": "Answer",
+          "text": "Salmón"
+        },
+        {
+          "@type": "Answer",
+          "text": "Carpa"
+        }
+      ],
+      "identifier": 10035
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la principal función de la aleta caudal?",
+      "text": "Esta aleta es fundamental para el movimiento del pez.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Propulsión"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Dirección"
+        },
+        {
+          "@type": "Answer",
+          "text": "Propulsión"
+        },
+        {
+          "@type": "Answer",
+          "text": "Equilibrio"
+        }
+      ],
+      "identifier": 10036
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pez es conocido por su pico largo y delgado?",
+      "text": "Este pez depredador tiene un rostro muy alargado.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pez Aguja"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Pez Aguja"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Espada"
+        },
+        {
+          "@type": "Answer",
+          "text": "Marlín"
+        }
+      ],
+      "identifier": 10037
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la temperatura ideal para la mayoría de peces tropicales de acuario?",
+      "text": "Esta temperatura simula su hábitat natural tropical.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "24-26°C"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "18-20°C"
+        },
+        {
+          "@type": "Answer",
+          "text": "24-26°C"
+        },
+        {
+          "@type": "Answer",
+          "text": "28-30°C"
+        }
+      ],
+      "identifier": 10038
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pez es famoso por su capacidad de reconocer rostros humanos?",
+      "text": "Este pez de arrecife puede distinguir entre diferentes personas.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pez Arquero"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Pez Payaso"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Arquero"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Ángel"
+        }
+      ],
+      "identifier": 10039
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el sentido más importante para los peces en aguas turbias?",
+      "text": "Cuando la visión es limitada, este sentido se vuelve crucial.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Línea Lateral"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Olfato"
+        },
+        {
+          "@type": "Answer",
+          "text": "Línea Lateral"
+        },
+        {
+          "@type": "Answer",
+          "text": "Oído"
+        }
+      ],
+      "identifier": 10040
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué tipo de pez es el famoso 'Nemo'?",
+      "text": "Este colorido pez vive en anémonas marinas.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pez Payaso"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Pez Payaso"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Ángel"
+        },
+        {
+          "@type": "Answer",
+          "text": "Pez Cirujano"
+        }
+      ],
+      "identifier": 10041
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuándo aparecieron los primeros peces en la evolución?",
+      "text": "Los peces son uno de los grupos de vertebrados más antiguos.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hace 500 millones de años"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Hace 200 millones de años"
+        },
+        {
+          "@type": "Answer",
+          "text": "Hace 500 millones de años"
+        },
+        {
+          "@type": "Answer",
+          "text": "Hace 100 millones de años"
+        }
+      ],
+      "identifier": 10042
     }
-  ]
+  ],
+  "identifier": 10000
 }
