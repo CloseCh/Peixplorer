@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Función para intentar cargar imagen con diferentes formatos de nombre
     async function loadFishImage(fishImage, identifier, fishName) {
         if (!identifier) {
-            fishImage.src = 'assets/img/placeholder-fish.jpg';
+            fishImage.src = 'assets/img/placeholder-fish.webp';
             fishImage.alt = 'Pez del día';
             return;
         }
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Si ninguna imagen se pudo cargar, usar placeholder
         if (!imageLoaded) {
-            fishImage.src = 'assets/img/placeholder-fish.jpg';
+            fishImage.src = 'assets/img/placeholder-fish.webp';
             fishImage.alt = 'Pez del día';
             logDebug('No se encontró imagen, usando placeholder');
         }
@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('fish-video-link').style.display = 'none';
             
             // Usar imagen de placeholder en caso de error
-            document.getElementById('fish-image').src = 'assets/img/placeholder-fish.jpg';
+            document.getElementById('fish-image').src = 'assets/img/placeholder-fish.webp';
         }
     }
 
