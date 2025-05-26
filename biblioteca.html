@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Biblioteca</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>Biblioteca de Peces - Peixplorer</title>
+  <meta name="description" content="Explora la biblioteca completa de peces de las Islas Baleares">
+  <meta name="keywords" content="peces, Baleares, biología marina, Mediterráneo">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="assets/fav-icon.svg" />
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Preconnect para optimización -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts optimizados -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,40 +26,38 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- CSS File -->
+  <!-- CSS Files -->
   <link href="css/main.css" rel="stylesheet">
   <link href="css/my_styles.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Dewi
-  * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <link href="css/bib.css" rel="stylesheet">
 </head>
 
-<body class="service-details-page">
+<body class="biblioteca-page">
 
+  <!-- Header -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="assets/img/logo.svg" alt="..." />
+        <img src="assets/img/logo.svg" alt="Peixplorer Logo" />
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero">Home</a></li>
+          <li><a href="index.html#hero">Home</a></li>
           <li><a href="index.html#about">About</a></li>
-          <li class="dropdown active"><a href="index.html#services" class="active"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown active">
+            <a href="index.html#services" class="active">
+              <span>Services</span>
+              <i class="bi bi-chevron-down toggle-dropdown"></i>
+            </a>
             <ul>
-              <li><a href="biblioteca.html">Biblioteca</a></li>
-              <li><a href="quiz.html">Quiz</a></li> 
+              <li><a href="biblioteca.html" class="active">Biblioteca</a></li>
+              <li><a href="quiz.html">Quiz</a></li>
             </ul>
           </li>
           <li><a href="index.html#team">Team</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -67,99 +67,184 @@
     </div>
   </header>
 
+  <!-- Loader mejorado -->
+  <div class="loader" id="loader" role="status" aria-label="Cargando contenido">
+    <div class="spinner-container">
+      <div class="spinner"></div>
+      <p class="loading-text">Cargando biblioteca de peces...</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
   <main class="main">
 
-    <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/back/jellyfish.webp);">
+    <!-- Page Title mejorado -->
+    <div class="page-title dark-background" data-aos="fade"
+      style="background-image: url(assets/img/back/jellyfish.webp);">
       <div class="container position-relative">
-        <h1>Biblioteca</h1>
-        <nav class="breadcrumbs">
+        <h1>Biblioteca de Peces</h1>
+        <p class="page-subtitle">Descubre la diversidad marina de las Islas Baleares</p>
+        <nav class="breadcrumbs" aria-label="Navegación de migas de pan">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li class="current">Biblioteca</li>
+            <li class="current" aria-current="page">Biblioteca</li>
           </ol>
         </nav>
       </div>
-    </div><!-- End Page Title -->
+    </div>
 
-    <!-- Service Details Section -->
+    <!-- Service Details Section mejorada -->
     <section id="service-details" class="service-details section">
       <div class="container">
 
-        <!-- Grid de peces -->
-        <div class="fish-grid" id="fishGrid"></div>
-
-        <!-- Mensaje de no resultados -->
-        <div class="no-results" id="noResults" style="display: none;">
-          <i class="bi bi-search"></i>
-          <h3>No se encontraron resultados</h3>
-          <p>Intenta ajustar tu búsqueda o filtros</p>
-        </div>
-
-        <!-- Paginación -->
-        <div class="pagination-container">
-          <div class="row gy-5 justify-content-center">
-            <div class="col-auto" aria-label="Paginación de resultados">
-                <ul class="pagination" id="pagination">
-                </ul>
+        <!-- Controles superiores -->
+        <div class="library-controls" id="libraryControls">
+          <div class="row align-items-center mb-4">
+            <div class="col-md-6">
+              <!-- Info de resultados -->
+              <div class="results-info" id="resultsInfo" aria-live="polite"></div>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <!-- Futuro: controles de ordenación y filtros -->
+              <div class="sort-controls">
+                <label for="sortSelect" class="visually-hidden">Ordenar por</label>
+                <select id="sortSelect" class="form-select form-select-sm d-inline-block w-auto">
+                  <option value="name">Nombre común</option>
+                  <option value="scientific">Nombre científico</option>
+                  <option value="family">Familia</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
 
-        
+        <!-- Grid de peces mejorado -->
+        <div class="fish-grid" id="fishGrid" role="region" aria-label="Catálogo de peces">
+          <!-- Contenido dinámico -->
+        </div>
+
+        <!-- Estados de error y vacío - SIN CONTENEDOR QUE GENERE ESPACIO -->
+        <!-- Estado vacío -->
+        <div class="empty-state" id="emptyState" style="display: none;" role="status">
+          <div class="state-icon">
+            <i class="bi bi-search"></i>
+          </div>
+          <h3>No se encontraron peces</h3>
+          <p>No hay peces que coincidan con los criterios actuales.</p>
+          <button class="btn btn-primary" onclick="fishLibrary.resetFilters()">
+            <i class="bi bi-arrow-counterclockwise"></i>
+            Mostrar todos
+          </button>
+        </div>
+
+        <!-- Estado de error -->
+        <div class="error-state" id="errorState" style="display: none;" role="alert">
+          <div class="state-icon error">
+            <i class="bi bi-exclamation-triangle"></i>
+          </div>
+          <h3>Error al cargar los datos</h3>
+          <p>Hubo un problema al cargar la información de los peces.</p>
+          <div class="error-actions">
+            <button class="btn btn-primary" onclick="fishLibrary.reload()">
+              <i class="bi bi-arrow-clockwise"></i>
+              Reintentar
+            </button>
+            <button class="btn btn-outline-secondary" onclick="fishLibrary.loadSampleData()">
+              <i class="bi bi-database"></i>
+              Cargar datos de ejemplo
+            </button>
+          </div>
+        </div>
+
+        <!-- Paginación mejorada -->
+        <div class="pagination-container">
+          <div class="row justify-content-center">
+            <div class="col-auto">
+              <nav aria-label="Paginación de la biblioteca de peces">
+                <ul class="pagination" id="pagination">
+                  <!-- Contenido dinámico -->
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
 
       </div>
-    </section><!-- /Service Details Section -->
+    </section>
 
   </main>
 
+  <!-- Modal mejorado para información del pez -->
+  <div class="modal fade" id="fishModal" tabindex="-1" aria-labelledby="fishModalLabel" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-4" id="fishModalLabel">Información del Pez</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"
+            aria-label="Cerrar información del pez"></button>
+        </div>
+        <div class="modal-body" id="fishModalBody">
+          <!-- Contenido dinámico -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            <i class="bi bi-x-circle"></i>
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer id="footer" class="footer dark-background">
     <div class="container footer-top">
       <div class="row">
-        <!-- Primer tercio - Logo y descripción (reducido) -->
+        <!-- Primer tercio - Logo y descripción -->
         <div class="col-lg-3 footer-about">
           <h2 class="sitename mb-3">Peixplorer</h2>
           <p class="footer-description">
             Conoce los organismos que viven en el agua de las Islas Baleares.
           </p>
-
           <p class="footer-description">
-            Proyecto de código abierto de la asignatura tecnología multimedia cursado en la Universidad de las Islas Baleares.
+            Proyecto de código abierto de la asignatura tecnología multimedia cursado en la Universidad de las Islas
+            Baleares.
           </p>
         </div>
-  
+
         <!-- Separador vertical -->
         <div class="col-lg-1 d-none d-lg-flex justify-content-center">
           <div class="footer-divider"></div>
         </div>
-  
-        <!-- Dos tercios restantes (aumentado) -->
+
+        <!-- Enlaces y redes sociales -->
         <div class="col-lg-8">
           <div class="row">
             <!-- Enlaces de navegación -->
             <div class="col-md-6 footer-links">
               <h4>Enlaces rápidos</h4>
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <a href="#hero">Home</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#about">Sobre nosotros</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#services">Servicios</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#team">Equipo</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contacto</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="index.html#hero">Home</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="index.html#about">Sobre nosotros</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="index.html#services">Servicios</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="index.html#team">Equipo</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="index.html#contact">Contacto</a></li>
                 <li><i class="bi bi-chevron-right"></i> <a href="biblioteca.html">Biblioteca</a></li>
               </ul>
             </div>
-  
+
             <!-- Redes sociales -->
             <div class="col-md-6 footer-social">
               <div class="social-section mb-4">
                 <div class="d-flex align-items-center mb-3">
                   <div class="social-icon-circle me-3">
-                    <a href="#" aria-label="Facebook">
+                    <a href="#" aria-label="Síguenos en Facebook">
                       <i class="bi bi-facebook"></i>
                     </a>
                   </div>
                   <div class="social-icon-circle me-3">
-                    <a href="#" aria-label="Instagram">
+                    <a href="#" aria-label="Síguenos en Instagram">
                       <i class="bi bi-instagram"></i>
                     </a>
                   </div>
@@ -167,7 +252,8 @@
                 </div>
                 <div class="d-flex align-items-center">
                   <div class="social-icon-circle me-3">
-                    <a href="https://github.com/Pauceta23/Peixplorer" target="_blank" aria-label="GitHub">
+                    <a href="https://github.com/Pauceta23/Peixplorer" target="_blank" rel="noopener noreferrer"
+                      aria-label="Ver código en GitHub">
                       <i class="bi bi-github"></i>
                     </a>
                   </div>
@@ -179,12 +265,13 @@
         </div>
       </div>
     </div>
-    
-    <!-- Copyright que ahora ocupa todo el ancho -->
+
+    <!-- Copyright -->
     <div class="footer-copyright">
       <div class="container">
         <div class="copyright-divider"></div>
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">Peixplorer</strong> <span>Todos los derechos reservados</span></p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Peixplorer</strong> <span>Todos los derechos
+            reservados</span></p>
         <div class="credits">
           Diseñado para la asignatura de Tecnología Multimedia - Universidad de las Islas Baleares
         </div>
@@ -193,7 +280,10 @@
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"
+    aria-label="Volver arriba">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
@@ -208,9 +298,17 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-  <!-- Main JS File -->
+  <!-- Main JS Files -->
   <script src="js/main.js"></script>
   <script src="js/bib.js"></script>
+
+  <!-- Analytics y métricas (opcional) -->
+  <script>
+    // Tracking básico de eventos
+    window.addEventListener('load', () => {
+      console.log('📊 Página de biblioteca cargada');
+    });
+  </script>
 
 </body>
 

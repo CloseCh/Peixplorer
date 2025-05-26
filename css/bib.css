@@ -1,407 +1,1285 @@
-/* Estilos para el sistema de búsqueda y filtros */
-.search-filter-container {
-    background: var(--surface-color);
-    padding: 30px;
-    margin-bottom: 40px;
-    border-radius: 8px;
-    box-shadow: 0px 0 25px rgba(0, 0, 0, 0.1);
-}
+/* =============================================
+   BIBLIOTECA DE PECES - ESTILOS MEJORADOS
+   ============================================= */
 
-.search-box {
-    position: relative;
-}
+/* =============================================
+   VARIABLES CSS PARA CONSISTENCIA
+   ============================================= */
+:root {
+  /* Colores principales */
+  --primary-color: #2c5aa0;
+  --primary-dark: #1e3a5f;
+  --primary-light: #e3f2fd;
+  --secondary-color: #667eea;
+  --accent-color: #764ba2;
 
-.search-input {
-    width: 100%;
-    padding: 12px 50px 12px 20px;
-    border: 2px solid #e1e5e9;
-    border-radius: 25px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
+  /* Colores de texto */
+  --text-dark: #2c3e50;
+  --text-muted: #6c757d;
+  --text-light: #ffffff;
 
-.search-input:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(255, 74, 23, 0.1);
-}
+  /* Backgrounds */
+  --bg-white: #ffffff;
+  --bg-light: #f8f9fa;
+  --bg-dark: #343a40;
 
-.search-icon {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #666;
-    font-size: 18px;
-}
+  /* Bordes y sombras */
+  --border-color: #e9ecef;
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --border-radius-lg: 16px;
 
-.filter-dropdown {
-    position: relative;
-}
+  /* Sombras */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.3);
 
-.filter-btn {
-    background: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+  /* Transiciones */
+  --transition: all 0.3s ease;
+  --transition-fast: all 0.15s ease;
+  --transition-slow: all 0.5s ease;
 
-.filter-btn:hover {
-    background: color-mix(in srgb, var(--accent-color), transparent 20%);
-}
-
-.filter-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: white;
-    border: 1px solid #e1e5e9;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    margin-top: 5px;
-    max-height: 300px;
-    overflow-y: auto;
-    display: none;
-}
-
-.filter-menu.show {
-    display: block;
-}
-
-.filter-section {
-    padding: 15px;
-    border-bottom: 1px solid #e1e5e9;
-}
-
-.filter-section:last-child {
-    border-bottom: none;
-}
-
-.filter-section h6 {
-    margin: 0 0 10px 0;
-    font-weight: 600;
-    color: var(--heading-color);
-}
-
-.filter-option {
-    display: flex;
-    align-items: center;
-    padding: 5px 0;
-    cursor: pointer;
-}
-
-.filter-option input[type="checkbox"] {
-    margin-right: 8px;
-}
-
-.filter-option label {
-    margin: 0;
-    cursor: pointer;
-    flex: 1;
-}
-
-/* Estilos para las cartas de peces */
-.fish-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-.fish-card {
-    background: var(--surface-color);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 0 25px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.fish-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.15);
-}
-
-.fish-card-image {
-    width: 100%;
-    height: 200px;
-    background: linear-gradient(45deg, #f0f8ff, #e6f3ff);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.fish-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Cambiado de cover a contain */
-    background-color: #f8f9fa; /* Fondo para espacios vacíos */
-    transition: transform 0.3s ease;
-}
-
-.card-img-top {
-    object-fit: contain !important;
-    background-color: #f8f9fa !important;
-}
-
-.fish-card:hover .fish-card-image img {
-    transform: scale(1.1);
-}
-
-.fish-icon {
-    font-size: 60px;
-    color: var(--accent-color);
-    opacity: 0.7;
-}
-
-.fish-card-body {
-    padding: 20px;
-}
-
-.fish-card-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--heading-color);
-    margin: 0 0 8px 0;
-}
-
-.fish-card-subtitle {
-    font-size: 14px;
-    color: var(--accent-color);
-    margin: 0 0 10px 0;
-    font-weight: 500;
-}
-
-.fish-card-description {
-    font-size: 14px;
-    color: color-mix(in srgb, var(--default-color), transparent 20%);
-    line-height: 1.5;
-    margin: 0;
-    display: -webkit-box;
-    line-clamp: 3;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  /* Espaciado */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
 }
 
 /* =============================================
-                PAGINACIÓN
-   ============================================= */
+     RESET Y BASE
+     ============================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-/* Contenedor principal - solo márgenes */
+.biblioteca-page {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+}
+
+/* =============================================
+     LOADER MEJORADO
+     ============================================= */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.loader.show {
+  display: flex;
+  opacity: 1;
+}
+
+.spinner-container {
+  text-align: center;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--border-color);
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto var(--spacing-md);
+}
+
+.loading-text {
+  color: var(--text-muted);
+  font-weight: 500;
+  margin: 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =============================================
+     PAGE TITLE MEJORADO
+     ============================================= */
+.page-title {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.page-title .container {
+  position: relative;
+  z-index: 2;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-top: var(--spacing-sm);
+  font-weight: 400;
+}
+
+/* =============================================
+     CONTROLES DE LA BIBLIOTECA
+     ============================================= */
+.library-controls {
+  background: var(--bg-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+.results-info {
+  color: var(--text-muted);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.results-info::before {
+  content: '📊';
+  font-size: 1.2rem;
+}
+
+.sort-controls .form-select {
+  border-color: var(--border-color);
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.sort-controls .form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(44, 90, 160, 0.25);
+}
+
+/* =============================================
+     GRID DE PECES OPTIMIZADO
+     ============================================= */
+.fish-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+}
+
+.fish-card {
+  background: var(--bg-white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  cursor: pointer;
+  border: 2px solid transparent;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.fish-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.fish-card:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.fish-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.fish-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Imagen del card */
+.fish-card .card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: var(--bg-light);
+  transition: var(--transition);
+}
+
+.fish-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* Contenido del card */
+.fish-card .card-body {
+  padding: var(--spacing-lg);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fish-card .card-body h5 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.1rem;
+}
+
+.fish-card .card-body .text-muted {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* =============================================
+     MODAL MEJORADO
+     ============================================= */
+.modal .modal-dialog {
+  max-width: 1100px;
+  width: 95%;
+  margin: 1rem auto;
+}
+
+.modal .modal-content {
+  border: none;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Header del modal */
+.modal .modal-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: var(--text-light);
+  border: none;
+  padding: var(--spacing-xl);
+  position: relative;
+  text-align: center;
+}
+
+.modal .modal-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0;
+  width: 100%;
+}
+
+.modal .modal-header .btn-close {
+  filter: invert(1);
+  opacity: 0.8;
+  transition: var(--transition);
+  margin: 0;
+}
+
+.modal .modal-header .btn-close:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Body del modal */
+.modal .modal-body {
+  padding: 0;
+  background: var(--bg-light);
+}
+
+/* Sección de imagen del modal */
+.fish-image-section {
+  background: var(--bg-white);
+  padding: var(--spacing-lg);
+  text-align: center;
+  border-bottom: 3px solid var(--border-color);
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fish-image-section .fish-image {
+  width: 95%;
+  max-width: 700px;
+  height: auto;
+  max-height: 400px;
+  min-height: 200px;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  background-color: var(--bg-light);
+}
+
+.fish-image-section .fish-image:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+/* =============================================
+     SWIPER INTEGRADO MEJORADO
+     ============================================= */
+.modal .swiper {
+  width: 100%;
+  height: 450px;
+  background: var(--bg-white);
+}
+
+.modal .swiper-wrapper {
+  align-items: center;
+}
+
+.modal .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: var(--spacing-md);
+}
+
+.modal .swiper-slide img {
+  width: 90% !important;
+  max-width: 700px !important;
+  height: auto !important;
+  max-height: 400px !important;
+  min-height: 200px !important;
+  object-fit: contain !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: var(--shadow-md) !important;
+  transition: var(--transition) !important;
+  background-color: var(--bg-light) !important;
+}
+
+.modal .swiper-slide img:hover {
+  transform: scale(1.02);
+}
+
+/* Controles de Swiper personalizados */
+.modal .swiper-pagination-bullet {
+  background: var(--primary-color);
+  opacity: 0.5;
+  width: 12px;
+  height: 12px;
+}
+
+.modal .swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.modal .swiper-button-next,
+.modal .swiper-button-prev {
+  color: var(--primary-color);
+  background: var(--bg-white);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.modal .swiper-button-next:hover,
+.modal .swiper-button-prev:hover {
+  background: var(--primary-color);
+  color: var(--text-light);
+  transform: scale(1.1);
+}
+
+/* YouTube container integrado */
+.youtube-container {
+  position: relative;
+  width: 90%;
+  max-width: 700px;
+  height: 350px;
+  margin: 0 auto;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: #000;
+}
+
+.youtube-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.youtube-container:hover .youtube-thumbnail {
+  filter: brightness(0.8);
+}
+
+.pulsating-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 0, 0, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 0, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+  }
+}
+
+.pulsating-play-btn:hover {
+  background: rgba(255, 0, 0, 1);
+  transform: translate(-50%, -50%) scale(1.1);
+  animation: none;
+}
+
+.pulsating-play-btn i {
+  font-size: 32px;
+  color: white;
+  margin-left: 4px;
+}
+
+/* =============================================
+     INFORMACIÓN DEL PEZ
+     ============================================= */
+.fish-info-section {
+  padding: 0;
+  background: var(--bg-white);
+}
+
+.fish-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 400px;
+}
+
+/* Columna izquierda - Info básica */
+.fish-basic-info {
+  padding: var(--spacing-xl);
+  background: var(--bg-light);
+  border-right: 3px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* Columna derecha - Descripción */
+.fish-description {
+  padding: var(--spacing-xl);
+  background: var(--bg-white);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Nombres del pez */
+.fish-names {
+  background: var(--bg-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.fish-names h4 {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.3rem;
+}
+
+.fish-names p {
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Items de información */
+.info-item {
+  background: var(--bg-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.info-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.info-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.info-item:hover::before {
+  opacity: 1;
+}
+
+.info-item h6 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-item p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+/* Descripción específica */
+.fish-description h6 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: var(--spacing-sm);
+}
+
+.fish-description p {
+  margin: 0;
+  line-height: 1.7;
+  color: var(--text-dark);
+  text-align: justify;
+  flex-grow: 1;
+}
+
+/* Enlaces externos */
+.external-links {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  margin-top: var(--spacing-md);
+}
+
+.external-links .btn {
+  border-radius: 25px;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-weight: 500;
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.875rem;
+}
+
+.external-links .btn-outline-primary {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: transparent;
+}
+
+.external-links .btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(44, 90, 160, 0.3);
+}
+
+/* Footer del modal */
+.modal .modal-footer {
+  background: var(--bg-light);
+  border-top: 1px solid var(--border-color);
+  padding: var(--spacing-lg) var(--spacing-xl);
+}
+
+.modal .modal-footer .btn {
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* =============================================
+     ESTADOS (ERROR, VACÍO) - SIN ESPACIO BLANCO
+     ============================================= */
+
+.empty-state,
+.error-state {
+  text-align: center;
+  padding: var(--spacing-xxl);
+  max-width: 500px;
+  margin: var(--spacing-xl) auto;
+  display: none;
+  /* Ocultos por defecto */
+  min-height: 400px;
+  /* Solo cuando se muestran */
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Cuando están visibles */
+.empty-state.show,
+.error-state.show {
+  display: flex;
+}
+
+.state-icon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--primary-color);
+  opacity: 0.7;
+}
+
+.state-icon.error {
+  color: #dc3545;
+}
+
+.empty-state h3,
+.error-state h3 {
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-md);
+  font-weight: 600;
+}
+
+.empty-state p,
+.error-state p {
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.1rem;
+}
+
+.error-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.error-actions .btn {
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  border: 2px solid;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline-secondary {
+  background: transparent;
+  border-color: var(--text-muted);
+  color: var(--text-muted);
+}
+
+.btn-outline-secondary:hover {
+  background: var(--text-muted);
+  color: var(--text-light);
+}
+
+/* =============================================
+     PAGINACIÓN MEJORADA
+     ============================================= */
 .pagination-container {
-    margin: 50px 0 30px 0;
-    padding: 20px 0;
+  margin: var(--spacing-xxl) 0;
+  padding: var(--spacing-xl) 0;
 }
 
-/* El grid de Bootstrap maneja el centrado automáticamente */
-.pagination-container .row {
-    margin: 0;
-}
-
-.pagination-container .col-auto {
-    padding: 0;
-}
-
-/* Personalización del componente pagination de Bootstrap */
 .pagination {
-    /* Fondo y sombra del contenedor */
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    padding: 15px 20px;
-    margin: 0;
-    
-    /* Animación de aparición */
-    animation: fadeInUp 0.5s ease-out;
-    
-    /* Variables CSS de Bootstrap personalizadas */
-    --bs-pagination-padding-x: 12px;
-    --bs-pagination-padding-y: 8px;
-    --bs-pagination-font-size: 14px;
-    --bs-pagination-color: #1e5a96; /* Celeste oscuro */
-    --bs-pagination-bg: white;
-    --bs-pagination-border-width: 2px;
-    --bs-pagination-border-color: #e8f4f8;
-    --bs-pagination-border-radius: 8px;
-    --bs-pagination-hover-color: #1e5a96;
-    --bs-pagination-hover-bg: #f0f8ff;
-    --bs-pagination-hover-border-color: #1e5a96;
-    --bs-pagination-focus-color: #1e5a96;
-    --bs-pagination-focus-bg: #f0f8ff;
-    --bs-pagination-focus-border-color: #1e5a96;
-    --bs-pagination-active-color: white;
-    --bs-pagination-active-bg: #1e5a96;
-    --bs-pagination-active-border-color: #1e5a96;
-    --bs-pagination-disabled-color: #b0c4de;
-    --bs-pagination-disabled-bg: #f8f9fa;
-    --bs-pagination-disabled-border-color: #f0f0f0;
-    
-    /* Espaciado entre elementos */
-    gap: 8px;
+  background: var(--bg-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  animation: fadeInUp 0.5s ease-out;
+
+  /* Variables Bootstrap personalizadas */
+  --bs-pagination-padding-x: 12px;
+  --bs-pagination-padding-y: 8px;
+  --bs-pagination-font-size: 14px;
+  --bs-pagination-color: var(--primary-color);
+  --bs-pagination-bg: var(--bg-white);
+  --bs-pagination-border-width: 2px;
+  --bs-pagination-border-color: var(--border-color);
+  --bs-pagination-border-radius: var(--border-radius-sm);
+  --bs-pagination-hover-color: var(--text-light);
+  --bs-pagination-hover-bg: var(--primary-color);
+  --bs-pagination-hover-border-color: var(--primary-color);
+  --bs-pagination-focus-color: var(--primary-color);
+  --bs-pagination-focus-bg: var(--primary-light);
+  --bs-pagination-focus-border-color: var(--primary-color);
+  --bs-pagination-active-color: var(--text-light);
+  --bs-pagination-active-bg: var(--primary-color);
+  --bs-pagination-active-border-color: var(--primary-color);
+  --bs-pagination-disabled-color: var(--text-muted);
+  --bs-pagination-disabled-bg: var(--bg-light);
+  --bs-pagination-disabled-border-color: var(--border-color);
 }
 
-/* Personalización de los items de paginación */
 .pagination .page-item {
-    margin: 0;
+  margin: 0;
 }
 
-/* Personalización de los enlaces */
 .pagination .page-link {
-    min-width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    text-decoration: none;
+  min-width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+  text-decoration: none;
+  border-radius: var(--border-radius-sm) !important;
 }
 
-/* Efecto de gradiente deslizante en hover */
+/* Efecto de gradiente deslizante */
 .pagination .page-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(30, 90, 150, 0.1), transparent);
-    transition: left 0.5s;
-    z-index: 1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(44, 90, 160, 0.1), transparent);
+  transition: left 0.5s;
+  z-index: 1;
 }
 
 .pagination .page-link:hover::before {
-    left: 100%;
+  left: 100%;
 }
 
-/* Efectos hover mejorados */
 .pagination .page-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(30, 90, 150, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44, 90, 160, 0.2);
 }
 
-/* Estado activo con gradiente */
+/* Estado activo */
 .pagination .page-item.active .page-link {
-    background: linear-gradient(135deg, #1e5a96, #2980b9) !important;
-    border-color: #1e5a96;
-    box-shadow: 0 4px 15px rgba(30, 90, 150, 0.3);
-    color: white;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 15px rgba(44, 90, 160, 0.3);
+  color: var(--text-light);
 }
 
 .pagination .page-item.active .page-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(30, 90, 150, 0.4);
-    background: linear-gradient(135deg, #1e5a96, #2980b9) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(44, 90, 160, 0.4);
 }
 
 /* Estado deshabilitado */
 .pagination .page-item.disabled .page-link {
-    cursor: not-allowed;
-    transform: none;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .pagination .page-item.disabled .page-link:hover {
-    transform: none;
-    box-shadow: none;
+  transform: none;
+  box-shadow: none;
 }
 
-/* Estilos especiales para botones prev/next */
+/* Botones prev/next */
 .pagination .page-link[data-page*="prev"],
 .pagination .page-link[data-page*="next"] {
-    padding: 8px 16px;
-    border-radius: 25px;
-    font-weight: 500;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: 25px;
+  font-weight: 500;
+  gap: var(--spacing-xs);
 }
 
 /* Puntos suspensivos */
 .pagination .page-item span.page-link {
-    border: none;
-    background: transparent;
-    color: #1e5a96;
-    font-weight: bold;
-    cursor: default;
+  border: none;
+  background: transparent;
+  color: var(--primary-color);
+  font-weight: bold;
+  cursor: default;
 }
 
 .pagination .page-item span.page-link:hover {
-    background: transparent;
-    transform: none;
-    box-shadow: none;
+  background: transparent;
+  transform: none;
+  box-shadow: none;
 }
 
-/* Animación de aparición */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+/* =============================================
+     RESPONSIVE DESIGN
+     ============================================= */
 
-/* Responsive - Bootstrap Grid maneja el centrado */
+/* Tablet - 2 columnas */
 @media (max-width: 768px) {
-    .pagination-container {
-        margin: 30px 0 20px 0;
-        padding: 10px 0;
-    }
+  .fish-grid {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columnas en tablet */
+    gap: var(--spacing-lg);
+    max-width: 800px;
+  }
 
-    .pagination {
-        padding: 10px 15px;
-        gap: 4px;
-        flex-wrap: wrap;
-    }
+  .library-controls {
+    padding: var(--spacing-lg);
+  }
 
-    .pagination .page-link {
-        min-width: 36px;
-        height: 36px;
-        font-size: 12px;
-        padding: 6px 8px;
-    }
+  .library-controls .row>* {
+    margin-bottom: var(--spacing-md);
+  }
 
-    .pagination .page-link[data-page*="prev"],
-    .pagination .page-link[data-page*="next"] {
-        padding: 6px 12px;
-    }
+  .modal .modal-dialog {
+    max-width: 95%;
+    margin: 0.5rem;
+  }
+
+  .fish-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fish-basic-info {
+    border-right: none;
+    border-bottom: 3px solid var(--border-color);
+  }
+
+  .fish-basic-info,
+  .fish-description {
+    padding: var(--spacing-lg);
+  }
+
+  .fish-image-section {
+    min-height: 300px;
+    padding: var(--spacing-md);
+  }
+
+  .fish-image-section .fish-image {
+    max-height: 300px;
+  }
+
+  .pagination {
+    padding: var(--spacing-md) var(--spacing-lg);
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+  }
+
+  .pagination .page-link {
+    min-width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+
+  .youtube-container {
+    height: 250px;
+  }
+
+  .pulsating-play-btn {
+    width: 60px;
+    height: 60px;
+  }
+
+  .pulsating-play-btn i {
+    font-size: 24px;
+  }
 }
 
-@media (max-width: 480px) {
-    .pagination-container {
-        padding: 5px 0;
-        margin: 20px 0 15px 0;
-    }
+/* Móvil - 1 columna */
+@media (max-width: 576px) {
+  .fish-grid {
+    grid-template-columns: 1fr;
+    /* 1 columna en móvil */
+    gap: var(--spacing-md);
+    max-width: 400px;
+  }
 
-    .pagination {
-        gap: 2px;
-        padding: 8px 12px;
-        flex-wrap: wrap;
-    }
-    
-    .pagination .page-link {
-        min-width: 32px;
-        height: 32px;
-        font-size: 11px;
-        padding: 4px 6px;
-    }
-    
-    .pagination .page-link[data-page*="prev"],
-    .pagination .page-link[data-page*="next"] {
-        padding: 4px 8px;
-        font-size: 10px;
-    }
+  .library-controls {
+    padding: var(--spacing-md);
+  }
+
+  .results-info {
+    font-size: 0.875rem;
+  }
+
+  .fish-card .card-body {
+    padding: var(--spacing-md);
+  }
+
+  .modal .modal-dialog {
+    margin: 0.25rem;
+  }
+
+  .modal .modal-header {
+    padding: var(--spacing-lg);
+  }
+
+  .modal .modal-title {
+    font-size: 1.25rem;
+  }
+
+  .fish-basic-info,
+  .fish-description {
+    padding: var(--spacing-md);
+  }
+
+  .fish-image-section {
+    min-height: 250px;
+    padding: var(--spacing-sm);
+  }
+
+  .fish-image-section .fish-image {
+    max-height: 250px;
+    width: 98%;
+  }
+
+  .info-item {
+    padding: var(--spacing-md);
+  }
+
+  .fish-names {
+    padding: var(--spacing-md);
+  }
+
+  .fish-names h4 {
+    font-size: 1.1rem;
+  }
+
+  .external-links {
+    gap: var(--spacing-xs);
+  }
+
+  .external-links .btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.8rem;
+  }
+
+  .pagination {
+    padding: var(--spacing-sm) var(--spacing-md);
+    gap: 2px;
+  }
+
+  .pagination .page-link {
+    min-width: 32px;
+    height: 32px;
+    font-size: 11px;
+    padding: var(--spacing-xs);
+  }
+
+  .pagination .page-link[data-page*="prev"],
+  .pagination .page-link[data-page*="next"] {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 10px;
+  }
+
+  .state-container {
+    min-height: 300px;
+  }
+
+  .empty-state,
+  .error-state {
+    padding: var(--spacing-xl);
+  }
+
+  .state-icon {
+    font-size: 3rem;
+  }
+
+  .error-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .error-actions .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .youtube-container {
+    height: 200px;
+    width: 98%;
+  }
+
+  .pulsating-play-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .pulsating-play-btn i {
+    font-size: 20px;
+  }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .fish-card .card-img-top {
+    height: 150px;
+  }
+
+  .fish-names h4 {
+    font-size: 1rem;
+  }
+
+  .fish-names p {
+    font-size: 0.85rem;
+  }
+
+  .info-item h6 {
+    font-size: 0.8rem;
+  }
+
+  .info-item p {
+    font-size: 0.85rem;
+  }
+
+  .fish-description h6 {
+    font-size: 0.9rem;
+  }
+
+  .fish-description p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+}
+
+/* Desktop grande - mantener 3 columnas */
+@media (min-width: 1200px) {
+  .fish-grid {
+    grid-template-columns: repeat(3, 1fr);
+    /* Mantener 3 columnas */
+    gap: var(--spacing-xl);
+    max-width: 1300px;
+  }
+
+  .fish-image-section {
+    min-height: 500px;
+    padding: var(--spacing-xl);
+  }
+
+  .fish-image-section .fish-image {
+    max-width: 800px;
+    max-height: 450px;
+  }
+
+  .youtube-container {
+    height: 400px;
+    max-width: 800px;
+  }
+
+  .pulsating-play-btn {
+    width: 100px;
+    height: 100px;
+  }
+
+  .pulsating-play-btn i {
+    font-size: 40px;
+  }
+}
+
+/* Desktop extra grande */
+@media (min-width: 1400px) {
+  .modal .modal-dialog {
+    max-width: 1200px;
+  }
+
+  .fish-image-section {
+    min-height: 550px;
+  }
+
+  .fish-image-section .fish-image {
+    max-width: 900px;
+    max-height: 500px;
+  }
+
+  .youtube-container {
+    height: 450px;
+    max-width: 900px;
+  }
+}
+
+/* =============================================
+     UTILIDADES
+     ============================================= */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Animaciones adicionales */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-left {
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+.animate-slide-right {
+  animation: slideInFromRight 0.5s ease-out;
+}
+
+/* Focus states mejorados */
+*:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-sm);
+}
+
+/* Print styles */
+@media print {
+
+  .modal,
+  .pagination-container,
+  .library-controls,
+  .loader {
+    display: none !important;
+  }
+
+  .fish-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: var(--spacing-md) !important;
+  }
+
+  .fish-card {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid var(--border-color) !important;
+  }
 }
