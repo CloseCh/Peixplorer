@@ -1,29 +1,19 @@
 /**
  * ===================================
- * QUIZ APPLICATION - REDESIGNED & IMPROVED
+ * QUIZ APPLICATION - ENHANCED WITH CHART
  * ===================================
- * 
- * Enhanced quiz application for fish knowledge testing
- * Features: Modern ES6+ syntax, improved accessibility, 
- * better error handling, enhanced user experience,
- * fixed countdown animation, and consistent modal sizing
  */
 
 class QuizApp {
-  /**
-   * Initialize the Quiz Application
-   */
   constructor() {
-    // Configuration constants
     this.CONFIG = {
       TOTAL_QUESTIONS: 10,
-      COUNTDOWN_TIME: 3000, // 3 seconds
+      COUNTDOWN_TIME: 1000,
       STORAGE_KEY: 'fishQuizStats',
       QUESTIONS_FILE: 'json/quiz.json',
       MAX_STORED_GAMES: 50
     };
 
-    // Application state
     this.state = {
       currentQuestionIndex: 0,
       selectedAnswerIndex: null,
@@ -35,16 +25,10 @@ class QuizApp {
       isQuizActive: false
     };
 
-    // DOM elements cache
     this.elements = {};
-
-    // Initialize application
     this.init();
   }
 
-  /**
-   * Initialize the application
-   */
   async init() {
     try {
       this.cacheDOMElements();
@@ -57,9 +41,6 @@ class QuizApp {
     }
   }
 
-  /**
-   * Cache all DOM elements for better performance
-   */
   cacheDOMElements() {
     // Navigation elements
     this.elements.mainMenu = document.getElementById('main-menu');
@@ -67,6 +48,15 @@ class QuizApp {
     this.elements.startQuizBtn = document.getElementById('start-quiz-btn');
     this.elements.viewStatsBtn = document.getElementById('view-stats-btn');
     this.elements.backToMenuBtn = document.getElementById('back-to-menu');
+
+    // Chart elements
+    this.elements.showChartBtn = document.getElementById('show-chart-btn');
+    this.elements.chartModal = new bootstrap.Modal(document.getElementById('chartModal'));
+    this.elements.chartModalElement = document.getElementById('chartModal');
+    this.elements.progressChart = document.getElementById('progress-chart');
+    this.elements.chartStats = document.getElementById('chart-stats');
+    this.elements.chartTooltip = document.getElementById('chart-tooltip');
+    this.elements.noDataMessage = document.getElementById('no-data-message');
 
     // Modal elements
     this.elements.quizModal = new bootstrap.Modal(document.getElementById('quizModal'), {
@@ -103,13 +93,9 @@ class QuizApp {
     this.elements.totalCorrect = document.getElementById('total-correct');
     this.elements.gamesList = document.getElementById('games-list');
 
-    // Other elements
     this.elements.preloader = document.getElementById('preloader');
   }
 
-  /**
-   * Bind event listeners
-   */
   bindEventListeners() {
     // Navigation events
     this.elements.startQuizBtn?.addEventListener('click', () => this.startQuiz());
@@ -129,6 +115,9 @@ class QuizApp {
     });
 
     this.elements.backToMenuBtn?.addEventListener('click', () => this.showMainMenu());
+
+    // Chart events
+    this.elements.showChartBtn?.addEventListener('click', () => this.showChart());
 
     // Result buttons
     this.elements.playAgainBtn?.addEventListener('click', () => this.restartQuiz());
@@ -153,15 +142,11 @@ class QuizApp {
     });
   }
 
-  /**
-   * Handle keyboard navigation
-   */
   handleKeyboardNavigation(event) {
     if (!this.state.isQuizActive) return;
 
     const { key } = event;
 
-    // Number keys for answers (1-4)
     if (key >= '1' && key <= '4') {
       const answerIndex = parseInt(key) - 1;
       const answerButtons = this.elements.answersContainer.querySelectorAll('.answer-button');
@@ -171,7 +156,6 @@ class QuizApp {
       }
     }
 
-    // Escape key to close modal
     if (key === 'Escape' && this.state.isQuizActive) {
       if (confirm('¿Estás seguro de que quieres salir del quiz? Se perderá tu progreso.')) {
         this.closeModalAndShowMenu();
@@ -179,9 +163,6 @@ class QuizApp {
     }
   }
 
-  /**
-   * Load questions from JSON file
-   */
   async loadQuestions() {
     try {
       const response = await fetch(this.CONFIG.QUESTIONS_FILE);
@@ -208,9 +189,6 @@ class QuizApp {
     }
   }
 
-  /**
-   * Hide preloader with smooth animation
-   */
   hidePreloader() {
     if (this.elements.preloader) {
       this.elements.preloader.style.opacity = '0';
@@ -221,47 +199,311 @@ class QuizApp {
   }
 
   // ===================================
+  // CHART METHODS
+  // ===================================
+
+  showChart() {
+    const stats = this.getStoredStats();
+    const games = stats.games;
+
+    if (games.length < 2) {
+      this.elements.noDataMessage.style.display = 'block';
+      this.elements.progressChart.style.display = 'none';
+      this.elements.chartStats.style.display = 'none';
+    } else {
+      this.elements.noDataMessage.style.display = 'none';
+      this.elements.progressChart.style.display = 'block';
+      this.elements.chartStats.style.display = 'grid';
+      this.generateChart(games);
+      this.generateChartStats(games);
+    }
+
+    this.elements.chartModal.show();
+  }
+
+  generateChartStats(games) {
+    const calculations = this.calculateStatistics(games);
+    const trend = this.calculateTrend(games);
+    const lastGames = games.slice(-5);
+    const recentAvg = lastGames.length > 0 ?
+      Math.round(lastGames.reduce((sum, game) => sum + (game.score || 0), 0) / lastGames.length) : 0;
+
+    this.elements.chartStats.innerHTML = `
+          <div class="chart-stat-item">
+            <div class="chart-stat-value">${calculations.totalGames}</div>
+            <div class="chart-stat-label">Total Partidas</div>
+          </div>
+          <div class="chart-stat-item">
+            <div class="chart-stat-value">${calculations.avgScore}%</div>
+            <div class="chart-stat-label">Promedio General</div>
+          </div>
+          <div class="chart-stat-item">
+            <div class="chart-stat-value">${recentAvg}%</div>
+            <div class="chart-stat-label">Últimas 5 Partidas</div>
+          </div>
+          <div class="chart-stat-item">
+            <div class="chart-stat-value" style="color: ${trend >= 0 ? '#28a745' : '#dc3545'}">
+              ${trend >= 0 ? '+' : ''}${trend}%
+            </div>
+            <div class="chart-stat-label">Tendencia</div>
+          </div>
+        `;
+  }
+
+  calculateTrend(games) {
+    if (games.length < 4) return 0;
+
+    const firstHalf = games.slice(0, Math.floor(games.length / 2));
+    const secondHalf = games.slice(Math.floor(games.length / 2));
+
+    const firstAvg = firstHalf.reduce((sum, game) => sum + (game.score || 0), 0) / firstHalf.length;
+    const secondAvg = secondHalf.reduce((sum, game) => sum + (game.score || 0), 0) / secondHalf.length;
+
+    return Math.round(secondAvg - firstAvg);
+  }
+
+  generateChart(games) {
+    const svg = this.elements.progressChart;
+    svg.innerHTML = '';
+
+    // Chart dimensions
+    const margin = { top: 20, right: 30, bottom: 50, left: 60 };
+    const width = 900;
+    const height = 400;
+    const chartWidth = width - margin.left - margin.right;
+    const chartHeight = height - margin.top - margin.bottom;
+
+    // Set SVG dimensions
+    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+
+    // Create chart group
+    const chartGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    chartGroup.setAttribute('transform', `translate(${margin.left}, ${margin.top})`);
+    svg.appendChild(chartGroup);
+
+    // Prepare data
+    const chartData = games.map((game, index) => ({
+      x: index,
+      y: game.score || 0,
+      date: new Date(game.date),
+      game: game
+    }));
+
+    // Calculate moving average
+    const movingAverage = [];
+    const windowSize = 3;
+    for (let i = 0; i < chartData.length; i++) {
+      const start = Math.max(0, i - windowSize + 1);
+      const window = chartData.slice(start, i + 1);
+      const avg = window.reduce((sum, d) => sum + d.y, 0) / window.length;
+      movingAverage.push({ x: i, y: avg });
+    }
+
+    // Scales
+    const xScale = (x) => (x / (chartData.length - 1)) * chartWidth;
+    const yScale = (y) => chartHeight - (y / 100) * chartHeight;
+
+    // Draw grid lines
+    this.drawGrid(chartGroup, chartWidth, chartHeight);
+
+    // Draw axes
+    this.drawAxes(chartGroup, chartWidth, chartHeight, chartData);
+
+    // Draw moving average line
+    if (movingAverage.length > 1) {
+      this.drawLine(chartGroup, movingAverage, xScale, yScale, '#667eea', 2, 'chart-line');
+    }
+
+    // Draw main score line
+    this.drawLine(chartGroup, chartData, xScale, yScale, '#2c5aa0', 3, 'chart-line');
+
+    // Draw data points
+    chartData.forEach((d, i) => {
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', xScale(d.x));
+      circle.setAttribute('cy', yScale(d.y));
+      circle.setAttribute('r', 6);
+      circle.setAttribute('fill', '#2c5aa0');
+      circle.setAttribute('stroke', '#ffffff');
+      circle.setAttribute('stroke-width', 2);
+      circle.classList.add('chart-dot');
+      circle.style.animationDelay = `${i * 0.1 + 2}s`;
+
+      // Add tooltip functionality
+      this.addTooltip(circle, d);
+
+      chartGroup.appendChild(circle);
+    });
+  }
+
+  drawGrid(group, width, height) {
+    const gridGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    gridGroup.setAttribute('class', 'grid');
+
+    // Horizontal grid lines
+    for (let i = 0; i <= 4; i++) {
+      const y = (height / 4) * i;
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', 0);
+      line.setAttribute('y1', y);
+      line.setAttribute('x2', width);
+      line.setAttribute('y2', y);
+      line.setAttribute('stroke', '#e9ecef');
+      line.setAttribute('stroke-width', 1);
+      gridGroup.appendChild(line);
+    }
+
+    group.appendChild(gridGroup);
+  }
+
+  drawAxes(group, width, height, data) {
+    // Y-axis
+    const yAxis = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+
+    // Y-axis line
+    const yLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    yLine.setAttribute('x1', 0);
+    yLine.setAttribute('y1', 0);
+    yLine.setAttribute('x2', 0);
+    yLine.setAttribute('y2', height);
+    yLine.setAttribute('stroke', '#495057');
+    yLine.setAttribute('stroke-width', 2);
+    yAxis.appendChild(yLine);
+
+    // Y-axis labels
+    for (let i = 0; i <= 4; i++) {
+      const value = (100 / 4) * (4 - i);
+      const y = (height / 4) * i;
+
+      const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      text.setAttribute('x', -10);
+      text.setAttribute('y', y + 5);
+      text.setAttribute('text-anchor', 'end');
+      text.setAttribute('font-size', '12');
+      text.setAttribute('fill', '#6c757d');
+      text.textContent = `${value}%`;
+      yAxis.appendChild(text);
+    }
+
+    // X-axis
+    const xAxis = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+
+    // X-axis line
+    const xLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    xLine.setAttribute('x1', 0);
+    xLine.setAttribute('y1', height);
+    xLine.setAttribute('x2', width);
+    xLine.setAttribute('y2', height);
+    xLine.setAttribute('stroke', '#495057');
+    xLine.setAttribute('stroke-width', 2);
+    xAxis.appendChild(xLine);
+
+    // X-axis title
+    const xTitle = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    xTitle.setAttribute('x', width / 2);
+    xTitle.setAttribute('y', height + 35);
+    xTitle.setAttribute('text-anchor', 'middle');
+    xTitle.setAttribute('font-size', '14');
+    xTitle.setAttribute('fill', '#495057');
+    xTitle.setAttribute('font-weight', '600');
+    xTitle.textContent = 'Partidas';
+    xAxis.appendChild(xTitle);
+
+    // Y-axis title
+    const yTitle = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    yTitle.setAttribute('x', -height / 2);
+    yTitle.setAttribute('y', -35);
+    yTitle.setAttribute('text-anchor', 'middle');
+    yTitle.setAttribute('font-size', '14');
+    yTitle.setAttribute('fill', '#495057');
+    yTitle.setAttribute('font-weight', '600');
+    yTitle.setAttribute('transform', `rotate(-90, -${height / 2}, -35)`);
+    yTitle.textContent = 'Puntuación (%)';
+    yAxis.appendChild(yTitle);
+
+    group.appendChild(yAxis);
+    group.appendChild(xAxis);
+  }
+
+  drawLine(group, data, xScale, yScale, color, strokeWidth, className) {
+    if (data.length < 2) return;
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+    let pathData = `M ${xScale(data[0].x)} ${yScale(data[0].y)}`;
+    for (let i = 1; i < data.length; i++) {
+      pathData += ` L ${xScale(data[i].x)} ${yScale(data[i].y)}`;
+    }
+
+    path.setAttribute('d', pathData);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', color);
+    path.setAttribute('stroke-width', strokeWidth);
+    path.setAttribute('stroke-linecap', 'round');
+    path.setAttribute('stroke-linejoin', 'round');
+
+    if (className) {
+      path.classList.add(className);
+    }
+
+    group.appendChild(path);
+  }
+
+  addTooltip(element, data) {
+    element.addEventListener('mouseenter', (e) => {
+      const tooltip = this.elements.chartTooltip;
+      const formatDate = data.date.toLocaleDateString('es-ES', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      });
+
+      tooltip.innerHTML = `
+            <strong>Partida ${data.x + 1}</strong><br>
+            Puntuación: ${data.y}%<br>
+            Fecha: ${formatDate}
+          `;
+
+      tooltip.classList.add('show');
+    });
+
+    element.addEventListener('mousemove', (e) => {
+      const tooltip = this.elements.chartTooltip;
+      const rect = this.elements.chartModalElement.getBoundingClientRect();
+      tooltip.style.left = (e.clientX - rect.left + 10) + 'px';
+      tooltip.style.top = (e.clientY - rect.top - 10) + 'px';
+    });
+
+    element.addEventListener('mouseleave', () => {
+      this.elements.chartTooltip.classList.remove('show');
+    });
+  }
+
+  // ===================================
   // NAVIGATION METHODS
   // ===================================
 
-  /**
-   * Show main menu
-   */
   showMainMenu() {
     this.elements.mainMenu.style.display = 'block';
     this.elements.statsView.style.display = 'none';
 
-    // Add entrance animation
     this.elements.mainMenu.classList.add('fade-in');
-
-    // Focus management for accessibility
     this.elements.startQuizBtn?.focus();
   }
 
-  /**
-   * Show statistics view
-   */
   showStats() {
     this.elements.mainMenu.style.display = 'none';
     this.elements.statsView.style.display = 'block';
 
-    // Add entrance animation
     this.elements.statsView.classList.add('fade-in');
-
-    // Update stats display
     this.displayStats();
-
-    // Focus management
     this.elements.backToMenuBtn?.focus();
   }
 
   // ===================================
-  // QUIZ MANAGEMENT
+  // QUIZ MANAGEMENT (Original methods preserved)
   // ===================================
 
-  /**
-   * Start a new quiz
-   */
   async startQuiz() {
     try {
       if (this.state.allQuestions.length === 0) {
@@ -281,14 +523,10 @@ class QuizApp {
     }
   }
 
-  /**
-   * Select random questions for the quiz
-   */
   selectRandomQuestions() {
     const availableQuestions = [...this.state.allQuestions];
     const questionsNeeded = Math.min(this.CONFIG.TOTAL_QUESTIONS, availableQuestions.length);
 
-    // Fisher-Yates shuffle algorithm for better randomization
     for (let i = availableQuestions.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [availableQuestions[i], availableQuestions[j]] = [availableQuestions[j], availableQuestions[i]];
@@ -297,19 +535,15 @@ class QuizApp {
     this.state.quizQuestions = availableQuestions.slice(0, questionsNeeded);
   }
 
-  /**
-   * Reset quiz state - IMPROVED
-   */
   resetQuizState() {
     this.state.currentQuestionIndex = 0;
     this.state.selectedAnswerIndex = null;
     this.state.userAnswers = [];
     this.clearCountdown();
 
-    // Ensure feedback and countdown are properly hidden but reserve space
     if (this.elements.feedback) {
       this.elements.feedback.classList.add('d-none');
-      this.elements.feedback.innerHTML = ''; // Clear content
+      this.elements.feedback.innerHTML = '';
     }
 
     if (this.elements.countdownContainer) {
@@ -317,9 +551,6 @@ class QuizApp {
     }
   }
 
-  /**
-   * Show quiz modal
-   */
   showQuizModal() {
     this.elements.quizView.style.display = 'block';
     this.elements.resultsView.style.display = 'none';
@@ -328,59 +559,44 @@ class QuizApp {
     this.elements.quizModal.show();
   }
 
-  /**
-   * Show current question - IMPROVED
-   */
   async showQuestion() {
     const question = this.state.quizQuestions[this.state.currentQuestionIndex];
     const questionNumber = this.state.currentQuestionIndex + 1;
     const totalQuestions = this.state.quizQuestions.length;
 
-    // Update question information
     this.elements.questionNumber.textContent = `Pregunta ${questionNumber}`;
     this.elements.progressText.textContent = `${questionNumber} de ${totalQuestions}`;
     this.elements.questionText.textContent = question.text;
 
-    // Clear previous answers
     this.elements.answersContainer.innerHTML = '';
 
-    // Create answer buttons with improved accessibility
     question.suggestedAnswer.forEach((answer, index) => {
       const button = this.createAnswerButton(answer.text, index, questionNumber);
       this.elements.answersContainer.appendChild(button);
     });
 
-    // Reset UI state - IMPROVED: Always hide but keep space reserved
     this.state.selectedAnswerIndex = null;
     this.elements.feedback.classList.add('d-none');
     this.elements.countdownContainer.classList.add('d-none');
 
-    // Clear any previous feedback content
     this.elements.feedback.innerHTML = '';
 
-    // Reset countdown bar
     if (this.elements.countdownBar) {
       this.elements.countdownBar.style.transition = 'none';
       this.elements.countdownBar.style.width = '0%';
       this.elements.countdownBar.classList.remove('animate');
     }
 
-    // Update progress bar
     this.updateProgress();
 
-    // Add animation
     this.elements.answersContainer.classList.add('fade-in');
 
-    // Focus first answer for keyboard navigation
     const firstAnswer = this.elements.answersContainer.querySelector('.answer-button');
     if (firstAnswer) {
       firstAnswer.focus();
     }
   }
 
-  /**
-   * Create an answer button with improved accessibility
-   */
   createAnswerButton(text, index, questionNumber) {
     const button = document.createElement('button');
     button.className = 'answer-button';
@@ -389,7 +605,6 @@ class QuizApp {
     button.setAttribute('aria-describedby', 'question-text');
     button.setAttribute('data-answer-index', index);
 
-    // Keyboard support
     button.addEventListener('click', () => this.selectAndProcessAnswer(index, button));
     button.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -401,19 +616,13 @@ class QuizApp {
     return button;
   }
 
-  /**
-   * Select and process answer
-   */
   selectAndProcessAnswer(index, buttonEl) {
-    // Prevent multiple selections
     if (this.state.selectedAnswerIndex !== null) return;
 
-    // Select answer
     this.state.selectedAnswerIndex = index;
     buttonEl.classList.add('selected');
     buttonEl.setAttribute('aria-checked', 'true');
 
-    // Process immediately
     this.lockAnswers();
     this.showFeedback();
     this.saveUserAnswer();
@@ -423,9 +632,6 @@ class QuizApp {
     });
   }
 
-  /**
-   * Lock all answer buttons and show correct/incorrect states
-   */
   lockAnswers() {
     const buttons = this.elements.answersContainer.querySelectorAll('.answer-button');
     const question = this.state.quizQuestions[this.state.currentQuestionIndex];
@@ -448,37 +654,29 @@ class QuizApp {
     });
   }
 
-  /**
-   * Show feedback for the current answer - IMPROVED
-   */
   showFeedback() {
     const question = this.state.quizQuestions[this.state.currentQuestionIndex];
     const selectedAnswer = question.suggestedAnswer[this.state.selectedAnswerIndex];
     const isCorrect = selectedAnswer.text === question.acceptedAnswer.text;
 
-    // Remove d-none to show feedback but keep space reserved
     this.elements.feedback.classList.remove('d-none', 'alert-success', 'alert-danger');
     this.elements.feedback.classList.add(isCorrect ? 'alert-success' : 'alert-danger');
 
     if (isCorrect) {
       this.elements.feedback.innerHTML = `
-        <i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i>
-        <strong>¡Correcto!</strong> Has elegido la respuesta adecuada.
-      `;
+            <i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i>
+            <strong>¡Correcto!</strong> Has elegido la respuesta adecuada.
+          `;
     } else {
       this.elements.feedback.innerHTML = `
-        <i class="bi bi-x-circle-fill me-2" aria-hidden="true"></i>
-        <strong>Incorrecto.</strong> La respuesta correcta es: ${question.acceptedAnswer.text}
-      `;
+            <i class="bi bi-x-circle-fill me-2" aria-hidden="true"></i>
+            <strong>Incorrecto.</strong> La respuesta correcta es: ${question.acceptedAnswer.text}
+          `;
     }
 
-    // Announce to screen readers
     this.elements.feedback.setAttribute('aria-live', 'polite');
   }
 
-  /**
-   * Save user's answer
-   */
   saveUserAnswer() {
     const question = this.state.quizQuestions[this.state.currentQuestionIndex];
     const selectedAnswer = question.suggestedAnswer[this.state.selectedAnswerIndex];
@@ -493,9 +691,6 @@ class QuizApp {
     });
   }
 
-  /**
-   * Start countdown timer - COMPLETELY IMPROVED
-   */
   startCountdown(callback) {
     if (!this.elements.countdownContainer || !this.elements.countdownBar) {
       console.warn('Countdown elements not found');
@@ -503,62 +698,47 @@ class QuizApp {
       return;
     }
 
-    // Show countdown container
     this.elements.countdownContainer.classList.remove('d-none');
 
-    // Reset countdown bar with proper animation control
     this.elements.countdownBar.style.transition = 'none';
     this.elements.countdownBar.style.width = '0%';
     this.elements.countdownBar.classList.remove('animate');
 
-    // Force reflow to ensure the reset is applied
     this.elements.countdownBar.offsetHeight;
 
-    // Start the animation using requestAnimationFrame for better performance
     requestAnimationFrame(() => {
       this.elements.countdownBar.style.transition = `width ${this.CONFIG.COUNTDOWN_TIME}ms linear`;
       this.elements.countdownBar.classList.add('animate');
       this.elements.countdownBar.style.width = '100%';
     });
 
-    // Execute callback after countdown
     this.state.countdownInterval = setTimeout(() => {
-      // Hide countdown and reset
       this.elements.countdownContainer.classList.add('d-none');
       this.elements.countdownBar.style.transition = 'none';
       this.elements.countdownBar.style.width = '0%';
       this.elements.countdownBar.classList.remove('animate');
 
-      // Execute the callback
       callback();
     }, this.CONFIG.COUNTDOWN_TIME);
   }
 
-  /**
-   * Clear countdown timer - IMPROVED
-   */
   clearCountdown() {
     if (this.state.countdownInterval) {
       clearTimeout(this.state.countdownInterval);
       this.state.countdownInterval = null;
     }
 
-    // Reset countdown bar state
     if (this.elements.countdownBar) {
       this.elements.countdownBar.style.transition = 'none';
       this.elements.countdownBar.style.width = '0%';
       this.elements.countdownBar.classList.remove('animate');
     }
 
-    // Hide countdown container
     if (this.elements.countdownContainer) {
       this.elements.countdownContainer.classList.add('d-none');
     }
   }
 
-  /**
-   * Move to next question or show results
-   */
   moveToNextQuestion() {
     this.state.currentQuestionIndex++;
 
@@ -569,9 +749,6 @@ class QuizApp {
     }
   }
 
-  /**
-   * Update progress bar
-   */
   updateProgress() {
     const progress = Math.round((this.state.currentQuestionIndex / this.state.quizQuestions.length) * 100);
     this.elements.quizProgress.style.width = `${progress}%`;
@@ -579,12 +756,9 @@ class QuizApp {
   }
 
   // ===================================
-  // RESULTS MANAGEMENT
+  // RESULTS MANAGEMENT (Original methods preserved)
   // ===================================
 
-  /**
-   * Show quiz results
-   */
   showResults() {
     this.state.isQuizActive = false;
 
@@ -592,25 +766,18 @@ class QuizApp {
     const totalQuestions = this.state.userAnswers.length;
     const percentage = Math.round((correctAnswers / totalQuestions) * 100);
 
-    // Switch views
     this.elements.quizView.style.display = 'none';
     this.elements.resultsView.style.display = 'block';
     this.elements.resultsButtons.style.display = 'block';
 
-    // Display results
     this.displayFinalScore(correctAnswers, totalQuestions, percentage);
     this.displayQuestionsReview();
 
-    // Save statistics
     this.saveGameStats(correctAnswers, totalQuestions, percentage);
 
-    // Focus management
     this.elements.playAgainBtn?.focus();
   }
 
-  /**
-   * Display final score
-   */
   displayFinalScore(correct, total, percentage) {
     const scoreData = this.getScoreData(percentage);
 
@@ -618,15 +785,11 @@ class QuizApp {
     this.elements.finalScore.textContent = `${correct}/${total} (${percentage}%)`;
     this.elements.finalScore.className = `final-score-display ${scoreData.class}`;
 
-    // Add results message
     if (this.elements.resultsMessage) {
       this.elements.resultsMessage.textContent = scoreData.description;
     }
   }
 
-  /**
-   * Get score data based on percentage
-   */
   getScoreData(percentage) {
     if (percentage >= 90) {
       return {
@@ -655,9 +818,6 @@ class QuizApp {
     }
   }
 
-  /**
-   * Display questions review
-   */
   displayQuestionsReview() {
     const reviewContainer = this.elements.questionsReview.querySelector('.review-container') ||
       this.elements.questionsReview;
@@ -670,15 +830,11 @@ class QuizApp {
     });
   }
 
-  /**
-   * Create question review item
-   */
   createQuestionReviewItem(userAnswer, questionNumber) {
     const item = document.createElement('article');
     item.className = 'question-review-item';
     item.setAttribute('aria-labelledby', `review-question-${questionNumber}`);
 
-    // Question Header with number badge
     const questionHeader = document.createElement('div');
     questionHeader.className = 'review-question-header';
 
@@ -695,24 +851,21 @@ class QuizApp {
     questionHeader.appendChild(numberBadge);
     questionHeader.appendChild(questionText);
 
-    // Answers Container
     const answersContainer = document.createElement('div');
     answersContainer.className = 'review-answers';
     answersContainer.setAttribute('role', 'list');
 
-    // Create review for each possible answer with enhanced styling
     userAnswer.question.suggestedAnswer.forEach((answer, index) => {
       const answerEl = document.createElement('div');
       answerEl.className = 'review-answer';
       answerEl.setAttribute('role', 'listitem');
 
-      // Create answer icon
       const answerIcon = document.createElement('div');
       answerIcon.className = 'answer-icon';
 
       let answerText = answer.text;
       let className = 'neutral';
-      let iconContent = String.fromCharCode(65 + index); // A, B, C, D
+      let iconContent = String.fromCharCode(65 + index);
 
       if (answer.text === userAnswer.correctAnswer.text) {
         className = 'correct';
@@ -729,7 +882,6 @@ class QuizApp {
       answerIcon.textContent = iconContent;
       answerEl.classList.add(className);
 
-      // Answer text content
       const answerContent = document.createElement('span');
       answerContent.className = 'answer-content';
       answerContent.textContent = answerText;
@@ -739,7 +891,6 @@ class QuizApp {
       answersContainer.appendChild(answerEl);
     });
 
-    // Question Summary
     const questionSummary = document.createElement('div');
     questionSummary.className = `question-summary ${userAnswer.isCorrect ? 'correct' : 'incorrect'}`;
 
@@ -757,7 +908,6 @@ class QuizApp {
     questionSummary.appendChild(summaryIcon);
     questionSummary.appendChild(summaryText);
 
-    // Assemble the complete item
     item.appendChild(questionHeader);
     item.appendChild(answersContainer);
     item.appendChild(questionSummary);
@@ -766,12 +916,9 @@ class QuizApp {
   }
 
   // ===================================
-  // STATISTICS MANAGEMENT
+  // STATISTICS MANAGEMENT (Original methods preserved)
   // ===================================
 
-  /**
-   * Save game statistics
-   */
   saveGameStats(correctAnswers, totalQuestions, percentage) {
     const gameData = {
       id: Date.now().toString(),
@@ -792,7 +939,6 @@ class QuizApp {
       let stats = this.getStoredStats();
       stats.games.push(gameData);
 
-      // Keep only the most recent games
       if (stats.games.length > this.CONFIG.MAX_STORED_GAMES) {
         stats.games = stats.games.slice(-this.CONFIG.MAX_STORED_GAMES);
       }
@@ -803,17 +949,11 @@ class QuizApp {
     }
   }
 
-  /**
-   * Calculate quiz duration in seconds
-   */
   calculateQuizDuration() {
     if (!this.state.quizStartTime) return 0;
     return Math.round((new Date() - this.state.quizStartTime) / 1000);
   }
 
-  /**
-   * Get stored statistics
-   */
   getStoredStats() {
     try {
       const stored = localStorage.getItem(this.CONFIG.STORAGE_KEY);
@@ -828,27 +968,19 @@ class QuizApp {
     return { games: [] };
   }
 
-  /**
-   * Save statistics to localStorage
-   */
   saveStats(stats) {
     try {
       localStorage.setItem(this.CONFIG.STORAGE_KEY, JSON.stringify(stats));
     } catch (error) {
       console.error('Error saving stats:', error);
-      // Handle quota exceeded or other storage errors
       if (error.name === 'QuotaExceededError') {
         this.handleStorageQuotaExceeded();
       }
     }
   }
 
-  /**
-   * Handle storage quota exceeded
-   */
   handleStorageQuotaExceeded() {
     try {
-      // Keep only the most recent 20 games
       const stats = this.getStoredStats();
       stats.games = stats.games.slice(-20);
       localStorage.setItem(this.CONFIG.STORAGE_KEY, JSON.stringify(stats));
@@ -857,9 +989,6 @@ class QuizApp {
     }
   }
 
-  /**
-   * Display statistics
-   */
   displayStats() {
     const stats = this.getStoredStats();
     const games = stats.games;
@@ -869,22 +998,16 @@ class QuizApp {
       return;
     }
 
-    // Calculate statistics
     const calculations = this.calculateStatistics(games);
 
-    // Update display
     this.elements.totalGames.textContent = calculations.totalGames;
     this.elements.avgScore.textContent = `${calculations.avgScore}%`;
     this.elements.bestScore.textContent = `${calculations.bestScore}%`;
     this.elements.totalCorrect.textContent = calculations.totalCorrect;
 
-    // Show games history
     this.displayGamesHistory(games);
   }
 
-  /**
-   * Calculate statistics from games data
-   */
   calculateStatistics(games) {
     const totalGames = games.length;
     const totalCorrect = games.reduce((sum, game) => sum + (game.correctAnswers || 0), 0);
@@ -899,13 +1022,9 @@ class QuizApp {
     };
   }
 
-  /**
-   * Display games history
-   */
   displayGamesHistory(games) {
     this.elements.gamesList.innerHTML = '';
 
-    // Show most recent games first (limit to 20)
     const recentGames = [...games].reverse().slice(0, 20);
 
     if (recentGames.length === 0) {
@@ -919,9 +1038,6 @@ class QuizApp {
     });
   }
 
-  /**
-   * Create a game item element
-   */
   createGameItem(game, index) {
     const item = document.createElement('article');
     item.className = 'game-item';
@@ -957,9 +1073,6 @@ class QuizApp {
     return item;
   }
 
-  /**
-   * Get score class based on percentage
-   */
   getScoreClass(percentage) {
     if (percentage >= 90) return 'excellent';
     if (percentage >= 70) return 'good';
@@ -967,9 +1080,6 @@ class QuizApp {
     return 'poor';
   }
 
-  /**
-   * Format date for display
-   */
   formatDate(dateString) {
     try {
       const date = new Date(dateString);
@@ -991,9 +1101,6 @@ class QuizApp {
     }
   }
 
-  /**
-   * Format duration for display
-   */
   formatDuration(seconds) {
     if (seconds < 60) {
       return `${seconds}s`;
@@ -1004,9 +1111,6 @@ class QuizApp {
     }
   }
 
-  /**
-   * Show empty statistics state
-   */
   showEmptyStats() {
     this.elements.totalGames.textContent = '0';
     this.elements.avgScore.textContent = '0%';
@@ -1016,53 +1120,39 @@ class QuizApp {
     this.showEmptyGamesList();
   }
 
-  /**
-   * Show empty games list
-   */
   showEmptyGamesList() {
     this.elements.gamesList.innerHTML = `
-      <div class="empty-state">
-        <i class="bi bi-graph-up" aria-hidden="true"></i>
-        <h4>No hay partidas registradas</h4>
-        <p>Juega tu primer quiz para ver tus estadísticas aquí</p>
-      </div>
-    `;
+          <div class="empty-state">
+            <i class="bi bi-graph-up text-muted" style="font-size: 3rem;"></i>
+            <h4>No hay partidas registradas</h4>
+            <p>Juega tu primer quiz para ver tus estadísticas aquí</p>
+          </div>
+        `;
   }
 
   // ===================================
-  // UTILITY METHODS - IMPROVED
+  // UTILITY METHODS
   // ===================================
 
-  /**
-   * Restart the quiz
-   */
   restartQuiz() {
     this.resetQuiz();
     this.startQuiz();
   }
 
-  /**
-   * Close modal and show main menu
-   */
   closeModalAndShowMenu() {
     this.state.isQuizActive = false;
     this.elements.quizModal.hide();
     this.showMainMenu();
   }
 
-  /**
-   * Reset quiz completely - IMPROVED
-   */
   resetQuiz() {
     this.resetQuizState();
     this.state.isQuizActive = false;
 
-    // Reset DOM elements
     if (this.elements.answersContainer) {
       this.elements.answersContainer.innerHTML = '';
     }
 
-    // Ensure feedback and countdown are properly hidden but reserve space
     if (this.elements.feedback) {
       this.elements.feedback.classList.add('d-none');
       this.elements.feedback.innerHTML = '';
@@ -1073,7 +1163,6 @@ class QuizApp {
       this.elements.countdownContainer.classList.add('d-none');
     }
 
-    // Reset countdown bar
     if (this.elements.countdownBar) {
       this.elements.countdownBar.style.transition = 'none';
       this.elements.countdownBar.style.width = '0%';
@@ -1085,22 +1174,13 @@ class QuizApp {
     }
   }
 
-  /**
-   * Handle errors gracefully
-   */
   handleError(message, error) {
     console.error(message, error);
 
-    // Show user-friendly error message
     const errorMessage = this.getUserFriendlyErrorMessage(error);
-
-    // You could implement a more sophisticated error display here
     alert(`${message}: ${errorMessage}`);
   }
 
-  /**
-   * Get user-friendly error message
-   */
   getUserFriendlyErrorMessage(error) {
     if (error.name === 'TypeError' && error.message.includes('fetch')) {
       return 'No se pudo cargar el contenido. Verifica tu conexión a internet.';
@@ -1118,39 +1198,28 @@ class QuizApp {
 // APPLICATION INITIALIZATION
 // ===================================
 
-/**
- * Initialize the application when DOM is ready
- */
 document.addEventListener('DOMContentLoaded', () => {
   try {
     new QuizApp();
   } catch (error) {
     console.error('Failed to initialize Quiz App:', error);
 
-    // Show fallback error message
     const preloader = document.getElementById('preloader');
     if (preloader) {
       preloader.innerHTML = `
-        <div class="preloader-content">
-          <i class="bi bi-exclamation-triangle text-danger" style="font-size: 3rem;"></i>
-          <h4>Error al cargar la aplicación</h4>
-          <p>Por favor, recarga la página para intentar de nuevo.</p>
-          <button class="btn btn-primary mt-3" onclick="window.location.reload()">
-            Recargar página
-          </button>
-        </div>
-      `;
+            <div class="preloader-content">
+              <i class="bi bi-exclamation-triangle text-danger" style="font-size: 3rem;"></i>
+              <h4>Error al cargar la aplicación</h4>
+              <p>Por favor, recarga la página para intentar de nuevo.</p>
+              <button class="btn btn-primary mt-3" onclick="window.location.reload()">
+                Recargar página
+              </button>
+            </div>
+          `;
     }
   }
 });
 
-// ===================================
-// SERVICE WORKER REGISTRATION
-// ===================================
-
-/**
- * Register service worker for offline functionality (optional)
- */
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js')
