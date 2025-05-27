@@ -429,6 +429,7 @@ body.quiz-page {
 .stats-subtitle {
     font-size: var(--quiz-font-size-base);
     margin-bottom: 0;
+    color: var(--quiz-text-inverse) !important;
 }
 
 .stats-grid {
@@ -508,48 +509,87 @@ body.quiz-page {
 }
 
 /* =================================
-     ENHANCED GAMES HISTORY
+     CORRECCIÓN - HISTORIAL DE PARTIDAS (GAMES HISTORY)
      ================================= */
 
+/* Sección principal del historial */
 .games-history {
     margin-top: var(--quiz-space-2xl);
+    background: transparent;
 }
 
+/* Header del historial */
 .history-header {
-    border-bottom: 1px solid var(--quiz-gray-200);
+    border-bottom: 1px solid #334155;
     padding-bottom: var(--quiz-space-md);
+    margin-bottom: var(--quiz-space-xl);
+    background: transparent;
 }
 
 .history-title {
     font-family: var(--quiz-font-family-heading);
     font-size: var(--quiz-font-size-xl);
     font-weight: 700;
-    color: var(--quiz-text-primary);
+    color: #f1f5f9;
     margin-bottom: var(--quiz-space-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--quiz-space-sm);
+}
+
+.history-title i {
+    color: #60a5fa;
 }
 
 .history-subtitle {
     font-size: var(--quiz-font-size-sm);
+    color: var(--quiz-text-inverse) !important;
     margin-bottom: 0;
 }
 
+/* Lista de partidas - CORREGIDA */
 .games-list {
     max-height: 500px;
     overflow-y: auto;
     border-radius: var(--quiz-radius-xl);
-    border: 1px solid var(--quiz-gray-200);
-    background: var(--quiz-surface);
-    box-shadow: var(--quiz-shadow-md);
+    border: 2px solid #334155;
+    background: #0f172a;
+    box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.4);
+    padding: 0;
+    position: relative;
 }
 
+/* Scrollbar personalizada para el tema oscuro */
+.games-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.games-list::-webkit-scrollbar-track {
+    background: #1e293b;
+    border-radius: var(--quiz-radius-md);
+}
+
+.games-list::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: var(--quiz-radius-md);
+    transition: background var(--quiz-transition-fast);
+}
+
+.games-list::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* Items de partidas individuales - CORREGIDAS */
 .game-item {
     padding: var(--quiz-space-lg);
-    border-bottom: 1px solid var(--quiz-gray-200);
+    border-bottom: 1px solid #334155;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: all var(--quiz-transition-fast);
     position: relative;
+    background: #0f172a;
+    color: #e2e8f0;
 }
 
 .game-item::before {
@@ -561,6 +601,7 @@ body.quiz-page {
     height: 100%;
     background: var(--quiz-gradient-primary);
     transition: width var(--quiz-transition-normal);
+    z-index: 1;
 }
 
 .game-item:hover::before {
@@ -572,28 +613,32 @@ body.quiz-page {
 }
 
 .game-item:hover {
-    background: var(--quiz-gray-50);
+    background: #1e293b;
     transform: translateX(4px);
+    border-color: #475569;
 }
 
+/* Información del juego */
 .game-info {
     flex-grow: 1;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .game-date {
     font-size: var(--quiz-font-size-sm);
     font-weight: 600;
-    color: var(--quiz-text-primary);
+    color: #f1f5f9;
     margin-bottom: var(--quiz-space-xs);
 }
 
 .game-details {
     font-size: var(--quiz-font-size-xs);
-    color: var(--quiz-text-secondary);
+    color: #94a3b8;
+    font-weight: 500;
 }
 
+/* Puntuación del juego */
 .game-score {
     font-family: var(--quiz-font-family-heading);
     font-size: var(--quiz-font-size-lg);
@@ -603,28 +648,191 @@ body.quiz-page {
     text-align: center;
     min-width: 80px;
     position: relative;
-    z-index: 1;
-    box-shadow: var(--quiz-shadow-sm);
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .game-score.excellent {
     background: var(--quiz-gradient-success);
     color: white;
+    border-color: #22c55e;
 }
 
 .game-score.good {
-    background: linear-gradient(135deg, var(--quiz-info) 0%, #0891b2 100%);
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
     color: white;
+    border-color: #06b6d4;
 }
 
 .game-score.fair {
-    background: linear-gradient(135deg, var(--quiz-warning) 0%, #d97706 100%);
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
     color: white;
+    border-color: #f59e0b;
 }
 
 .game-score.poor {
-    background: linear-gradient(135deg, var(--quiz-danger) 0%, #dc2626 100%);
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
     color: white;
+    border-color: #ef4444;
+}
+
+/* Estado vacío - CORREGIDO */
+.empty-state {
+    text-align: center;
+    padding: var(--quiz-space-3xl);
+    color: #94a3b8;
+    background: #0f172a;
+    border-radius: var(--quiz-radius-xl);
+    margin: 0;
+}
+
+.empty-state i {
+    font-size: 5rem;
+    margin-bottom: var(--quiz-space-lg);
+    background: var(--quiz-gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+}
+
+.empty-state h4 {
+    font-size: var(--quiz-font-size-lg);
+    font-weight: 700;
+    margin-bottom: var(--quiz-space-md);
+    color: #f1f5f9;
+    font-family: var(--quiz-font-family-heading);
+}
+
+.empty-state p {
+    color: #94a3b8;
+    font-size: var(--quiz-font-size-base);
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+/* =================================
+     RESPONSIVE DESIGN - MÓVIL
+     ================================= */
+
+@media (max-width: 991px) {
+    .games-list {
+        max-height: 400px;
+        border: 1px solid #334155;
+    }
+    
+    .game-item {
+        padding: var(--quiz-space-md);
+    }
+    
+    .empty-state {
+        padding: var(--quiz-space-2xl);
+    }
+    
+    .empty-state i {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .history-title {
+        font-size: var(--quiz-font-size-lg);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--quiz-space-xs);
+    }
+    
+    .games-list {
+        max-height: 350px;
+        border-radius: var(--quiz-radius-lg);
+    }
+    
+    .game-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--quiz-space-sm);
+        padding: var(--quiz-space-md);
+    }
+    
+    .game-item:hover {
+        transform: none;
+        padding-left: var(--quiz-space-md);
+    }
+    
+    .game-item::before {
+        display: none;
+    }
+    
+    .game-score {
+        align-self: flex-end;
+        min-width: 70px;
+        font-size: var(--quiz-font-size-base);
+        padding: var(--quiz-space-xs) var(--quiz-space-sm);
+    }
+    
+    .game-date {
+        font-size: var(--quiz-font-size-xs);
+    }
+    
+    .game-details {
+        font-size: 11px;
+    }
+    
+    .empty-state {
+        padding: var(--quiz-space-xl);
+    }
+    
+    .empty-state i {
+        font-size: 3rem;
+    }
+    
+    .empty-state h4 {
+        font-size: var(--quiz-font-size-base);
+    }
+    
+    .empty-state p {
+        font-size: var(--quiz-font-size-sm);
+    }
+}
+
+/* =================================
+     MEJORAS DE ACCESIBILIDAD
+     ================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .game-item,
+    .game-item::before {
+        transition: none;
+    }
+    
+    .games-list::-webkit-scrollbar-thumb {
+        transition: none;
+    }
+}
+
+/* Para usuarios con daltonismo */
+@media (prefers-contrast: high) {
+    .games-list {
+        border-width: 3px;
+        border-color: #ffffff;
+    }
+    
+    .game-item {
+        border-bottom-width: 2px;
+        border-bottom-color: #ffffff;
+    }
+    
+    .game-score {
+        border-width: 2px;
+    }
+}
+
+/* Focus visible mejorado */
+.game-item:focus-visible {
+    outline: 3px solid #60a5fa;
+    outline-offset: -3px;
+    background: #1e293b;
 }
 
 /* Empty state enhancement */
