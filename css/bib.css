@@ -1,10 +1,8 @@
 /* =============================================
-   BIBLIOTECA DE PECES - ESTILOS MEJORADOS
+    BIBLIOTECA DE PECES
    ============================================= */
 
-/* =============================================
-   VARIABLES CSS PARA CONSISTENCIA
-   ============================================= */
+/* CSS Custom Properties */
 :root {
   /* Colores principales */
   --primary-color: #2c5aa0;
@@ -381,7 +379,7 @@
 }
 
 /* =============================================
-     SWIPER INTEGRADO MEJORADO
+     SWIPER INTEGRADO
      ============================================= */
 .modal .swiper {
   width: 100%;

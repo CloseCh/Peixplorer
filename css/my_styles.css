@@ -187,21 +187,17 @@ img.circle-img {
     margin-top: 40px;
     font-size: 0.9rem;
     text-align: center;
-    /* Romper la estructura de columnas para ocupar todo el ancho */
-    width: 100%;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    padding: 20px 0;
+    padding: 20px 15px;
     background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-copyright .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0;
+    width: 100%;
 }
 
 .copyright-divider {

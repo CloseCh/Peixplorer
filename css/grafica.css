@@ -2,7 +2,7 @@
    CHART MODAL STYLES - DARK THEME
    ================================= */
 
-/* Importar variables del quiz.css si no están disponibles */
+/* CSS Custom Properties */
 :root {
     /* Variables específicas para gráficas */
     --chart-bg-primary: #0f172a;
