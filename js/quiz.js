@@ -311,7 +311,7 @@ class QuizApp {
 
     // Draw moving average line
     if (movingAverage.length > 1) {
-      this.drawLine(chartGroup, movingAverage, xScale, yScale, '#667eea', 2, 'chart-line');
+      this.drawLine(chartGroup, movingAverage, xScale, yScale, '#a855f7', 2, 'chart-line');
     }
 
     // Draw main score line
@@ -427,26 +427,65 @@ class QuizApp {
 
   drawLine(group, data, xScale, yScale, color, strokeWidth, className) {
     if (data.length < 2) return;
-
+  
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-
+  
     let pathData = `M ${xScale(data[0].x)} ${yScale(data[0].y)}`;
     for (let i = 1; i < data.length; i++) {
       pathData += ` L ${xScale(data[i].x)} ${yScale(data[i].y)}`;
     }
-
+  
     path.setAttribute('d', pathData);
-    path.setAttribute('fill', 'none');
+    path.setAttribute('fill', 'none'); 
     path.setAttribute('stroke', color);
     path.setAttribute('stroke-width', strokeWidth);
     path.setAttribute('stroke-linecap', 'round');
     path.setAttribute('stroke-linejoin', 'round');
-
+  
+    // MANTENER la clase CSS para otros estilos PERO forzar el color
     if (className) {
       path.classList.add(className);
     }
-
+  
+    // CRÍTICO: Agregar al DOM ANTES de calcular longitud
     group.appendChild(path);
+  
+    // FORZAR EL COLOR después de que esté en el DOM
+    // Esto sobrescribe cualquier CSS
+    path.style.setProperty('stroke', color, 'important');
+    path.style.setProperty('fill', 'none', 'important');
+  
+    // Si es media móvil, agregar línea punteada
+    const isMovingAverage = color === '#a855f7';
+    if (isMovingAverage) {
+      path.style.setProperty('stroke-dasharray', '5, 5', 'important');
+      path.style.setProperty('opacity', '0.8', 'important');
+    }
+  
+    // CALCULAR LONGITUD REAL DINÁMICAMENTE
+    let pathLength;
+    try {
+      pathLength = path.getTotalLength();
+      console.log(`🎯 Línea ${color}: longitud real = ${pathLength.toFixed(2)}px`);
+    } catch (e) {
+      console.warn('❌ Error calculando longitud del path:', e);
+      pathLength = 1000;
+    }
+  
+    // APLICAR ANIMACIÓN DINÁMICA
+    path.style.strokeDasharray = `${pathLength} ${pathLength}`;
+    path.style.strokeDashoffset = pathLength;
+    path.style.transition = 'stroke-dashoffset 2.5s ease-in-out';
+    
+    const animationDelay = isMovingAverage ? 200 : 500;
+    
+    console.log(`📏 Configurando animación - dasharray: ${pathLength}, delay: ${animationDelay}ms`);
+  
+    // Iniciar animación después del delay apropiado
+    setTimeout(() => {
+      path.style.strokeDashoffset = '0';
+      console.log(`✅ Animación iniciada para línea ${color}`);
+    }, animationDelay);
   }
 
   addTooltip(element, data) {
