@@ -1,4 +1,385 @@
 // =============================================
+// SPEECH SYNTHESIS API - FUNCIONALIDAD ADICIONAL
+// =============================================
+class ChunkedSpeechManager {
+  constructor() {
+    this.synth = window.speechSynthesis;
+    this.isPlaying = false;
+    this.isPaused = false;
+    this.voices = [];
+    this.selectedVoice = null;
+    
+    // Propiedades para chunks
+    this.chunks = [];
+    this.currentChunkIndex = 0;
+    this.currentUtterance = null;
+    this.fullText = '';
+    
+    // Configuración
+    this.chunkSize = 150; // Caracteres por chunk
+    this.pauseBetweenChunks = 50; // ms entre chunks
+    
+    this.init();
+  }
+
+  init() {
+    this.loadVoices();
+    if (this.synth.onvoiceschanged !== undefined) {
+      this.synth.onvoiceschanged = () => this.loadVoices();
+    }
+  }
+
+  loadVoices() {
+    this.voices = this.synth.getVoices();
+    this.selectedVoice = this.voices.find(voice =>
+      voice.lang.startsWith('es') && voice.localService
+    ) || this.voices.find(voice =>
+      voice.lang.startsWith('es')
+    ) || this.voices[0];
+
+    console.log('🎤 Voces disponibles:', this.voices.length);
+    console.log('🗣️ Voz seleccionada:', this.selectedVoice?.name);
+  }
+
+  // Dividir texto en chunks inteligentes (respetando oraciones)
+  splitTextIntoChunks(text) {
+    const chunks = [];
+    let currentChunk = '';
+    
+    // Dividir por oraciones primero
+    const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+    
+    for (const sentence of sentences) {
+      const cleanSentence = sentence.trim();
+      
+      // Si la oración es muy larga, dividirla por comas
+      if (cleanSentence.length > this.chunkSize) {
+        const parts = cleanSentence.split(',');
+        
+        for (const part of parts) {
+          const cleanPart = part.trim();
+          
+          if (currentChunk.length + cleanPart.length > this.chunkSize && currentChunk) {
+            chunks.push(currentChunk.trim());
+            currentChunk = cleanPart;
+          } else {
+            currentChunk += (currentChunk ? ', ' : '') + cleanPart;
+          }
+        }
+      } else {
+        // Oración normal
+        if (currentChunk.length + cleanSentence.length > this.chunkSize && currentChunk) {
+          chunks.push(currentChunk.trim());
+          currentChunk = cleanSentence;
+        } else {
+          currentChunk += (currentChunk ? ' ' : '') + cleanSentence;
+        }
+      }
+    }
+    
+    if (currentChunk.trim()) {
+      chunks.push(currentChunk.trim());
+    }
+    
+    return chunks.filter(chunk => chunk.length > 0);
+  }
+
+  speak(text, options = {}) {
+    console.log('🎤 Iniciando speech con chunks...');
+    
+    this.stop(); // Limpiar cualquier speech anterior
+    
+    if (!text || text.trim() === '') {
+      console.warn('⚠️ No hay texto para sintetizar');
+      return;
+    }
+
+    this.fullText = text;
+    this.chunks = this.splitTextIntoChunks(text);
+    this.currentChunkIndex = 0;
+    this.isPlaying = true;
+    this.isPaused = false;
+    
+    console.log(`📝 Texto dividido en ${this.chunks.length} chunks:`);
+    this.chunks.forEach((chunk, i) => {
+      console.log(`  ${i + 1}: "${chunk.substring(0, 50)}..."`);
+    });
+    
+    this.updatePlayButton('playing');
+    this.speakNextChunk();
+  }
+
+  speakNextChunk() {
+    // Verificar si hemos terminado
+    if (this.currentChunkIndex >= this.chunks.length) {
+      this.onSpeechComplete();
+      return;
+    }
+    
+    // Verificar si estamos pausados
+    if (this.isPaused) {
+      console.log(`⏸️ Speech pausado en chunk ${this.currentChunkIndex + 1}/${this.chunks.length}`);
+      return;
+    }
+    
+    const chunk = this.chunks[this.currentChunkIndex];
+    console.log(`🗣️ Hablando chunk ${this.currentChunkIndex + 1}/${this.chunks.length}: "${chunk.substring(0, 30)}..."`);
+    
+    // Crear utterance para este chunk
+    this.currentUtterance = new SpeechSynthesisUtterance(chunk);
+    this.currentUtterance.voice = this.selectedVoice;
+    this.currentUtterance.lang = 'es-ES';
+    this.currentUtterance.rate = 0.9;
+    this.currentUtterance.pitch = 1;
+    this.currentUtterance.volume = 0.8;
+
+    // Event listeners
+    this.currentUtterance.onstart = () => {
+      console.log(`✅ Chunk ${this.currentChunkIndex + 1} iniciado`);
+    };
+
+    this.currentUtterance.onend = () => {
+      console.log(`🏁 Chunk ${this.currentChunkIndex + 1} terminado`);
+      
+      if (!this.isPaused) {
+        this.currentChunkIndex++;
+        
+        // Pequeña pausa entre chunks para naturalidad
+        setTimeout(() => {
+          this.speakNextChunk();
+        }, this.pauseBetweenChunks);
+      }
+    };
+
+    this.currentUtterance.onerror = (event) => {
+      console.log(`⚠️ Evento error en chunk ${this.currentChunkIndex + 1}: ${event.error}`);
+      
+      // Solo avanzar al siguiente chunk si NO es una pausa intencional
+      if (event.error === 'canceled' || event.error === 'interrupted') {
+        if (this.isPaused) {
+          console.log('✅ Error por pausa intencional - NO avanzar chunk');
+          return; // No hacer nada si es pausa intencional
+        } else {
+          console.log('⚠️ Speech cancelado pero no estamos pausados - continuar');
+        }
+      }
+      
+      // Solo para errores reales (network-error, synthesis-failed, etc.)
+      console.error(`❌ Error real en chunk ${this.currentChunkIndex + 1}:`, event.error);
+      this.currentChunkIndex++;
+      setTimeout(() => {
+        this.speakNextChunk();
+      }, 200);
+    };
+
+    // Hablar el chunk
+    try {
+      this.synth.speak(this.currentUtterance);
+    } catch (error) {
+      console.error('💥 Error al hablar chunk:', error);
+      this.currentChunkIndex++;
+      setTimeout(() => {
+        this.speakNextChunk();
+      }, 200);
+    }
+  }
+
+  pause() {
+    console.log(`⏸️ Pausando en chunk ${this.currentChunkIndex + 1}/${this.chunks.length}`);
+    
+    if (this.isPlaying && !this.isPaused) {
+      this.isPaused = true;
+      
+      // Cancelar el utterance actual
+      this.synth.cancel();
+      
+      this.updatePlayButton('paused');
+      console.log('✅ Speech pausado exitosamente');
+    }
+  }
+
+  resume() {
+    console.log(`▶️ Reanudando desde chunk ${this.currentChunkIndex + 1}/${this.chunks.length}`);
+    
+    if (this.isPlaying && this.isPaused) {
+      this.isPaused = false;
+      this.updatePlayButton('playing');
+      
+      // Continuar desde el chunk actual
+      this.speakNextChunk();
+      console.log('✅ Speech reanudado exitosamente');
+    }
+  }
+
+  stop() {
+    console.log('🛑 Deteniendo speech completamente');
+    
+    try {
+      this.synth.cancel();
+    } catch (error) {
+      console.error('Error deteniendo:', error);
+    }
+    
+    this.isPlaying = false;
+    this.isPaused = false;
+    this.currentChunkIndex = 0;
+    this.chunks = [];
+    this.currentUtterance = null;
+    this.updatePlayButton('stopped');
+  }
+
+  toggle() {
+    console.log('🔄 Toggle llamado. Estado:', {
+      isPlaying: this.isPlaying,
+      isPaused: this.isPaused,
+      currentChunk: this.currentChunkIndex + 1,
+      totalChunks: this.chunks.length
+    });
+
+    if (!this.isPlaying) {
+      // Iniciar nueva síntesis
+      const descriptionText = document.querySelector('.fish-description p')?.textContent;
+      if (descriptionText && descriptionText.trim()) {
+        this.speak(descriptionText.trim());
+      } else {
+        console.error('❌ No se encontró texto de descripción');
+        alert('No se encontró texto para leer');
+      }
+    } else if (this.isPaused) {
+      // Reanudar
+      this.resume();
+    } else {
+      // Pausar
+      this.pause();
+    }
+  }
+
+  onSpeechComplete() {
+    console.log('🎉 ¡Speech completado exitosamente!');
+    this.isPlaying = false;
+    this.isPaused = false;
+    this.currentChunkIndex = 0;
+    this.updatePlayButton('stopped');
+  }
+
+  updatePlayButton(state) {
+    console.log('🎨 Actualizando botón a estado:', state);
+    
+    const playButton = document.getElementById('speechPlayButton');
+    const icon = playButton?.querySelector('i');
+    const text = playButton?.querySelector('.button-text');
+
+    if (!playButton) {
+      console.warn('⚠️ Botón de speech no encontrado');
+      return;
+    }
+
+    // Limpiar clases anteriores
+    playButton.className = 'btn btn-outline-primary btn-sm speech-btn';
+
+    switch (state) {
+      case 'playing':
+        playButton.classList.add('playing');
+        if (icon) icon.className = 'bi bi-pause-fill';
+        if (text) text.textContent = 'Pausar';
+        playButton.disabled = false;
+        break;
+
+      case 'paused':
+        playButton.classList.add('paused');
+        if (icon) icon.className = 'bi bi-play-fill';
+        if (text) text.textContent = 'Continuar';
+        playButton.disabled = false;
+        break;
+
+      case 'stopped':
+        if (icon) icon.className = 'bi bi-volume-up-fill';
+        if (text) text.textContent = 'Escuchar';
+        playButton.disabled = false;
+        break;
+
+      case 'error':
+        playButton.classList.add('error');
+        if (icon) icon.className = 'bi bi-exclamation-triangle';
+        if (text) text.textContent = 'Error';
+        playButton.disabled = true;
+        break;
+    }
+  }
+
+  // Métodos de información
+  isSupported() {
+    return 'speechSynthesis' in window;
+  }
+
+  getStatus() {
+    return {
+      isSupported: this.isSupported(),
+      isPlaying: this.isPlaying,
+      isPaused: this.isPaused,
+      totalChunks: this.chunks.length,
+      currentChunk: this.currentChunkIndex + 1,
+      progress: this.chunks.length > 0 ? ((this.currentChunkIndex / this.chunks.length) * 100).toFixed(1) + '%' : '0%',
+      voicesCount: this.voices.length,
+      selectedVoice: this.selectedVoice?.name,
+      textLength: this.fullText.length
+    };
+  }
+
+  getDetailedStatus() {
+    return {
+      // Estados internos
+      isPlaying: this.isPlaying,
+      isPaused: this.isPaused,
+      currentChunkIndex: this.currentChunkIndex,
+      totalChunks: this.chunks.length,
+      chunkSize: this.chunkSize,
+      
+      // Estados del navegador
+      synthSpeaking: this.synth.speaking,
+      synthPaused: this.synth.paused,
+      synthPending: this.synth.pending,
+      
+      // Configuración
+      voicesCount: this.voices.length,
+      selectedVoice: this.selectedVoice?.name,
+      isSupported: this.isSupported(),
+      
+      // Contenido
+      fullTextLength: this.fullText.length,
+      chunks: this.chunks.map((chunk, i) => ({
+        index: i + 1,
+        length: chunk.length,
+        preview: chunk.substring(0, 30) + '...'
+      })),
+      
+      // Elementos DOM
+      buttonExists: !!document.getElementById('speechPlayButton'),
+      textExists: !!document.querySelector('.fish-description p')?.textContent
+    };
+  }
+
+  // Método para testing
+  testWithText(text = 'Esta es una prueba de síntesis de voz por chunks. Cada fragmento se habla de manera independiente. Esto garantiza que el pausar y reanudar funcione correctamente.') {
+    console.log('🧪 Ejecutando test con chunks...');
+    this.speak(text);
+    
+    // Mostrar información después de 1 segundo
+    setTimeout(() => {
+      console.log('📊 Estado del test:', this.getStatus());
+    }, 1000);
+  }
+
+  // Método para debugging
+  debug() {
+    console.log('=== DEBUG CHUNKED SPEECH MANAGER ===');
+    console.log('Status:', this.getStatus());
+    console.log('Detailed Status:', this.getDetailedStatus());
+    return this.getDetailedStatus();
+  }
+}
+
+// =============================================
 // SISTEMA DE EVENTOS PERSONALIZADO
 // =============================================
 class EventEmitter {
@@ -109,6 +490,10 @@ class ImprovedFishLibrary extends EventEmitter {
     this.elements = {};
     this.swiper = null;
     this.retryCount = 0;
+
+    if ('speechSynthesis' in window) {
+      speechManager = new ChunkedSpeechManager();
+    }
 
     // Bind de métodos
     this.handleCardClick = this.handleCardClick.bind(this);
@@ -731,101 +1116,114 @@ class ImprovedFishLibrary extends EventEmitter {
       if (index === 2 && youtubeId) {
         // Tercer slide con video de YouTube
         return `
-        <div class="swiper-slide">
-          <div class="youtube-container" data-youtube-id="${youtubeId}">
-            <img src="https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg" 
-                 class="youtube-thumbnail" 
-                 alt="${Utils.escapeHtml(fish.commonName)} - Video"
-                 onerror="this.src='${CONFIG.fallbackImage}';">
-            <div class="pulsating-play-btn" onclick="fishLibrary.loadYouTubeVideo('${youtubeId}', this.parentElement)">
-              <i class="bi bi-play-fill"></i>
+          <div class="swiper-slide">
+            <div class="youtube-container" data-youtube-id="${youtubeId}">
+              <img src="https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg" 
+                   class="youtube-thumbnail" 
+                   alt="${Utils.escapeHtml(fish.commonName)} - Video"
+                   onerror="this.src='${CONFIG.fallbackImage}';">
+              <div class="pulsating-play-btn" onclick="fishLibrary.loadYouTubeVideo('${youtubeId}', this.parentElement)">
+                <i class="bi bi-play-fill"></i>
+              </div>
             </div>
           </div>
-        </div>
-      `;
+        `;
       } else {
         // Slides normales de imágenes
         return `
-        <div class="swiper-slide">
-          <img src="${imagePath}" 
-               alt="${Utils.escapeHtml(fish.commonName)} - Imagen ${index + 1}" 
-               onerror="this.src='${CONFIG.fallbackImage}'; this.style.objectFit='contain';">
-        </div>
-      `;
+          <div class="swiper-slide">
+            <img src="${imagePath}" 
+                 alt="${Utils.escapeHtml(fish.commonName)} - Imagen ${index + 1}" 
+                 onerror="this.src='${CONFIG.fallbackImage}'; this.style.objectFit='contain';">
+          </div>
+        `;
       }
     }).join('');
 
-    this.elements.modalBody.innerHTML = `
-    <!-- Sección de imágenes con slider -->
-    <div class="fish-image-section">
-      <div class="fish-details-slider swiper">
-        <div class="swiper-wrapper">
-          ${swiperSlides}
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+    // Verificar si Speech Synthesis está disponible
+    const speechSupported = speechManager && speechManager.isSupported();
+    const speechButtonHTML = speechSupported ? `
+      <div class="speech-controls mb-3">
+        <button id="speechPlayButton" class="btn btn-outline-primary btn-sm speech-btn" onclick="toggleSpeech()">
+          <i class="bi bi-volume-up-fill"></i>
+          <span class="button-text">Escuchar</span>
+        </button>
+        <small class="text-muted ms-2">Escucha la descripción en audio</small>
       </div>
-    </div>
-    
-    <!-- Información del pez -->
-    <div class="fish-info-section">
-      <div class="fish-info-grid">
-        <!-- Columna izquierda -->
-        <div class="fish-basic-info">
-          <div class="fish-names">
-            <h4>${Utils.escapeHtml(fish.commonName)}</h4>
-            <p>${Utils.escapeHtml(fish.scientificName)}</p>
+    ` : '';
+
+    this.elements.modalBody.innerHTML = `
+      <!-- Sección de imágenes con slider -->
+      <div class="fish-image-section">
+        <div class="fish-details-slider swiper">
+          <div class="swiper-wrapper">
+            ${swiperSlides}
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+      
+      <!-- Información del pez -->
+      <div class="fish-info-section">
+        <div class="fish-info-grid">
+          <!-- Columna izquierda -->
+          <div class="fish-basic-info">
+            <div class="fish-names">
+              <h4>${Utils.escapeHtml(fish.commonName)}</h4>
+              <p>${Utils.escapeHtml(fish.scientificName)}</p>
+            </div>
+            
+            ${fish.family ? `
+              <div class="info-item">
+                <h6><i class="bi bi-collection"></i>Familia</h6>
+                <p>${Utils.escapeHtml(fish.family)}</p>
+              </div>
+            ` : ''}
+            
+            ${fish.habitat ? `
+              <div class="info-item">
+                <h6><i class="bi bi-geo-alt"></i>Hábitat</h6>
+                <p>${Utils.escapeHtml(fish.habitat)}</p>
+              </div>
+            ` : ''}
+            
+            ${fish.distribution ? `
+              <div class="info-item">
+                <h6><i class="bi bi-globe"></i>Distribución</h6>
+                <p>${Utils.escapeHtml(fish.distribution)}</p>
+              </div>
+            ` : ''}
+            
+            ${(fish.wikipedia || fish.video) ? `
+              <div class="info-item">
+                <h6><i class="bi bi-link-45deg"></i>Enlaces externos</h6>
+                <div class="external-links">
+                  ${fish.wikipedia ? `
+                    <a href="${fish.wikipedia}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                      <i class="bi bi-wikipedia"></i> Wikipedia
+                    </a>
+                  ` : ''}
+                  ${fish.video ? `
+                    <a href="${fish.video}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                      <i class="bi bi-play-circle"></i> YouTube
+                    </a>
+                  ` : ''}
+                </div>
+              </div>
+            ` : ''}
           </div>
           
-          ${fish.family ? `
-            <div class="info-item">
-              <h6><i class="bi bi-collection"></i>Familia</h6>
-              <p>${Utils.escapeHtml(fish.family)}</p>
-            </div>
-          ` : ''}
-          
-          ${fish.habitat ? `
-            <div class="info-item">
-              <h6><i class="bi bi-geo-alt"></i>Hábitat</h6>
-              <p>${Utils.escapeHtml(fish.habitat)}</p>
-            </div>
-          ` : ''}
-          
-          ${fish.distribution ? `
-            <div class="info-item">
-              <h6><i class="bi bi-globe"></i>Distribución</h6>
-              <p>${Utils.escapeHtml(fish.distribution)}</p>
-            </div>
-          ` : ''}
-          
-          ${(fish.wikipedia || fish.video) ? `
-            <div class="info-item">
-              <h6><i class="bi bi-link-45deg"></i>Enlaces externos</h6>
-              <div class="external-links">
-                ${fish.wikipedia ? `
-                  <a href="${fish.wikipedia}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
-                    <i class="bi bi-wikipedia"></i> Wikipedia
-                  </a>
-                ` : ''}
-                ${fish.video ? `
-                  <a href="${fish.video}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
-                    <i class="bi bi-play-circle"></i> YouTube
-                  </a>
-                ` : ''}
-              </div>
-            </div>
-          ` : ''}
-        </div>
-        
-        <!-- Columna derecha -->
-        <div class="fish-description">
-          <h6><i class="bi bi-info-circle"></i>Descripción</h6>
-          <p>${Utils.escapeHtml(fish.description || 'No hay descripción disponible para esta especie.')}</p>
+          <!-- Columna derecha -->
+          <div class="fish-description">
+            <h6><i class="bi bi-info-circle"></i>Descripción</h6>
+            ${speechButtonHTML}
+            <p>${Utils.escapeHtml(fish.description || 'No hay descripción disponible para esta especie.')}</p>
+          </div>
         </div>
       </div>
-    </div>
-  `;
+    `;
   }
 
   loadYouTubeVideo(videoId, container) {
@@ -900,6 +1298,10 @@ class ImprovedFishLibrary extends EventEmitter {
     if (this.swiper) {
       this.swiper.destroy(true, true);
       this.swiper = null;
+    }
+
+    if (speechManager) {
+      speechManager.stop();
     }
   }
 
@@ -1298,19 +1700,220 @@ window.addEventListener('unhandledrejection', (e) => {
 });
 
 // =============================================
-// SERVICE WORKER (OPCIONAL)
+// FUNCIONES GLOBALES PARA SPEECH
 // =============================================
-if ('serviceWorker' in navigator && location.protocol === 'https:') {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => {
-        console.log('✅ SW registrado:', registration.scope);
-      })
-      .catch(registrationError => {
-        console.log('❌ SW falló:', registrationError);
-      });
-  });
+
+// Función global para controlar speech (llamada desde HTML)
+function toggleSpeech() {
+  console.log('🎤 toggleSpeech() llamado');
+  
+  if (!speechManager) {
+    console.error('❌ speechManager no disponible');
+    alert('Speech Synthesis no está disponible en este navegador');
+    return;
+  }
+
+  if (!speechManager.isSupported()) {
+    console.error('❌ Speech Synthesis no soportado');
+    alert('Tu navegador no soporta síntesis de voz');
+    return;
+  }
+
+  console.log('🔍 Estado actual:', speechManager.getStatus());
+  
+  try {
+    speechManager.toggle();
+  } catch (error) {
+    console.error('❌ Error en toggle:', error);
+    alert('Error al reproducir audio: ' + error.message);
+  }
 }
+
+// Función para detener speech
+function stopSpeech() {
+  console.log('🛑 stopSpeech() llamado');
+  if (speechManager) {
+    speechManager.stop();
+  }
+} 
+
+window.resetSpeech = function() {
+  if (speechManager) {
+    speechManager.forceStop();
+    console.log('🔄 Speech reseteado completamente');
+  }
+};
+
+// =============================================
+// INICIALIZACIÓN DEL SPEECH MANAGER
+// =============================================
+// Variable global para el speech manager
+let speechManager;
+let speechManagerInitialized = false;
+
+// Función de inicialización principal
+function initializeSpeechManager() {
+  if (speechManagerInitialized) {
+    console.log('🎤 Speech Manager ya inicializado');
+    return;
+  }
+
+  if ('speechSynthesis' in window) {
+    try {
+      // Crear nueva instancia del Chunked Speech Manager
+      speechManager = new ChunkedSpeechManager();
+      console.log('🎤 Chunked Speech Manager creado exitosamente');
+      
+      // Exponer globalmente para debugging
+      window.speechManager = speechManager;
+      window.toggleSpeech = toggleSpeech;
+      window.stopSpeech = stopSpeech;
+      
+      speechManagerInitialized = true;
+      
+      // Test básico
+      console.log('✅ Speech Manager inicializado:', speechManager.getStatus());
+      
+    } catch (error) {
+      console.error('❌ Error inicializando Speech Manager:', error);
+    }
+  } else {
+    console.warn('⚠️ Speech Synthesis API no disponible en este navegador');
+  }
+}
+
+// Función global para controlar speech (llamada desde HTML)
+function toggleSpeech() {
+  console.log('🎤 toggleSpeech() llamado');
+  
+  if (!speechManager) {
+    console.error('❌ speechManager no disponible');
+    alert('Speech Synthesis no está disponible en este navegador');
+    return;
+  }
+
+  if (!speechManager.isSupported()) {
+    console.error('❌ Speech Synthesis no soportado');
+    alert('Tu navegador no soporta síntesis de voz');
+    return;
+  }
+
+  console.log('🔍 Estado actual:', speechManager.getStatus());
+  
+  try {
+    speechManager.toggle();
+  } catch (error) {
+    console.error('❌ Error en toggle:', error);
+    alert('Error al reproducir audio: ' + error.message);
+  }
+}
+
+// Función para detener speech
+function stopSpeech() {
+  console.log('🛑 stopSpeech() llamado');
+  if (speechManager) {
+    speechManager.stop();
+  }
+}
+
+// Función de reset para casos problemáticos
+function resetSpeech() {
+  if (speechManager) {
+    speechManager.stop();
+    console.log('🔄 Speech reseteado completamente');
+  }
+}
+
+// Exponer función de reset globalmente
+window.resetSpeech = resetSpeech;
+
+// Inicializar cuando el DOM esté listo
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeSpeechManager);
+} else {
+  initializeSpeechManager();
+}
+
+// Event listeners para limpiar el speech cuando sea necesario
+document.addEventListener('click', (e) => {
+  if (e.target.matches('[data-bs-dismiss="modal"]') || 
+      e.target.closest('[data-bs-dismiss="modal"]')) {
+    console.log('🚪 Modal cerrado, deteniendo speech');
+    if (speechManager) {
+      speechManager.stop();
+    }
+  }
+});
+
+// Detener speech al presionar Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && speechManager) {
+    console.log('⚠️ Escape presionado, deteniendo speech');
+    speechManager.stop();
+  }
+});
+
+// =============================================
+// FUNCIONES DE DEBUGGING
+// =============================================
+
+// Función para debuggear el estado completo
+window.debugSpeech = function() {
+  console.log('=== DEBUG SPEECH SYNTHESIS ===');
+  console.log('Speech supported:', 'speechSynthesis' in window);
+  console.log('Speech manager exists:', !!speechManager);
+  console.log('Speech manager initialized:', speechManagerInitialized);
+  
+  if (speechManager) {
+    console.log('Speech status:', speechManager.getStatus());
+    console.log('Available voices:', speechSynthesis.getVoices().length);
+    console.log('Detailed status:', speechManager.getDetailedStatus());
+  }
+  
+  const button = document.getElementById('speechPlayButton');
+  console.log('Button found:', !!button);
+  console.log('Button classes:', button?.className);
+  
+  const descriptionText = document.querySelector('.fish-description p')?.textContent;
+  console.log('Description text found:', !!descriptionText);
+  console.log('Description length:', descriptionText?.length);
+  
+  return {
+    supported: 'speechSynthesis' in window,
+    managerExists: !!speechManager,
+    initialized: speechManagerInitialized,
+    buttonExists: !!button,
+    textExists: !!descriptionText,
+    status: speechManager ? speechManager.getStatus() : null
+  };
+};
+
+// Test manual de speech
+window.testSpeech = function(text = 'Esto es una prueba del nuevo sistema de síntesis de voz por chunks. Debería pausar y reanudar correctamente.') {
+  console.log('🧪 Probando chunked speech synthesis...');
+  
+  if (!speechManager) {
+    console.error('❌ No speech manager');
+    return;
+  }
+  
+  try {
+    speechManager.testWithText(text);
+    console.log('✅ Test iniciado');
+  } catch (error) {
+    console.error('❌ Error en test:', error);
+  }
+};
+
+// Información del progreso del speech
+window.getSpeechProgress = function() {
+  if (speechManager) {
+    const status = speechManager.getStatus();
+    console.log(`📊 Progreso: ${status.progress} (${status.currentChunk}/${status.totalChunks} chunks)`);
+    return status;
+  }
+  return null;
+};
 
 // =============================================
 // UTILIDADES ADICIONALES
