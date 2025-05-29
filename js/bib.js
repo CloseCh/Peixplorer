@@ -1622,6 +1622,207 @@ class ImprovedFishLibrary extends EventEmitter {
   }
 }
 
+class AvesLibrary extends ImprovedFishLibrary {
+  async fetchFishDataFromAPI() {
+    try {
+      const response = await fetch('https://avesmallorquinas.com/assets/json/Ave.json'); // o URL si está en remoto
+      if (!response.ok) throw new Error('Error al cargar Ave.json');
+      const data = await response.json();
+      const aves = this.extractFishFromData(data);
+
+      this.cache.set('birdData', aves);
+      return aves;
+    } catch (e) {
+      console.warn('⚠️ Error cargando aves:', e.message);
+      return [];
+    }
+  }
+
+  extractFishFromData(data) {
+  if (!data.species || !Array.isArray(data.species)) return [];
+
+  return data.species.map((bird, index) => {
+    const habitat = bird.hasDefinedTerm?.find(t => t.termCode === 'habitat')?.description || '';
+    const estaciones = bird.hasDefinedTerm?.find(t => t.termCode === 'season')?.description || '';
+    const distribucion = bird.additionalProperty?.find(p => p.name === 'Zona de distribución')?.description || '';
+
+    const video = bird.subjectOf?.find(m => m.contentUrl.includes('youtube.com'))?.contentUrl || '';
+    const audio = bird.subjectOf?.find(m => m.encodingFormat === 'audio/wav')?.contentUrl || '';
+    const imagePaths = [
+      bird.image[0],
+      bird.image[1],
+      bird.image[2],
+    ];
+    console.log(imagePaths);
+
+    return {
+      id: bird.identifier || `bird_${index}`,
+      commonName: bird.name || 'Sin nombre',
+      scientificName: bird.alternateName || '',
+      description: bird.description || '',
+      disambiguation: bird.disambiguatingDescription || '',
+      habitat,
+      distribution: distribucion,
+      video,
+      audio,
+      imagePaths, // ✅ Path directo
+      family: bird.parentTaxon?.name || 'Sin clasificar'
+    };
+  });
+  }
+
+  createFishCard(fish) {
+    const imagePath = fish.imagePaths[0];
+    const cardId = `fish-card-${fish.id}`;
+
+    return `
+    <article class="card h-100 fish-card" 
+             data-fish-id="${fish.id}" 
+             id="${cardId}"
+             role="button" 
+             tabindex="0"
+             aria-label="Ver información de ${Utils.escapeHtml(fish.commonName)}">
+      <img class="card-img-top" 
+           src="${imagePath}" 
+           alt="${Utils.escapeHtml(fish.commonName)} (${Utils.escapeHtml(fish.scientificName)})"
+           loading="lazy"
+           onerror="this.src='${CONFIG.fallbackImage}'; this.style.objectFit='contain';" />
+      <div class="card-body p-4">
+        <div class="text-center">
+          <h5 class="fw-bolder">${Utils.escapeHtml(fish.commonName)}</h5>
+          <p class="text-muted fst-italic">${Utils.escapeHtml(fish.scientificName)}</p>
+          ${fish.family ? `<small class="text-primary">Familia: ${Utils.escapeHtml(fish.family)}</small>` : ''}
+        </div>
+      </div>
+    </article>
+  `;
+  }
+
+  renderModalContent(fish) {
+      if (!this.elements.modalTitle || !this.elements.modalBody) return;
+  
+      this.elements.modalTitle.textContent = fish.commonName;
+  
+      // Extraer ID de YouTube si existe
+      const youtubeId = Utils.extractYouTubeId(fish.video);
+  
+      // Crear slides para el swiper
+      const swiperSlides = fish.imagePaths.map((imagePath, index) => {
+        if (index === 2 && youtubeId) {
+          // Tercer slide con video de YouTube
+          return `
+            <div class="swiper-slide">
+              <div class="youtube-container" data-youtube-id="${youtubeId}">
+                <img src="https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg" 
+                     class="youtube-thumbnail" 
+                     alt="${Utils.escapeHtml(fish.commonName)} - Video"
+                     onerror="this.src='${CONFIG.fallbackImage}';">
+                <div class="pulsating-play-btn" onclick="fishLibrary.loadYouTubeVideo('${youtubeId}', this.parentElement)">
+                  <i class="bi bi-play-fill"></i>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          // Slides normales de imágenes
+          return `
+            <div class="swiper-slide">
+              <img src="${imagePath}" 
+                   alt="${Utils.escapeHtml(fish.commonName)} - Imagen ${index + 1}" 
+                   onerror="this.src='${CONFIG.fallbackImage}'; this.style.objectFit='contain';">
+            </div>
+          `;
+        }
+      }).join('');
+  
+      // Verificar si Speech Synthesis está disponible
+      const speechSupported = speechManager && speechManager.isSupported();
+      const speechButtonHTML = speechSupported ? `
+        <div class="speech-controls mb-3">
+          <button id="speechPlayButton" class="btn btn-outline-primary btn-sm speech-btn" onclick="toggleSpeech()">
+            <i class="bi bi-volume-up-fill"></i>
+            <span class="button-text">Escuchar</span>
+          </button>
+          <small class="text-muted ms-2">Escucha la descripción en audio</small>
+        </div>
+      ` : '';
+  
+      this.elements.modalBody.innerHTML = `
+        <!-- Sección de imágenes con slider -->
+        <div class="fish-image-section">
+          <div class="fish-details-slider swiper">
+            <div class="swiper-wrapper">
+              ${swiperSlides}
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+        
+        <!-- Información del pez -->
+        <div class="fish-info-section">
+          <div class="fish-info-grid">
+            <!-- Columna izquierda -->
+            <div class="fish-basic-info">
+              <div class="fish-names">
+                <h4>${Utils.escapeHtml(fish.commonName)}</h4>
+                <p>${Utils.escapeHtml(fish.scientificName)}</p>
+              </div>
+              
+              ${fish.family ? `
+                <div class="info-item">
+                  <h6><i class="bi bi-collection"></i>Familia</h6>
+                  <p>${Utils.escapeHtml(fish.family)}</p>
+                </div>
+              ` : ''}
+              
+              ${fish.habitat ? `
+                <div class="info-item">
+                  <h6><i class="bi bi-geo-alt"></i>Hábitat</h6>
+                  <p>${Utils.escapeHtml(fish.habitat)}</p>
+                </div>
+              ` : ''}
+              
+              ${fish.distribution ? `
+                <div class="info-item">
+                  <h6><i class="bi bi-globe"></i>Distribución</h6>
+                  <p>${Utils.escapeHtml(fish.distribution)}</p>
+                </div>
+              ` : ''}
+              
+              ${(fish.wikipedia || fish.video) ? `
+                <div class="info-item">
+                  <h6><i class="bi bi-link-45deg"></i>Enlaces externos</h6>
+                  <div class="external-links">
+                    ${fish.wikipedia ? `
+                      <a href="${fish.wikipedia}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-wikipedia"></i> Wikipedia
+                      </a>
+                    ` : ''}
+                    ${fish.video ? `
+                      <a href="${fish.video}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-play-circle"></i> YouTube
+                      </a>
+                    ` : ''}
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+            
+            <!-- Columna derecha -->
+            <div class="fish-description">
+              <h6><i class="bi bi-info-circle"></i>Descripción</h6>
+              ${speechButtonHTML}
+              <p>${Utils.escapeHtml(fish.description || 'No hay descripción disponible para esta especie.')}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+}
+
+
 // =============================================
 // INICIALIZACIÓN GLOBAL
 // =============================================
@@ -1630,7 +1831,17 @@ let fishLibrary;
 // Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
   try {
-    fishLibrary = new ImprovedFishLibrary();
+    let tipoBiblio = document.getElementsByTagName('title')[0].text;
+
+    //Cargamos o aves o peces dependiendo del html que estemos
+    if(tipoBiblio == "Biblioteca de Peces - Peixplorer"){
+      console.log("Cargando la biblioteca de peces")
+      fishLibrary = new ImprovedFishLibrary();
+    }
+    else if(tipoBiblio == "Biblioteca de Aves - Peixplorer"){
+      console.log("Cargando la biblioteca de aves")
+      fishLibrary = new AvesLibrary();
+    }
 
     // Exponer globalmente para debugging
     window.fishLibrary = fishLibrary;
