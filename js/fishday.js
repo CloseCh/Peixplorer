@@ -3,7 +3,7 @@
  */
 document.addEventListener('DOMContentLoaded', function () {
     // Debug mode - cambiar a false en producción
-    const DEBUG = false;
+    const DEBUG = true;
 
     function logDebug(message, data) {
         if (DEBUG) {
@@ -144,7 +144,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const randomIndex = Math.floor(random() * allFishes.length);
 
             // Get the random fish
-            const fishOfTheDay = allFishes[randomIndex];
+            console.log(getDateSeed()%allFishes.length)
+            const fishOfTheDay = allFishes[getDateSeed()%allFishes.length];
 
             if (!fishOfTheDay) {
                 throw new Error('No se pudo seleccionar el pez');
