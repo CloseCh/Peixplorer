@@ -3,7 +3,7 @@
  */
 document.addEventListener('DOMContentLoaded', function () {
     // Debug mode - cambiar a false en producción
-    const DEBUG = true;
+    const DEBUG = false;
 
     function logDebug(message, data) {
         if (DEBUG) {
@@ -35,8 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (node.hasDefinedTerm) {
             const hasValidChildren = node.childTaxon && 
                                    Array.isArray(node.childTaxon) && 
-                                   node.childTaxon.length > 0 &&
-                                   node.childTaxon.some(child => child.hasDefinedTerm);
+                                   node.childTaxon.length > 0;
             
             if (!hasValidChildren) {
                 // Es una hoja, añadirla sin información extra innecesaria
