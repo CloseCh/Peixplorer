@@ -1266,7 +1266,7 @@ class ImprovedFishLibrary extends EventEmitter {
         speed: 600,
         autoplay: {
           delay: 5000,
-          disableOnInteraction: false
+          disableOnInteraction: true
         },
         slidesPerView: 1,
         centeredSlides: true,
